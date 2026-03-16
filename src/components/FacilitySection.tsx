@@ -1,4 +1,8 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { Eye } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import VirtualTourModal from "@/components/VirtualTourModal";
 import facilityImg from "@/assets/facility-interior.jpg";
 import recoveryImg from "@/assets/recovery-room.jpg";
 
