@@ -25,7 +25,7 @@ const HeroSection = () => {
           className="w-full h-full object-cover"
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-background/85 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-background/60" />
       </div>
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
