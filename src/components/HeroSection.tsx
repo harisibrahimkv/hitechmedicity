@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import drFebina from "@/assets/dr-febina.jpg";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const WHATSAPP_LINK = "https://wa.me/919876543210?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Hitech%20Medicity.";
 
@@ -15,8 +16,19 @@ const fadeInUp = {
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-16">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+      {/* Background image with overlay */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={heroBg}
+          alt=""
+          className="w-full h-full object-cover"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-background/85 backdrop-blur-sm" />
+      </div>
+
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="order-2 lg:order-1">
             <motion.p {...fadeInUp} className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-6">
