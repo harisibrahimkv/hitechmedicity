@@ -9,6 +9,8 @@ import recoveryImg from "@/assets/recovery-room.jpg";
 const ease = [0.4, 0, 0.2, 1] as const;
 
 const FacilitySection = () => {
+  const [tourOpen, setTourOpen] = useState(false);
+
   return (
     <section id="facility" className="py-32 lg:py-40">
       <div className="container mx-auto px-6 lg:px-8">
