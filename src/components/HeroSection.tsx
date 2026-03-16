@@ -29,8 +29,8 @@ const HeroSection = () => {
               transition={{ duration: 0.6, ease, delay: 0.1 }}
               className="text-display text-5xl md:text-6xl lg:text-7xl tracking-tight text-foreground leading-[1.1] mb-6"
             >
-              World-class medicine.{" "}
-              <em className="text-display italic">The soul of Calicut.</em>
+              Care is ours.{" "}
+              <em className="text-display italic">Cure is divine.</em>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 12 }}
