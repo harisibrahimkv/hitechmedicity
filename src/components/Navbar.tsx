@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const WHATSAPP_LINK = "https://wa.me/919876543210?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Hitech%20Medicity.";
 
@@ -11,8 +12,9 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/70 border-b border-foreground/5">
       <nav className="container mx-auto flex items-center justify-between h-16 px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="text-display text-2xl tracking-tight text-foreground">
+        <Link to="/" className="flex items-center gap-3">
+          <img src={logo} alt="Hitech Medicity" className="h-10 w-auto" />
+          <span className="text-display text-xl tracking-tight text-foreground hidden sm:inline">
             Hitech Medicity
           </span>
         </Link>

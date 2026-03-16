@@ -48,6 +48,39 @@ const CalicutSection = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Google Maps Embed */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease }}
+          className="mt-20"
+        >
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-6 text-center">
+            Find Us
+          </p>
+          <div className="rounded-3xl overflow-hidden shadow-soft aspect-[21/9]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.174!2d75.7804!3d11.2588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65938563d4f6b%3A0x32150641ca32ecab!2sHitech%20Medicity!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+              title="Hitech Medicity Location"
+              className="w-full h-full border-0"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <p className="text-sm text-muted-foreground mt-4 text-center">
+            <a
+              href="https://maps.app.goo.gl/uggRR6MxydQdSot97"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition-colors underline underline-offset-4"
+            >
+              Open in Google Maps →
+            </a>
+          </p>
+        </motion.div>
       </div>
     </section>
   );

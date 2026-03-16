@@ -1,16 +1,10 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Eye } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import VirtualTourModal from "@/components/VirtualTourModal";
 import facilityImg from "@/assets/facility-interior.jpg";
 import recoveryImg from "@/assets/recovery-room.jpg";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
 const FacilitySection = () => {
-  const [tourOpen, setTourOpen] = useState(false);
-
   return (
     <section id="facility" className="py-32 lg:py-40">
       <div className="container mx-auto px-6 lg:px-8">
@@ -72,22 +66,30 @@ const FacilitySection = () => {
           ))}
         </div>
 
-        {/* Virtual Tour CTA */}
+        {/* Inline Virtual Tour */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease }}
-          className="mt-12 text-center"
+          className="mt-16"
         >
-          <Button variant="hero" size="lg" onClick={() => setTourOpen(true)} className="gap-3">
-            <Eye className="w-5 h-5" />
-            Take a Virtual Tour
-          </Button>
-          <p className="text-sm text-muted-foreground mt-3">Explore our facility in 360°</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-6 text-center">
+            360° Virtual Tour
+          </p>
+          <div className="rounded-3xl overflow-hidden shadow-soft aspect-video">
+            <iframe
+              src="https://cybozom.com/360/hitechmedicity/"
+              title="Hitech Medicity 360° Virtual Tour"
+              className="w-full h-full border-0"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+          <p className="text-sm text-muted-foreground mt-4 text-center">
+            Explore every corner of our facility — drag to look around
+          </p>
         </motion.div>
-
-        <VirtualTourModal open={tourOpen} onOpenChange={setTourOpen} />
       </div>
     </section>
   );
