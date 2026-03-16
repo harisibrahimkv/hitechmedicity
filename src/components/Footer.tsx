@@ -6,7 +6,8 @@ const Footer = () => {
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-12">
           <div>
-            <p className="text-display text-2xl text-foreground mb-3">Hitech Medicity</p>
+            <p className="text-display text-2xl text-foreground mb-1">Hitech Medicity</p>
+            <p className="text-display italic text-sm text-foreground/60 mb-3">Care is ours, Cure is divine</p>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
               Science-led healing in the heart of Calicut, Kerala. Led by Dr. Febina Sulthana.
             </p>
