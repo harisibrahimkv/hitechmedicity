@@ -71,6 +71,23 @@ const FacilitySection = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Virtual Tour CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease }}
+          className="mt-12 text-center"
+        >
+          <Button variant="hero" size="lg" onClick={() => setTourOpen(true)} className="gap-3">
+            <Eye className="w-5 h-5" />
+            Take a Virtual Tour
+          </Button>
+          <p className="text-sm text-muted-foreground mt-3">Explore our facility in 360°</p>
+        </motion.div>
+
+        <VirtualTourModal open={tourOpen} onOpenChange={setTourOpen} />
       </div>
     </section>
   );
