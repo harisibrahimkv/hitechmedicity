@@ -49,18 +49,15 @@ const CalicutSection = () => {
           </motion.div>
         </div>
 
-        {/* Google Maps Embed */}
+        {/* Google Maps Embed - compact */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease }}
-          className="mt-20"
+          className="mt-16 flex flex-col md:flex-row items-center gap-8 md:gap-12"
         >
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-6 text-center">
-            Find Us
-          </p>
-          <div className="rounded-3xl overflow-hidden shadow-soft aspect-[21/9]">
+          <div className="rounded-2xl overflow-hidden shadow-soft w-full md:w-1/2 aspect-[16/10]">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.174!2d75.7804!3d11.2588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65938563d4f6b%3A0x32150641ca32ecab!2sHitech%20Medicity!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
               title="Hitech Medicity Location"
@@ -70,16 +67,21 @@ const CalicutSection = () => {
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
-          <p className="text-sm text-muted-foreground mt-4 text-center">
+          <div className="text-center md:text-left">
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-2">Find Us</p>
+            <p className="text-display text-2xl text-foreground mb-2">Visit Hitech Medicity</p>
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-sm mb-4">
+              Located in the heart of Calicut, just minutes from the beach and easily accessible from the airport and railway station.
+            </p>
             <a
               href="https://maps.app.goo.gl/uggRR6MxydQdSot97"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-foreground transition-colors underline underline-offset-4"
+              className="text-sm text-foreground hover:text-primary transition-colors underline underline-offset-4 font-medium"
             >
-              Open in Google Maps →
+              Get Directions →
             </a>
-          </p>
+          </div>
         </motion.div>
       </div>
     </section>
