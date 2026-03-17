@@ -12,11 +12,16 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/70 border-b border-foreground/5">
       <nav className="container mx-auto flex items-center justify-between h-16 px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="Hitech Medicity" className="h-9 w-9 object-contain" />
-          <span className="text-display text-xl tracking-tight text-foreground">
-            Hitech Medicity
-          </span>
+        <Link to="/" className="flex items-center gap-2.5">
+          <img src={logo} alt="Hitech Medicity" className="h-10 w-10 object-contain" />
+          <div className="flex flex-col">
+            <span className="text-display text-xl tracking-tight text-foreground leading-tight">
+              Hitech Medicity
+            </span>
+            <span className="text-[10px] tracking-[0.08em] text-muted-foreground italic leading-tight">
+              Care is ours, Cure is divine
+            </span>
+          </div>
         </Link>
 
         {/* Desktop nav */}
