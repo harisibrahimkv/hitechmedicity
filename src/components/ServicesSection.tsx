@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Images } from "lucide-react";
 import GalleryModal from "@/components/GalleryModal";
+import AutoScrollCarousel from "@/components/AutoScrollCarousel";
 
 // Physiotherapy & Gait Lab
 import physioRoom from "@/assets/physio-room.jpg";
