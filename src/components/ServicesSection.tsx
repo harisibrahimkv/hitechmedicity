@@ -26,15 +26,17 @@ import spaMassage from "@/assets/spa-massage.jpg";
 // Dental
 import dentalImg from "@/assets/discipline-dental.jpg";
 
-// Aesthetic & Salon
+// Aesthetic
 import aestheticImg from "@/assets/discipline-aesthetic.jpg";
-import salonStudio from "@/assets/salon-studio.jpg";
 
 // Pharmacy
 import pharmacyImg from "@/assets/discipline-pharmacy.jpg";
 
-// Consultation
+// Consultation (reused for Alzheimer's Clinic)
 import consultationImg from "@/assets/discipline-consultation.jpg";
+
+// Chiropractic
+import chiropracticImg from "@/assets/specialty-chiropractic.jpg";
 
 // Rooftop Rehab & Play Therapy
 import rooftopPlayWide from "@/assets/rooftop-play-wide.jpg";
@@ -47,14 +49,16 @@ import rooftopTreadmills from "@/assets/rooftop-treadmills.jpg";
 import rooftopGym from "@/assets/rooftop-gym.jpg";
 
 // Specialty images
-import yogaNaturopathy from "@/assets/specialty-yoga-naturopathy.jpg";
+import yogaImg from "@/assets/specialty-yoga.jpg";
+import naturopathyImg from "@/assets/specialty-naturopathy.jpg";
 import hijamaImg from "@/assets/specialty-hijama.jpg";
 import ozoneImg from "@/assets/specialty-ozone.jpg";
 import osteopathyImg from "@/assets/specialty-osteopathy.jpg";
 import acupunctureImg from "@/assets/specialty-acupuncture.jpg";
 import postTraumaImg from "@/assets/specialty-post-trauma.jpg";
 import geriatricImg from "@/assets/specialty-geriatric.jpg";
-import neuroClinicImg from "@/assets/specialty-neuro-clinic.jpg";
+import msClinicImg from "@/assets/specialty-ms-clinic.jpg";
+import parkinsonsImg from "@/assets/specialty-parkinsons.jpg";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
@@ -91,34 +95,46 @@ const disciplines: Discipline[] = [
     alt: "Dental treatment room",
   },
   {
-    name: "Aesthetic & Hair Studio",
-    description: "Dedicated beauty, grooming, and cosmetic care space.",
-    images: [aestheticImg, salonStudio],
-    alt: "Aesthetic and hair treatment studio",
-  },
-  {
     name: "In-house Pharmacy",
     description: "Integrated medicine and wellness products under one roof.",
     images: [pharmacyImg],
     alt: "In-house pharmacy",
   },
-  {
-    name: "Doctor Consultation",
-    description: "Patient-centred consultations with family-focused care.",
-    images: [consultationImg],
-    alt: "Doctor consultation with patient",
-  },
 ];
 
-const additionalDisciplines: Discipline[] = [
+const otherServices: Discipline[] = [
   {
-    name: "Yoga & Naturopathy",
-    description: "Guided therapeutic yoga and nature-based healing for holistic recovery.",
-    images: [yogaNaturopathy],
-    alt: "Yoga and naturopathy session",
+    name: "Ayurveda",
+    description: "Traditional Ayurvedic therapies and Panchakarma for holistic recovery and wellness.",
+    images: [ayurvedaRoom1],
+    alt: "Ayurveda treatment room",
   },
   {
-    name: "Hijama Therapy",
+    name: "Yoga",
+    description: "Guided therapeutic yoga for flexibility, strength, and holistic healing.",
+    images: [yogaImg],
+    alt: "Therapeutic yoga session",
+  },
+  {
+    name: "Naturopathy",
+    description: "Nature-based healing using herbal remedies, nutrition, and lifestyle therapies.",
+    images: [naturopathyImg],
+    alt: "Naturopathy treatment clinic",
+  },
+  {
+    name: "Physiotherapy",
+    description: "Comprehensive rehabilitation with advanced equipment and personalised treatment plans.",
+    images: [physioRoom],
+    alt: "Physiotherapy treatment session",
+  },
+  {
+    name: "Aesthetic & Hair Clinic",
+    description: "Dedicated beauty, grooming, and cosmetic care space.",
+    images: [aestheticImg],
+    alt: "Aesthetic and hair treatment studio",
+  },
+  {
+    name: "Hijama",
     description: "Traditional cupping therapy for pain relief, detoxification, and improved circulation.",
     images: [hijamaImg],
     alt: "Hijama cupping therapy",
@@ -134,6 +150,12 @@ const additionalDisciplines: Discipline[] = [
     description: "Manual therapy targeting musculoskeletal conditions through hands-on techniques.",
     images: [osteopathyImg],
     alt: "Osteopathy treatment session",
+  },
+  {
+    name: "Chiropractic Adjustment",
+    description: "Spinal and joint adjustments to relieve pain, improve mobility, and restore alignment.",
+    images: [chiropracticImg],
+    alt: "Chiropractic adjustment session",
   },
   {
     name: "Acupuncture",
@@ -154,10 +176,22 @@ const additionalDisciplines: Discipline[] = [
     alt: "Geriatric care with nurse and patient",
   },
   {
-    name: "Neuro Clinics",
-    description: "Dedicated clinics for Multiple Sclerosis, Alzheimer's, and Parkinson's disease management.",
-    images: [neuroClinicImg],
-    alt: "Neurological consultation clinic",
+    name: "Multiple Sclerosis",
+    description: "Dedicated clinic for MS management, rehabilitation, and ongoing neurological support.",
+    images: [msClinicImg],
+    alt: "Multiple sclerosis rehabilitation clinic",
+  },
+  {
+    name: "Alzheimer's Clinic",
+    description: "Specialised care and cognitive support for Alzheimer's patients and their families.",
+    images: [consultationImg],
+    alt: "Alzheimer's clinic consultation",
+  },
+  {
+    name: "Parkinson's Clinic",
+    description: "Targeted treatment and rehabilitation for Parkinson's disease management.",
+    images: [parkinsonsImg],
+    alt: "Parkinson's disease clinic",
   },
 ];
 
@@ -270,7 +304,7 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* Additional Specialties — now with images */}
+        {/* Other Services */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -278,9 +312,12 @@ const ServicesSection = () => {
           transition={{ duration: 0.45, ease }}
           className="mt-20"
         >
-          <p className="text-xs uppercase tracking-[0.2em] font-medium mb-8 opacity-60">Also Available</p>
+          <p className="text-xs uppercase tracking-[0.2em] font-medium mb-4 opacity-60">Other Services</p>
+          <h2 className="text-display text-3xl md:text-4xl tracking-tight leading-[1.1] mb-10">
+            Specialised care, <em className="text-display italic">across every need</em>
+          </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {additionalDisciplines.map((item, i) => (
+            {otherServices.map((item, i) => (
               <SpecialtyCard key={item.name} item={item} index={i} />
             ))}
           </div>
