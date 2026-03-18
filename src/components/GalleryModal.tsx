@@ -59,8 +59,8 @@ const GalleryModal = ({ open, onOpenChange, images, title, alt }: GalleryModalPr
           <p className="text-white/50 text-xs mt-0.5">{activeIdx + 1} of {images.length}</p>
         </div>
 
-        {/* Main image */}
-        <div className="relative w-full h-full flex items-center justify-center">
+        {/* Main image area */}
+        <div className="relative w-full h-full flex items-center justify-center px-16 py-16">
           <AnimatePresence mode="wait">
             <motion.img
               key={activeIdx}
@@ -70,30 +70,30 @@ const GalleryModal = ({ open, onOpenChange, images, title, alt }: GalleryModalPr
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.25 }}
-              className="max-w-full max-h-full object-contain"
+              className="max-w-full max-h-full object-contain select-none"
             />
           </AnimatePresence>
-
-          {/* Prev/Next */}
-          {images.length > 1 && (
-            <>
-              <button
-                onClick={goPrev}
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm text-white flex items-center justify-center hover:bg-white/20 transition-colors"
-                aria-label="Previous image"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={goNext}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm text-white flex items-center justify-center hover:bg-white/20 transition-colors"
-                aria-label="Next image"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </>
-          )}
         </div>
+
+        {/* Prev/Next — fixed to viewport center of the dialog */}
+        {images.length > 1 && (
+          <>
+            <button
+              onClick={goPrev}
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={goNext}
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </>
+        )}
 
         {/* Thumbnail strip */}
         {images.length > 1 && (
