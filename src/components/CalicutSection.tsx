@@ -59,7 +59,7 @@ const CalicutSection = () => {
         >
           <div className="rounded-2xl overflow-hidden shadow-soft w-full md:w-1/2 aspect-[16/10]">
             <iframe
-              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=place_id:ChIJSbd4eHhZpjsRr97kn_mLF1w&zoom=15"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d979.0!2d75.7893!3d11.2588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6590347a84d21%3A0x2d0e44c4e7e7a8c0!2sHitech%20Medicity%20-%20Physiotherapy%20%26%20Rehabilitation%20Centre!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
               title="Hitech Medicity Location"
               className="w-full h-full border-0"
               allowFullScreen
