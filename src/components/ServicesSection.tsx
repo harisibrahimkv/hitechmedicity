@@ -117,12 +117,6 @@ const disciplines: Discipline[] = [
     alt: "Reception lounge area",
   },
   {
-    name: "Recovery Rooms",
-    description: "Dedicated post-treatment recovery spaces for rest and observation.",
-    images: [recoveryRoom],
-    alt: "Recovery room at Hitech Medicity",
-  },
-  {
     name: "Healthy Café",
     description: "On-site café for fresh, recovery-friendly nourishment.",
     images: [cafeImg],
