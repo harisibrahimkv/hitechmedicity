@@ -33,8 +33,11 @@ import salonStudio from "@/assets/salon-studio.jpg";
 // Pharmacy
 import pharmacyImg from "@/assets/discipline-pharmacy.jpg";
 
-// Consultation
+// Consultation (reused for Alzheimer's Clinic)
 import consultationImg from "@/assets/discipline-consultation.jpg";
+
+// Chiropractic
+import chiropracticImg from "@/assets/specialty-chiropractic.jpg";
 
 // Rooftop Rehab & Play Therapy
 import rooftopPlayWide from "@/assets/rooftop-play-wide.jpg";
