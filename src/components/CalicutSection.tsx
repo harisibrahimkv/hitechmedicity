@@ -74,7 +74,7 @@ const CalicutSection = () => {
               Located in the heart of Calicut, just minutes from the beach and easily accessible from the airport and railway station.
             </p>
             <a
-              href="https://maps.app.goo.gl/uggRR6MxydQdSot97"
+              href="https://maps.app.goo.gl/2836LqwG81s7X4yk6"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-foreground hover:text-primary transition-colors underline underline-offset-4 font-medium"
