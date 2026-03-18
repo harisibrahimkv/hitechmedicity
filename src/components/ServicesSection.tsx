@@ -130,7 +130,7 @@ const services: Discipline[] = [
   {
     name: "Acupuncture",
     description: "Precise needle therapy for pain management, stress relief, and neurological conditions.",
-    images: [acupunctureImg],
+    images: [consultationImg, disciplinePhysioImg],
     alt: "Acupuncture treatment",
   },
   {
