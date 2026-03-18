@@ -27,8 +27,7 @@ import spaMassage from "@/assets/spa-massage.jpg";
 import dentalImg from "@/assets/discipline-dental.jpg";
 
 // Aesthetic & Salon
-import aestheticImg from "@/assets/discipline-aesthetic.jpg";
-import salonBeauty from "@/assets/salon-beauty.jpg";
+import salonStudio from "@/assets/salon-studio.jpg";
 
 // Pharmacy
 import pharmacyImg from "@/assets/discipline-pharmacy.jpg";
@@ -37,14 +36,14 @@ import pharmacyImg from "@/assets/discipline-pharmacy.jpg";
 import consultationImg from "@/assets/discipline-consultation.jpg";
 
 // Reception
-import receptionImg from "@/assets/discipline-reception.jpg";
 import receptionWaiting from "@/assets/reception-waiting.jpg";
 
 // Team
 import teamImg from "@/assets/discipline-team.jpg";
+import teamImg2 from "@/assets/medical-staff-team-2.jpg";
 
 // Café
-import cafeImg from "@/assets/discipline-cafe.jpg";
+import cafe2 from "@/assets/cafe-2.jpg";
 
 // Rooftop Rehab & Play Therapy
 import rooftopPlayWide from "@/assets/rooftop-play-wide.jpg";
@@ -56,10 +55,8 @@ import rooftopSeating from "@/assets/rooftop-seating.jpg";
 import rooftopTreadmills from "@/assets/rooftop-treadmills.jpg";
 import rooftopGym from "@/assets/rooftop-gym.jpg";
 
-// Exterior & Facility
+// Exterior
 import exteriorImg from "@/assets/discipline-exterior.jpg";
-import facilityInterior from "@/assets/facility-interior.jpg";
-import recoveryRoom from "@/assets/recovery-room.jpg";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
@@ -98,7 +95,7 @@ const disciplines: Discipline[] = [
   {
     name: "Aesthetic & Hair Studio",
     description: "Dedicated beauty, grooming, and cosmetic care space.",
-    images: [aestheticImg, salonBeauty],
+    images: [salonStudio],
     alt: "Aesthetic and hair treatment studio",
   },
   {
@@ -116,25 +113,19 @@ const disciplines: Discipline[] = [
   {
     name: "Reception & Lounge",
     description: "Warm waiting spaces designed for comfort and privacy.",
-    images: [receptionWaiting, receptionImg, facilityInterior],
+    images: [receptionWaiting],
     alt: "Reception lounge area",
-  },
-  {
-    name: "Recovery Rooms",
-    description: "Dedicated post-treatment recovery spaces for rest and observation.",
-    images: [recoveryRoom],
-    alt: "Recovery room at Hitech Medicity",
   },
   {
     name: "Healthy Café",
     description: "On-site café for fresh, recovery-friendly nourishment.",
-    images: [cafeImg],
+    images: [cafe2],
     alt: "In-house café",
   },
   {
     name: "Clinical Team",
     description: "Experienced multidisciplinary team supporting every recovery journey.",
-    images: [teamImg],
+    images: [teamImg, teamImg2],
     alt: "Medical team at Hitech Medicity",
   },
   {
