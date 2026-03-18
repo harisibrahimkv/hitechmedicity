@@ -13,6 +13,10 @@ import suiteDoubleImg from "@/assets/hitech-suite-double.jpg";
 import kitchenetteImg from "@/assets/hitech-suite-kitchenette.jpg";
 import bathroomImg from "@/assets/hitech-suite-bathroom.jpg";
 import accessibleBathImg from "@/assets/hitech-suite-accessible-bath.jpg";
+import receptionWaiting from "@/assets/reception-waiting.jpg";
+import cafe2 from "@/assets/cafe-2.jpg";
+import teamImg from "@/assets/discipline-team.jpg";
+import teamImg2 from "@/assets/medical-staff-team-2.jpg";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
@@ -58,6 +62,28 @@ const roomCategories: RoomCategory[] = [
     description: "Kitchenette access, utility spaces, and practical storage — everything for a comfortable extended stay.",
     images: [
       { src: kitchenetteImg, alt: "In-room kitchenette and utility area" },
+    ],
+  },
+  {
+    label: "Reception & Lounge",
+    description: "Warm waiting spaces designed for comfort and privacy.",
+    images: [
+      { src: receptionWaiting, alt: "Reception lounge area" },
+    ],
+  },
+  {
+    label: "Healthy Café",
+    description: "On-site café for fresh, recovery-friendly nourishment.",
+    images: [
+      { src: cafe2, alt: "In-house café" },
+    ],
+  },
+  {
+    label: "Clinical Team",
+    description: "Experienced multidisciplinary team supporting every recovery journey.",
+    images: [
+      { src: teamImg, alt: "Medical team at Hitech Medicity" },
+      { src: teamImg2, alt: "Clinical staff team" },
     ],
   },
 ];
