@@ -311,7 +311,7 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* Additional Specialties — now with images */}
+        {/* Other Services */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -319,9 +319,12 @@ const ServicesSection = () => {
           transition={{ duration: 0.45, ease }}
           className="mt-20"
         >
-          <p className="text-xs uppercase tracking-[0.2em] font-medium mb-8 opacity-60">Also Available</p>
+          <p className="text-xs uppercase tracking-[0.2em] font-medium mb-4 opacity-60">Other Services</p>
+          <h2 className="text-display text-3xl md:text-4xl tracking-tight leading-[1.1] mb-10">
+            Specialised care, <em className="text-display italic">across every need</em>
+          </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {additionalDisciplines.map((item, i) => (
+            {otherServices.map((item, i) => (
               <SpecialtyCard key={item.name} item={item} index={i} />
             ))}
           </div>
