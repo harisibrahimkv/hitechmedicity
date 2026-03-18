@@ -107,12 +107,6 @@ const disciplines: Discipline[] = [
     images: [pharmacyImg],
     alt: "In-house pharmacy",
   },
-  {
-    name: "Doctor Consultation",
-    description: "Patient-centred consultations with family-focused care.",
-    images: [consultationImg],
-    alt: "Doctor consultation with patient",
-  },
 ];
 
 const additionalDisciplines: Discipline[] = [
