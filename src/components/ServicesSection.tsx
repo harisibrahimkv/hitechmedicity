@@ -50,14 +50,16 @@ import rooftopTreadmills from "@/assets/rooftop-treadmills.jpg";
 import rooftopGym from "@/assets/rooftop-gym.jpg";
 
 // Specialty images
-import yogaNaturopathy from "@/assets/specialty-yoga-naturopathy.jpg";
+import yogaImg from "@/assets/specialty-yoga.jpg";
+import naturopathyImg from "@/assets/specialty-naturopathy.jpg";
 import hijamaImg from "@/assets/specialty-hijama.jpg";
 import ozoneImg from "@/assets/specialty-ozone.jpg";
 import osteopathyImg from "@/assets/specialty-osteopathy.jpg";
 import acupunctureImg from "@/assets/specialty-acupuncture.jpg";
 import postTraumaImg from "@/assets/specialty-post-trauma.jpg";
 import geriatricImg from "@/assets/specialty-geriatric.jpg";
-import neuroClinicImg from "@/assets/specialty-neuro-clinic.jpg";
+import msClinicImg from "@/assets/specialty-ms-clinic.jpg";
+import parkinsonsImg from "@/assets/specialty-parkinsons.jpg";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
