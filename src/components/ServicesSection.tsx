@@ -40,8 +40,6 @@ import yogaNaturopathyImg from "@/assets/specialty-yoga-naturopathy.jpg";
 import neuroClinicImg from "@/assets/specialty-neuro-clinic.jpg";
 import hijamaImg from "@/assets/specialty-hijama.jpg";
 import ozoneImg from "@/assets/specialty-ozone.jpg";
-import osteopathyImg from "@/assets/specialty-osteopathy.jpg";
-import acupunctureImg from "@/assets/specialty-acupuncture.jpg";
 import postTraumaImg from "@/assets/specialty-post-trauma.jpg";
 import geriatricImg from "@/assets/specialty-geriatric.jpg";
 
