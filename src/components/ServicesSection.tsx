@@ -36,16 +36,6 @@ import pharmacyImg from "@/assets/discipline-pharmacy.jpg";
 // Consultation
 import consultationImg from "@/assets/discipline-consultation.jpg";
 
-// Reception
-import receptionWaiting from "@/assets/reception-waiting.jpg";
-
-// Team
-import teamImg from "@/assets/discipline-team.jpg";
-import teamImg2 from "@/assets/medical-staff-team-2.jpg";
-
-// Café
-import cafe2 from "@/assets/cafe-2.jpg";
-
 // Rooftop Rehab & Play Therapy
 import rooftopPlayWide from "@/assets/rooftop-play-wide.jpg";
 import rooftopPlayCenter from "@/assets/rooftop-play-center.jpg";
@@ -56,8 +46,15 @@ import rooftopSeating from "@/assets/rooftop-seating.jpg";
 import rooftopTreadmills from "@/assets/rooftop-treadmills.jpg";
 import rooftopGym from "@/assets/rooftop-gym.jpg";
 
-// Exterior
-import exteriorImg from "@/assets/discipline-exterior.jpg";
+// Specialty images
+import yogaNaturopathy from "@/assets/specialty-yoga-naturopathy.jpg";
+import hijamaImg from "@/assets/specialty-hijama.jpg";
+import ozoneImg from "@/assets/specialty-ozone.jpg";
+import osteopathyImg from "@/assets/specialty-osteopathy.jpg";
+import acupunctureImg from "@/assets/specialty-acupuncture.jpg";
+import postTraumaImg from "@/assets/specialty-post-trauma.jpg";
+import geriatricImg from "@/assets/specialty-geriatric.jpg";
+import neuroClinicImg from "@/assets/specialty-neuro-clinic.jpg";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
@@ -111,43 +108,57 @@ const disciplines: Discipline[] = [
     images: [consultationImg],
     alt: "Doctor consultation with patient",
   },
-  {
-    name: "Reception & Lounge",
-    description: "Warm waiting spaces designed for comfort and privacy.",
-    images: [receptionWaiting],
-    alt: "Reception lounge area",
-  },
-  {
-    name: "Healthy Café",
-    description: "On-site café for fresh, recovery-friendly nourishment.",
-    images: [cafe2],
-    alt: "In-house café",
-  },
-  {
-    name: "Clinical Team",
-    description: "Experienced multidisciplinary team supporting every recovery journey.",
-    images: [teamImg, teamImg2],
-    alt: "Medical team at Hitech Medicity",
-  },
-  {
-    name: "City-Centre Campus",
-    description: "A landmark Calicut facility blending care and accessibility.",
-    images: [exteriorImg],
-    alt: "Hitech Medicity building exterior",
-  },
 ];
 
-const additionalSpecialties = [
-  "Yoga & Naturopathy",
-  "Hijama Therapy",
-  "Ozone Therapy",
-  "Osteopathy",
-  "Acupuncture",
-  "Post Trauma Care",
-  "Geriatric Care",
-  "Multiple Sclerosis",
-  "Alzheimer's Clinic",
-  "Parkinson's Clinic",
+const additionalDisciplines: Discipline[] = [
+  {
+    name: "Yoga & Naturopathy",
+    description: "Guided therapeutic yoga and nature-based healing for holistic recovery.",
+    images: [yogaNaturopathy],
+    alt: "Yoga and naturopathy session",
+  },
+  {
+    name: "Hijama Therapy",
+    description: "Traditional cupping therapy for pain relief, detoxification, and improved circulation.",
+    images: [hijamaImg],
+    alt: "Hijama cupping therapy",
+  },
+  {
+    name: "Ozone Therapy",
+    description: "Advanced ozone-based treatments for immune support and tissue repair.",
+    images: [ozoneImg],
+    alt: "Ozone therapy treatment",
+  },
+  {
+    name: "Osteopathy",
+    description: "Manual therapy targeting musculoskeletal conditions through hands-on techniques.",
+    images: [osteopathyImg],
+    alt: "Osteopathy treatment session",
+  },
+  {
+    name: "Acupuncture",
+    description: "Precise needle therapy for pain management, stress relief, and neurological conditions.",
+    images: [acupunctureImg],
+    alt: "Acupuncture treatment",
+  },
+  {
+    name: "Post Trauma Care",
+    description: "Structured rehabilitation programmes for recovery after injury or surgery.",
+    images: [postTraumaImg],
+    alt: "Post trauma rehabilitation care",
+  },
+  {
+    name: "Geriatric Care",
+    description: "Compassionate, specialised care tailored for elderly patients and age-related conditions.",
+    images: [geriatricImg],
+    alt: "Geriatric care with nurse and patient",
+  },
+  {
+    name: "Neuro Clinics",
+    description: "Dedicated clinics for Multiple Sclerosis, Alzheimer's, and Parkinson's disease management.",
+    images: [neuroClinicImg],
+    alt: "Neurological consultation clinic",
+  },
 ];
 
 /* ── Individual discipline card ── */
@@ -209,6 +220,30 @@ const DisciplineCard = ({ item, index }: { item: Discipline; index: number }) =>
   );
 };
 
+/* ── Smaller card for additional specialties ── */
+const SpecialtyCard = ({ item, index }: { item: Discipline; index: number }) => (
+  <motion.article
+    initial={{ opacity: 0, y: 14 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4, delay: index * 0.04 }}
+    className="group rounded-2xl overflow-hidden bg-primary-foreground/5 border border-primary-foreground/10"
+  >
+    <div className="aspect-[3/2] overflow-hidden relative">
+      <img
+        src={item.images[0]}
+        alt={item.alt}
+        loading="lazy"
+        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+    </div>
+    <div className="p-5">
+      <h3 className="text-display text-lg mb-1.5">{item.name}</h3>
+      <p className="text-xs leading-relaxed opacity-60">{item.description}</p>
+    </div>
+  </motion.article>
+);
+
 const ServicesSection = () => {
   return (
     <section id="services" className="py-32 lg:py-40 bg-primary text-primary-foreground">
@@ -235,22 +270,18 @@ const ServicesSection = () => {
           ))}
         </div>
 
+        {/* Additional Specialties — now with images */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45, ease }}
-          className="mt-12"
+          className="mt-20"
         >
-          <p className="text-xs uppercase tracking-[0.16em] font-medium mb-4 opacity-60">Also Available</p>
-          <div className="flex flex-wrap gap-3">
-            {additionalSpecialties.map((specialty) => (
-              <span
-                key={specialty}
-                className="rounded-full border border-primary-foreground/20 px-4 py-2 text-xs md:text-sm opacity-80"
-              >
-                {specialty}
-              </span>
+          <p className="text-xs uppercase tracking-[0.2em] font-medium mb-8 opacity-60">Also Available</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            {additionalDisciplines.map((item, i) => (
+              <SpecialtyCard key={item.name} item={item} index={i} />
             ))}
           </div>
         </motion.div>

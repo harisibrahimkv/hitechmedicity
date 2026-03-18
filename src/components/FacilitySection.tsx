@@ -13,6 +13,10 @@ import suiteDoubleImg from "@/assets/hitech-suite-double.jpg";
 import kitchenetteImg from "@/assets/hitech-suite-kitchenette.jpg";
 import bathroomImg from "@/assets/hitech-suite-bathroom.jpg";
 import accessibleBathImg from "@/assets/hitech-suite-accessible-bath.jpg";
+import receptionWaiting from "@/assets/reception-waiting.jpg";
+import cafe2 from "@/assets/cafe-2.jpg";
+import teamImg from "@/assets/discipline-team.jpg";
+import teamImg2 from "@/assets/medical-staff-team-2.jpg";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
