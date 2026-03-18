@@ -27,6 +27,7 @@ import spaMassage from "@/assets/spa-massage.jpg";
 import dentalImg from "@/assets/discipline-dental.jpg";
 
 // Aesthetic & Salon
+import aestheticImg from "@/assets/discipline-aesthetic.jpg";
 import salonStudio from "@/assets/salon-studio.jpg";
 
 // Pharmacy
@@ -95,7 +96,7 @@ const disciplines: Discipline[] = [
   {
     name: "Aesthetic & Hair Studio",
     description: "Dedicated beauty, grooming, and cosmetic care space.",
-    images: [salonStudio],
+    images: [aestheticImg, salonStudio],
     alt: "Aesthetic and hair treatment studio",
   },
   {
