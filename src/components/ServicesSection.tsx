@@ -96,12 +96,6 @@ const disciplines: Discipline[] = [
     alt: "Dental treatment room",
   },
   {
-    name: "Aesthetic & Hair Studio",
-    description: "Dedicated beauty, grooming, and cosmetic care space.",
-    images: [aestheticImg, salonStudio],
-    alt: "Aesthetic and hair treatment studio",
-  },
-  {
     name: "In-house Pharmacy",
     description: "Integrated medicine and wellness products under one roof.",
     images: [pharmacyImg],
