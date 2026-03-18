@@ -1,10 +1,6 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Images } from "lucide-react";
-import GalleryModal from "@/components/GalleryModal";
 import AutoScrollCarousel from "@/components/AutoScrollCarousel";
 
-// Physiotherapy & Gait Lab
 import physioRoom from "@/assets/physio-room.jpg";
 import physioEquipment from "@/assets/physio-equipment.jpg";
 import physioTreatment from "@/assets/physio-treatment.jpg";
@@ -15,7 +11,6 @@ import physioHandTherapy from "@/assets/physio-hand-therapy.jpg";
 import physioGaitBars from "@/assets/physio-gait-bars.jpg";
 import physioBed from "@/assets/physio-bed.jpg";
 
-// Ayurveda
 import ayurvedaRoom1 from "@/assets/ayurveda-room-1.jpg";
 import ayurvedaRoom2 from "@/assets/ayurveda-room-2.jpg";
 import ayurvedaRoom3 from "@/assets/ayurveda-room-3.jpg";
@@ -24,22 +19,14 @@ import ayurvedaSupplies from "@/assets/ayurveda-supplies.jpg";
 import ayurvedaSupplies2 from "@/assets/ayurveda-supplies-2.jpg";
 import spaMassage from "@/assets/spa-massage.jpg";
 
-// Dental
 import dentalImg from "@/assets/discipline-dental.jpg";
-
-// Aesthetic
 import aestheticImg from "@/assets/discipline-aesthetic.jpg";
-
-// Pharmacy
 import pharmacyImg from "@/assets/discipline-pharmacy.jpg";
-
-// Consultation (reused for Alzheimer's Clinic)
 import consultationImg from "@/assets/discipline-consultation.jpg";
+import disciplineAyurvedaImg from "@/assets/discipline-ayurveda.jpg";
+import disciplinePhysioImg from "@/assets/discipline-physio.jpg";
+import medicalStaffTeamImg from "@/assets/medical-staff-team-2.jpg";
 
-// Chiropractic
-import chiropracticImg from "@/assets/specialty-chiropractic.jpg";
-
-// Rooftop Rehab & Play Therapy
 import rooftopPlayWide from "@/assets/rooftop-play-wide.jpg";
 import rooftopPlayCenter from "@/assets/rooftop-play-center.jpg";
 import rooftopSandTrack from "@/assets/rooftop-sand-track.jpg";
@@ -49,17 +36,14 @@ import rooftopSeating from "@/assets/rooftop-seating.jpg";
 import rooftopTreadmills from "@/assets/rooftop-treadmills.jpg";
 import rooftopGym from "@/assets/rooftop-gym.jpg";
 
-// Specialty images
-import yogaImg from "@/assets/specialty-yoga.jpg";
-import naturopathyImg from "@/assets/specialty-naturopathy.jpg";
+import yogaNaturopathyImg from "@/assets/specialty-yoga-naturopathy.jpg";
+import neuroClinicImg from "@/assets/specialty-neuro-clinic.jpg";
 import hijamaImg from "@/assets/specialty-hijama.jpg";
 import ozoneImg from "@/assets/specialty-ozone.jpg";
 import osteopathyImg from "@/assets/specialty-osteopathy.jpg";
 import acupunctureImg from "@/assets/specialty-acupuncture.jpg";
 import postTraumaImg from "@/assets/specialty-post-trauma.jpg";
 import geriatricImg from "@/assets/specialty-geriatric.jpg";
-import msClinicImg from "@/assets/specialty-ms-clinic.jpg";
-import parkinsonsImg from "@/assets/specialty-parkinsons.jpg";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
@@ -70,7 +54,7 @@ interface Discipline {
   alt: string;
 }
 
-const disciplines: Discipline[] = [
+const services: Discipline[] = [
   {
     name: "Physiotherapy & Gait Lab",
     description: "Comprehensive rehab with parallel bars, balance training, hand therapy, and advanced gait analysis.",
@@ -84,10 +68,22 @@ const disciplines: Discipline[] = [
     alt: "Rooftop rehabilitation and play therapy area",
   },
   {
-    name: "Ayurveda, Spa & Wellness",
-    description: "Traditional Ayurvedic therapies, Panchakarma, and dedicated massage suites for holistic recovery.",
+    name: "Ayurveda",
+    description: "Traditional Ayurvedic therapies, Panchakarma, and dedicated wellness suites for holistic recovery.",
     images: [ayurvedaRoom1, ayurvedaRoom3, ayurvedaRoom4, ayurvedaRoom2, spaMassage, ayurvedaSupplies, ayurvedaSupplies2],
-    alt: "Ayurveda and spa treatments at Hitech Medicity",
+    alt: "Ayurveda and wellness treatments at Hitech Medicity",
+  },
+  {
+    name: "Yoga",
+    description: "Guided therapeutic yoga for flexibility, strength, breathing, and holistic healing.",
+    images: [yogaNaturopathyImg, disciplineAyurvedaImg, ayurvedaRoom1],
+    alt: "Therapeutic yoga and wellness session",
+  },
+  {
+    name: "Naturopathy",
+    description: "Nature-based healing using herbal remedies, restorative routines, and lifestyle therapies.",
+    images: [yogaNaturopathyImg, ayurvedaSupplies, disciplineAyurvedaImg],
+    alt: "Naturopathy treatment and wellness care",
   },
   {
     name: "Dental Clinic",
@@ -96,31 +92,16 @@ const disciplines: Discipline[] = [
     alt: "Dental treatment room",
   },
   {
-    name: "In-house Pharmacy",
-    description: "Integrated medicine and wellness products under one roof.",
-    images: [pharmacyImg],
-    alt: "In-house pharmacy",
-  },
-];
-
-const otherServices: Discipline[] = [
-  {
-    name: "Yoga",
-    description: "Guided therapeutic yoga for flexibility, strength, and holistic healing.",
-    images: [yogaImg],
-    alt: "Therapeutic yoga session",
-  },
-  {
-    name: "Naturopathy",
-    description: "Nature-based healing using herbal remedies, nutrition, and lifestyle therapies.",
-    images: [naturopathyImg],
-    alt: "Naturopathy treatment clinic",
-  },
-  {
     name: "Aesthetic & Hair Clinic",
     description: "Dedicated beauty, grooming, and cosmetic care space.",
     images: [aestheticImg],
     alt: "Aesthetic and hair treatment studio",
+  },
+  {
+    name: "In-house Pharmacy",
+    description: "Integrated medicine and wellness products under one roof.",
+    images: [pharmacyImg],
+    alt: "In-house pharmacy",
   },
   {
     name: "Hijama",
@@ -143,8 +124,8 @@ const otherServices: Discipline[] = [
   {
     name: "Chiropractic Adjustment",
     description: "Spinal and joint adjustments to relieve pain, improve mobility, and restore alignment.",
-    images: [chiropracticImg],
-    alt: "Chiropractic adjustment session",
+    images: [disciplinePhysioImg, physioTreatment, neuroClinicImg],
+    alt: "Chiropractic and spinal rehabilitation care",
   },
   {
     name: "Acupuncture",
@@ -167,145 +148,44 @@ const otherServices: Discipline[] = [
   {
     name: "Multiple Sclerosis",
     description: "Dedicated clinic for MS management, rehabilitation, and ongoing neurological support.",
-    images: [msClinicImg],
-    alt: "Multiple sclerosis rehabilitation clinic",
+    images: [neuroClinicImg, medicalStaffTeamImg, physioGaitBars],
+    alt: "Multiple sclerosis rehabilitation and neurological clinic",
   },
   {
     name: "Alzheimer's Clinic",
     description: "Specialised care and cognitive support for Alzheimer's patients and their families.",
-    images: [consultationImg],
-    alt: "Alzheimer's clinic consultation",
+    images: [consultationImg, medicalStaffTeamImg],
+    alt: "Alzheimer's clinic consultation and support",
   },
   {
     name: "Parkinson's Clinic",
     description: "Targeted treatment and rehabilitation for Parkinson's disease management.",
-    images: [parkinsonsImg],
-    alt: "Parkinson's disease clinic",
+    images: [neuroClinicImg, medicalStaffTeamImg, physioWide2],
+    alt: "Parkinson's disease clinic and rehabilitation care",
   },
 ];
 
-/* ── Individual discipline card ── */
-const DisciplineCard = ({ item, index }: { item: Discipline; index: number }) => {
-  const [galleryOpen, setGalleryOpen] = useState(false);
-  const hasMultiple = item.images.length > 1;
-
-  return (
-    <>
-      <motion.article
-        initial={{ opacity: 0, y: 14 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.45, delay: index * 0.03 }}
-        className="group rounded-3xl overflow-hidden bg-primary-foreground/5 border border-primary-foreground/10"
-      >
-        <div className="aspect-[4/3] overflow-hidden relative">
-          <img
-            src={item.images[0]}
-            alt={item.alt}
-            loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-
-          {/* Gallery button overlay */}
-          {hasMultiple && (
-            <button
-              onClick={() => setGalleryOpen(true)}
-              className="absolute bottom-3 right-3 bg-black/50 backdrop-blur-sm text-white text-xs font-medium pl-2.5 pr-3 py-1.5 rounded-full flex items-center gap-1.5 hover:bg-black/70 transition-colors"
-            >
-              <Images className="w-3.5 h-3.5" />
-              {item.images.length} photos
-            </button>
-          )}
-        </div>
-
-        <div className="p-6">
-          <h3 className="text-display text-2xl mb-2">{item.name}</h3>
-          <p className="text-sm leading-relaxed opacity-70">{item.description}</p>
-          {hasMultiple && (
-            <button
-              onClick={() => setGalleryOpen(true)}
-              className="text-xs uppercase tracking-wider opacity-50 mt-3 hover:opacity-80 transition-opacity underline underline-offset-2"
-            >
-              View all photos →
-            </button>
-          )}
-        </div>
-      </motion.article>
-
-      <GalleryModal
-        open={galleryOpen}
-        onOpenChange={setGalleryOpen}
-        images={item.images}
-        title={item.name}
-        alt={item.alt}
-      />
-    </>
-  );
-};
-
-/* ── Smaller card for additional specialties ── */
-const SpecialtyCard = ({ item, index }: { item: Discipline; index: number }) => (
-  <motion.article
-    initial={{ opacity: 0, y: 14 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.4, delay: index * 0.04 }}
-    className="group rounded-2xl overflow-hidden bg-primary-foreground/5 border border-primary-foreground/10"
-  >
-    <div className="aspect-[3/2] overflow-hidden relative">
-      <img
-        src={item.images[0]}
-        alt={item.alt}
-        loading="lazy"
-        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-      />
-    </div>
-    <div className="p-5">
-      <h3 className="text-display text-lg mb-1.5">{item.name}</h3>
-      <p className="text-xs leading-relaxed opacity-60">{item.description}</p>
-    </div>
-  </motion.article>
-);
-
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-32 lg:py-40 bg-primary text-primary-foreground">
+    <section id="services" className="bg-primary py-32 text-primary-foreground lg:py-40">
       <div className="container mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease }}
-          className="max-w-3xl mb-16"
+          className="mb-16 max-w-3xl"
         >
-          <p className="text-xs uppercase tracking-[0.2em] font-medium mb-4 opacity-60">Our Disciplines</p>
-          <h2 className="text-display text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-6">
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] opacity-60">Our Disciplines</p>
+          <h2 className="text-display mb-6 text-4xl leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
             Every facility, <em className="text-display italic">purposefully built</em>
           </h2>
-          <p className="text-sm md:text-base opacity-70 max-w-2xl leading-relaxed">
-            Walk through our departments — each designed for a specific discipline, equipped to the highest clinical standards.
+          <p className="max-w-2xl text-sm leading-relaxed opacity-70 md:text-base">
+            Browse every department and speciality we offer in one continuous view, with the same access to photos and galleries across all services.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
-          {disciplines.map((item, i) => (
-            <DisciplineCard key={item.name} item={item} index={i} />
-          ))}
-        </div>
-
-        {/* All services carousel */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45, ease }}
-          className="mt-20"
-        >
-          <h2 className="text-display text-3xl md:text-4xl tracking-tight leading-[1.1] mb-10">
-            Specialised care, <em className="text-display italic">across every need</em>
-          </h2>
-          <AutoScrollCarousel items={otherServices} speed={40} />
-        </motion.div>
+        <AutoScrollCarousel items={services} speed={40} />
       </div>
     </section>
   );
