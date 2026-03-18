@@ -33,7 +33,6 @@ const roomCategories: RoomCategory[] = [
       { src: suitePrimaryImg, alt: "Premium patient suite at Hitech Medicity" },
       { src: suiteSecondaryImg, alt: "Suite living area" },
       { src: suiteDoubleImg, alt: "Double-bed premium stay room" },
-      { src: stayDoubleBlue, alt: "Double room with blue carpet" },
     ],
   },
   {
