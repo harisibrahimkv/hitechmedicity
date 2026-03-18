@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Images } from "lucide-react";
 import GalleryModal from "@/components/GalleryModal";
 
@@ -11,7 +11,7 @@ interface CarouselItem {
 
 interface AutoScrollCarouselProps {
   items: CarouselItem[];
-  speed?: number; // pixels per second
+  speed?: number;
 }
 
 const CarouselCard = ({ item }: { item: CarouselItem }) => {
@@ -21,10 +21,10 @@ const CarouselCard = ({ item }: { item: CarouselItem }) => {
   return (
     <>
       <article
-        className="group rounded-2xl overflow-hidden bg-primary-foreground/5 border border-primary-foreground/10 flex-shrink-0 w-[280px] sm:w-[320px] cursor-pointer"
+        className="group w-[280px] shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 sm:w-[320px]"
         onClick={() => setGalleryOpen(true)}
       >
-        <div className="aspect-[3/2] overflow-hidden relative">
+        <div className="relative aspect-[3/2] overflow-hidden">
           <img
             src={item.images[0]}
             alt={item.alt}
@@ -32,14 +32,15 @@ const CarouselCard = ({ item }: { item: CarouselItem }) => {
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
           {hasMultiple && (
-            <span className="absolute bottom-3 right-3 bg-black/50 backdrop-blur-sm text-white text-xs font-medium pl-2.5 pr-3 py-1.5 rounded-full flex items-center gap-1.5">
-              <Images className="w-3.5 h-3.5" />
+            <span className="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full border border-border/60 bg-background/75 px-3 py-1.5 text-xs font-medium text-foreground backdrop-blur-sm">
+              <Images className="h-3.5 w-3.5" />
               {item.images.length}
             </span>
           )}
         </div>
+
         <div className="p-5">
-          <h3 className="text-display text-lg mb-1.5">{item.name}</h3>
+          <h3 className="text-display mb-1.5 text-lg">{item.name}</h3>
           <p className="text-xs leading-relaxed opacity-60">{item.description}</p>
         </div>
       </article>
@@ -57,90 +58,172 @@ const CarouselCard = ({ item }: { item: CarouselItem }) => {
 
 const AutoScrollCarousel = ({ items, speed = 40 }: AutoScrollCarouselProps) => {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
+  const firstSetRef = useRef<HTMLDivElement>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const progressFillRef = useRef<HTMLDivElement>(null);
+  const progressThumbRef = useRef<HTMLDivElement>(null);
+  const animationFrameRef = useRef<number | null>(null);
+  const lastTimestampRef = useRef<number | null>(null);
   const offsetRef = useRef(0);
-  const rafRef = useRef<number>();
-  const lastTimeRef = useRef<number>();
-  const singleSetWidth = useRef(0);
-  const [progress, setProgress] = useState(0);
+  const setWidthRef = useRef(0);
+  const hoverPausedRef = useRef(false);
+  const dragPausedRef = useRef(false);
 
-  // Measure the width of one set of items
-  useEffect(() => {
+  const applyOffset = useCallback((nextOffset: number) => {
+    const setWidth = setWidthRef.current;
     const track = trackRef.current;
-    if (!track) return;
-    // Each set has items.length cards; total children = items.length * 3
-    const cardCount = items.length;
-    let totalWidth = 0;
-    for (let i = 0; i < cardCount; i++) {
-      const child = track.children[i] as HTMLElement;
-      if (child) {
-        totalWidth += child.offsetWidth + 20; // 20px gap
-      }
+
+    if (!track || !setWidth) {
+      return;
     }
-    singleSetWidth.current = totalWidth;
-  }, [items]);
+
+    const normalizedOffset = ((nextOffset % setWidth) + setWidth) % setWidth;
+    const progress = (normalizedOffset / setWidth) * 100;
+
+    offsetRef.current = normalizedOffset;
+    track.style.transform = `translate3d(-${normalizedOffset}px, 0, 0)`;
+
+    if (progressFillRef.current) {
+      progressFillRef.current.style.width = `${progress}%`;
+    }
+
+    if (progressThumbRef.current) {
+      progressThumbRef.current.style.left = `${progress}%`;
+    }
+  }, []);
+
+  useEffect(() => {
+    const measure = () => {
+      setWidthRef.current = firstSetRef.current?.scrollWidth ?? 0;
+      applyOffset(offsetRef.current);
+    };
+
+    measure();
+
+    const resizeObserver = new ResizeObserver(measure);
+    if (firstSetRef.current) {
+      resizeObserver.observe(firstSetRef.current);
+    }
+
+    window.addEventListener("resize", measure);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, [applyOffset, items]);
 
   const animate = useCallback(
     (timestamp: number) => {
-      if (!lastTimeRef.current) lastTimeRef.current = timestamp;
-      const delta = timestamp - lastTimeRef.current;
-      lastTimeRef.current = timestamp;
-
-      if (!isPaused && singleSetWidth.current > 0) {
-        offsetRef.current += (speed * delta) / 1000;
-
-        // Reset when we've scrolled one full set
-        if (offsetRef.current >= singleSetWidth.current) {
-          offsetRef.current -= singleSetWidth.current;
-        }
-
-        setProgress((offsetRef.current / singleSetWidth.current) * 100);
-
-        if (trackRef.current) {
-          trackRef.current.style.transform = `translateX(-${offsetRef.current}px)`;
-        }
+      if (lastTimestampRef.current === null) {
+        lastTimestampRef.current = timestamp;
       }
 
-      rafRef.current = requestAnimationFrame(animate);
+      const delta = timestamp - lastTimestampRef.current;
+      lastTimestampRef.current = timestamp;
+
+      if (!hoverPausedRef.current && !dragPausedRef.current && setWidthRef.current > 0) {
+        applyOffset(offsetRef.current + (speed * delta) / 1000);
+      }
+
+      animationFrameRef.current = window.requestAnimationFrame(animate);
     },
-    [isPaused, speed],
+    [applyOffset, speed],
   );
 
   useEffect(() => {
-    rafRef.current = requestAnimationFrame(animate);
+    animationFrameRef.current = window.requestAnimationFrame(animate);
+
     return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      if (animationFrameRef.current !== null) {
+        window.cancelAnimationFrame(animationFrameRef.current);
+      }
     };
   }, [animate]);
 
-  // Triple the items for seamless looping
-  const tripled = [...items, ...items, ...items];
+  const seekToClientX = useCallback(
+    (clientX: number) => {
+      const progressBar = progressBarRef.current;
+      const setWidth = setWidthRef.current;
+
+      if (!progressBar || !setWidth) {
+        return;
+      }
+
+      const { left, width } = progressBar.getBoundingClientRect();
+      const ratio = Math.min(1, Math.max(0, (clientX - left) / width));
+
+      applyOffset(ratio * setWidth);
+      lastTimestampRef.current = null;
+    },
+    [applyOffset],
+  );
+
+  const handleSeekStart = (event: React.PointerEvent<HTMLDivElement>) => {
+    dragPausedRef.current = true;
+    seekToClientX(event.clientX);
+
+    const handlePointerMove = (moveEvent: PointerEvent) => {
+      seekToClientX(moveEvent.clientX);
+    };
+
+    const handlePointerUp = () => {
+      dragPausedRef.current = false;
+      lastTimestampRef.current = null;
+      window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("pointerup", handlePointerUp);
+    };
+
+    window.addEventListener("pointermove", handlePointerMove);
+    window.addEventListener("pointerup", handlePointerUp);
+  };
+
+  const duplicatedItems = useMemo(() => [items, items], [items]);
 
   return (
     <div
       className="relative"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
+      onMouseEnter={() => {
+        hoverPausedRef.current = true;
+      }}
+      onMouseLeave={() => {
+        hoverPausedRef.current = false;
+        lastTimestampRef.current = null;
+      }}
     >
-      {/* Carousel track */}
       <div className="overflow-hidden">
-        <div
-          ref={trackRef}
-          className="flex gap-5 will-change-transform"
-          style={{ transform: "translateX(0px)" }}
-        >
-          {tripled.map((item, i) => (
-            <CarouselCard key={`${item.name}-${i}`} item={item} />
+        <div ref={trackRef} className="flex will-change-transform">
+          {duplicatedItems.map((group, groupIndex) => (
+            <div
+              key={`service-group-${groupIndex}`}
+              ref={groupIndex === 0 ? firstSetRef : undefined}
+              className="flex shrink-0 gap-5 pr-5"
+              aria-hidden={groupIndex === 1}
+            >
+              {group.map((item) => (
+                <CarouselCard key={`${groupIndex}-${item.name}`} item={item} />
+              ))}
+            </div>
           ))}
         </div>
       </div>
 
-      {/* Progress bar */}
-      <div className="mt-8 mx-auto max-w-xs h-0.5 bg-primary-foreground/10 rounded-full overflow-hidden">
+      <div className="mx-auto mt-8 w-full max-w-md px-2">
         <div
-          className="h-full bg-primary-foreground/40 rounded-full transition-none"
-          style={{ width: `${progress}%` }}
-        />
+          ref={progressBarRef}
+          className="relative flex h-6 cursor-pointer touch-none items-center"
+          onPointerDown={handleSeekStart}
+          aria-label="Seek through services"
+        >
+          <div className="h-0.5 w-full overflow-hidden rounded-full bg-primary-foreground/10">
+            <div ref={progressFillRef} className="h-full w-0 rounded-full bg-primary-foreground/45" />
+          </div>
+          <div
+            ref={progressThumbRef}
+            className="absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary-foreground/20 bg-background shadow-sm"
+            style={{ left: "0%" }}
+          />
+        </div>
       </div>
     </div>
   );
