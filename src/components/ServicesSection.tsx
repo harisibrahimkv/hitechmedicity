@@ -26,9 +26,8 @@ import spaMassage from "@/assets/spa-massage.jpg";
 // Dental
 import dentalImg from "@/assets/discipline-dental.jpg";
 
-// Aesthetic & Salon
+// Aesthetic
 import aestheticImg from "@/assets/discipline-aesthetic.jpg";
-import salonStudio from "@/assets/salon-studio.jpg";
 
 // Pharmacy
 import pharmacyImg from "@/assets/discipline-pharmacy.jpg";
