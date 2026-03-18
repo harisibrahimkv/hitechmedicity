@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo-tree.png";
@@ -8,15 +8,21 @@ const WHATSAPP_LINK = "https://wa.me/919876543210?text=Hello%2C%20I%20would%20li
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const scrollTo = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     setIsOpen(false);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  }, []);
+  }, [location.pathname, navigate]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/70 border-b border-foreground/5">
