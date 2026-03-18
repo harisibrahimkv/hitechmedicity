@@ -55,10 +55,8 @@ import rooftopSeating from "@/assets/rooftop-seating.jpg";
 import rooftopTreadmills from "@/assets/rooftop-treadmills.jpg";
 import rooftopGym from "@/assets/rooftop-gym.jpg";
 
-// Exterior & Facility
+// Exterior
 import exteriorImg from "@/assets/discipline-exterior.jpg";
-import facilityInterior from "@/assets/facility-interior.jpg";
-import recoveryRoom from "@/assets/recovery-room.jpg";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
