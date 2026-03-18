@@ -76,14 +76,6 @@ const roomCategories: RoomCategory[] = [
       { src: cafe2, alt: "In-house café" },
     ],
   },
-  {
-    label: "Clinical Team",
-    description: "Experienced multidisciplinary team supporting every recovery journey.",
-    images: [
-      { src: teamImg, alt: "Medical team at Hitech Medicity" },
-      { src: teamImg2, alt: "Clinical staff team" },
-    ],
-  },
 ];
 
 const RoomCategoryCard = ({ category, index }: { category: RoomCategory; index: number }) => {

@@ -13,7 +13,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <PhilosophySection />
+      <PhilosophySection videoSrc="/videos/event1.mp4" />
       <ServicesSection />
       <FacilitySection />
       <TestimonialsSection />
