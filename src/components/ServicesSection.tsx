@@ -113,7 +113,7 @@ const disciplines: Discipline[] = [
   {
     name: "Reception & Lounge",
     description: "Warm waiting spaces designed for comfort and privacy.",
-    images: [receptionWaiting, receptionImg, facilityInterior],
+    images: [receptionWaiting],
     alt: "Reception lounge area",
   },
   {
