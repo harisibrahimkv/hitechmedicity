@@ -118,7 +118,7 @@ const services: Discipline[] = [
   {
     name: "Osteopathy",
     description: "Manual therapy targeting musculoskeletal conditions through hands-on techniques.",
-    images: [osteopathyImg],
+    images: [physioTreatment, disciplinePhysioImg],
     alt: "Osteopathy treatment session",
   },
   {
