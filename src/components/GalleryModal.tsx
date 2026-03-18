@@ -39,77 +39,81 @@ const GalleryModal = ({ open, onOpenChange, images, title, alt }: GalleryModalPr
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-5xl w-[95vw] h-[85vh] p-0 bg-black border-none rounded-2xl overflow-hidden [&>button:last-child]:hidden">
+      <DialogContent className="grid h-[min(92vh,920px)] w-[min(96vw,1200px)] max-w-none grid-rows-[auto,minmax(0,1fr),auto] gap-0 overflow-hidden rounded-2xl border border-background/10 bg-foreground p-0 text-background [&>button:last-child]:hidden">
         <VisuallyHidden>
           <DialogTitle>{title} Gallery</DialogTitle>
         </VisuallyHidden>
 
-        {/* Close button */}
-        <button
-          onClick={() => onOpenChange(false)}
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm text-white flex items-center justify-center hover:bg-white/20 transition-colors"
-          aria-label="Close gallery"
-        >
-          <X className="w-5 h-5" />
-        </button>
+        <div className="flex items-start justify-between gap-4 border-b border-background/10 px-4 py-4 sm:px-6">
+          <div className="min-w-0">
+            <p className="truncate text-sm font-medium text-background/90">{title}</p>
+            <p className="mt-0.5 text-xs text-background/60">{activeIdx + 1} of {images.length}</p>
+          </div>
 
-        {/* Title bar */}
-        <div className="absolute top-4 left-4 z-20">
-          <p className="text-white/90 text-sm font-medium">{title}</p>
-          <p className="text-white/50 text-xs mt-0.5">{activeIdx + 1} of {images.length}</p>
+          <button
+            onClick={() => onOpenChange(false)}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-background/10 text-background transition-colors hover:bg-background/20"
+            aria-label="Close gallery"
+          >
+            <X className="h-5 w-5" />
+          </button>
         </div>
 
-        {/* Main image area */}
-        <div className="relative w-full h-full flex items-center justify-center px-16 py-16">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={activeIdx}
-              src={images[activeIdx]}
-              alt={`${alt} – view ${activeIdx + 1}`}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.25 }}
-              className="max-w-full max-h-full object-contain select-none"
-            />
-          </AnimatePresence>
+        <div className="min-h-0 px-3 py-3 sm:px-6 sm:py-5">
+          <div className="relative flex h-full min-h-0 items-center justify-center overflow-hidden rounded-xl bg-background/5">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIdx}
+                initial={{ opacity: 0, scale: 0.985 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.985 }}
+                transition={{ duration: 0.22 }}
+                className="flex h-full w-full items-center justify-center p-2 sm:p-4"
+              >
+                <img
+                  src={images[activeIdx]}
+                  alt={`${alt} – view ${activeIdx + 1}`}
+                  className="block h-auto max-h-full w-auto max-w-full select-none object-contain"
+                />
+              </motion.div>
+            </AnimatePresence>
+
+            {images.length > 1 && (
+              <>
+                <button
+                  onClick={goPrev}
+                  className="absolute left-2 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-background/10 text-background transition-colors hover:bg-background/20 sm:left-4"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  onClick={goNext}
+                  className="absolute right-2 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-background/10 text-background transition-colors hover:bg-background/20 sm:right-4"
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </>
+            )}
+          </div>
         </div>
 
-        {/* Prev/Next — fixed to viewport center of the dialog */}
         {images.length > 1 && (
-          <>
-            <button
-              onClick={goPrev}
-              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm text-white flex items-center justify-center hover:bg-white/20 transition-colors"
-              aria-label="Previous image"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={goNext}
-              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/10 backdrop-blur-sm text-white flex items-center justify-center hover:bg-white/20 transition-colors"
-              aria-label="Next image"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </>
-        )}
-
-        {/* Thumbnail strip */}
-        {images.length > 1 && (
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 pt-8">
-            <div className="flex gap-2 justify-center overflow-x-auto">
+          <div className="border-t border-background/10 px-4 py-4 sm:px-6">
+            <div className="flex gap-2 overflow-x-auto pb-1 sm:justify-center">
               {images.map((img, i) => (
                 <button
                   key={i}
                   onClick={() => setActiveIdx(i)}
-                  className={`flex-shrink-0 w-14 h-10 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
+                  className={`h-10 w-14 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all duration-200 ${
                     i === activeIdx
-                      ? "border-white opacity-100"
+                      ? "border-background opacity-100"
                       : "border-transparent opacity-50 hover:opacity-80"
                   }`}
+                  aria-label={`View image ${i + 1}`}
                 >
-                  <img src={img} alt="" className="w-full h-full object-cover" />
+                  <img src={img} alt="" className="h-full w-full object-cover" />
                 </button>
               ))}
             </div>
