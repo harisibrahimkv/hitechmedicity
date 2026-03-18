@@ -109,15 +109,39 @@ const disciplines: Discipline[] = [
   },
 ];
 
-const additionalDisciplines: Discipline[] = [
+const otherServices: Discipline[] = [
   {
-    name: "Yoga & Naturopathy",
-    description: "Guided therapeutic yoga and nature-based healing for holistic recovery.",
-    images: [yogaNaturopathy],
-    alt: "Yoga and naturopathy session",
+    name: "Ayurveda",
+    description: "Traditional Ayurvedic therapies and Panchakarma for holistic recovery and wellness.",
+    images: [ayurvedaRoom1],
+    alt: "Ayurveda treatment room",
   },
   {
-    name: "Hijama Therapy",
+    name: "Yoga",
+    description: "Guided therapeutic yoga for flexibility, strength, and holistic healing.",
+    images: [yogaImg],
+    alt: "Therapeutic yoga session",
+  },
+  {
+    name: "Naturopathy",
+    description: "Nature-based healing using herbal remedies, nutrition, and lifestyle therapies.",
+    images: [naturopathyImg],
+    alt: "Naturopathy treatment clinic",
+  },
+  {
+    name: "Physiotherapy",
+    description: "Comprehensive rehabilitation with advanced equipment and personalised treatment plans.",
+    images: [physioRoom],
+    alt: "Physiotherapy treatment session",
+  },
+  {
+    name: "Aesthetic & Hair Clinic",
+    description: "Dedicated beauty, grooming, and cosmetic care space.",
+    images: [aestheticImg],
+    alt: "Aesthetic and hair treatment studio",
+  },
+  {
+    name: "Hijama",
     description: "Traditional cupping therapy for pain relief, detoxification, and improved circulation.",
     images: [hijamaImg],
     alt: "Hijama cupping therapy",
@@ -133,6 +157,12 @@ const additionalDisciplines: Discipline[] = [
     description: "Manual therapy targeting musculoskeletal conditions through hands-on techniques.",
     images: [osteopathyImg],
     alt: "Osteopathy treatment session",
+  },
+  {
+    name: "Chiropractic Adjustment",
+    description: "Spinal and joint adjustments to relieve pain, improve mobility, and restore alignment.",
+    images: [chiropracticImg],
+    alt: "Chiropractic adjustment session",
   },
   {
     name: "Acupuncture",
@@ -153,10 +183,22 @@ const additionalDisciplines: Discipline[] = [
     alt: "Geriatric care with nurse and patient",
   },
   {
-    name: "Neuro Clinics",
-    description: "Dedicated clinics for Multiple Sclerosis, Alzheimer's, and Parkinson's disease management.",
-    images: [neuroClinicImg],
-    alt: "Neurological consultation clinic",
+    name: "Multiple Sclerosis",
+    description: "Dedicated clinic for MS management, rehabilitation, and ongoing neurological support.",
+    images: [msClinicImg],
+    alt: "Multiple sclerosis rehabilitation clinic",
+  },
+  {
+    name: "Alzheimer's Clinic",
+    description: "Specialised care and cognitive support for Alzheimer's patients and their families.",
+    images: [consultationImg],
+    alt: "Alzheimer's clinic consultation",
+  },
+  {
+    name: "Parkinson's Clinic",
+    description: "Targeted treatment and rehabilitation for Parkinson's disease management.",
+    images: [parkinsonsImg],
+    alt: "Parkinson's disease clinic",
   },
 ];
 
