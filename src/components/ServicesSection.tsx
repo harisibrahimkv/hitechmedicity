@@ -1,5 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { Images } from "lucide-react";
+import GalleryModal from "@/components/GalleryModal";
 
 // Physiotherapy & Gait Lab
 import physioRoom from "@/assets/physio-room.jpg";
@@ -14,6 +16,8 @@ import physioBed from "@/assets/physio-bed.jpg";
 
 // Ayurveda
 import ayurvedaImg from "@/assets/discipline-ayurveda.jpg";
+import spaImg from "@/assets/discipline-spa.jpg";
+import spaMassage from "@/assets/spa-massage.jpg";
 
 // Dental
 import dentalImg from "@/assets/discipline-dental.jpg";
@@ -24,10 +28,6 @@ import salonBeauty from "@/assets/salon-beauty.jpg";
 
 // Pharmacy
 import pharmacyImg from "@/assets/discipline-pharmacy.jpg";
-
-// Spa & Wellness
-import spaImg from "@/assets/discipline-spa.jpg";
-import spaMassage from "@/assets/spa-massage.jpg";
 
 // Consultation
 import consultationImg from "@/assets/discipline-consultation.jpg";
@@ -52,8 +52,10 @@ import rooftopSeating from "@/assets/rooftop-seating.jpg";
 import rooftopTreadmills from "@/assets/rooftop-treadmills.jpg";
 import rooftopGym from "@/assets/rooftop-gym.jpg";
 
-// Exterior
+// Exterior & Facility
 import exteriorImg from "@/assets/discipline-exterior.jpg";
+import facilityInterior from "@/assets/facility-interior.jpg";
+import recoveryRoom from "@/assets/recovery-room.jpg";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
@@ -78,16 +80,10 @@ const disciplines: Discipline[] = [
     alt: "Rooftop rehabilitation and play therapy area",
   },
   {
-    name: "Spa & Wellness",
-    description: "Dedicated massage suites and therapeutic spa treatments for holistic recovery.",
-    images: [spaMassage, spaImg],
-    alt: "Spa and wellness treatment room",
-  },
-  {
-    name: "Ayurveda & Panchakarma",
-    description: "Traditional therapies delivered in modern treatment suites.",
-    images: [ayurvedaImg],
-    alt: "Ayurvedic treatment setup at Hitech Medicity",
+    name: "Ayurveda, Spa & Wellness",
+    description: "Traditional Ayurvedic therapies, Panchakarma, and dedicated massage suites for holistic recovery.",
+    images: [ayurvedaImg, spaMassage, spaImg],
+    alt: "Ayurveda and spa treatments at Hitech Medicity",
   },
   {
     name: "Dental Clinic",
@@ -116,8 +112,14 @@ const disciplines: Discipline[] = [
   {
     name: "Reception & Lounge",
     description: "Warm waiting spaces designed for comfort and privacy.",
-    images: [receptionWaiting, receptionImg],
+    images: [receptionWaiting, receptionImg, facilityInterior],
     alt: "Reception lounge area",
+  },
+  {
+    name: "Recovery Rooms",
+    description: "Dedicated post-treatment recovery spaces for rest and observation.",
+    images: [recoveryRoom],
+    alt: "Recovery room at Hitech Medicity",
   },
   {
     name: "Healthy Café",
@@ -152,84 +154,62 @@ const additionalSpecialties = [
   "Parkinson's Clinic",
 ];
 
-/* ── Individual discipline card with auto-cycling on hover ── */
+/* ── Individual discipline card ── */
 const DisciplineCard = ({ item, index }: { item: Discipline; index: number }) => {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
+  const [galleryOpen, setGalleryOpen] = useState(false);
   const hasMultiple = item.images.length > 1;
 
-  const advance = useCallback(() => {
-    setActiveIdx((prev) => (prev + 1) % item.images.length);
-  }, [item.images.length]);
-
-  useEffect(() => {
-    if (!isHovered || !hasMultiple) return;
-    const interval = setInterval(advance, 1800);
-    return () => clearInterval(interval);
-  }, [isHovered, hasMultiple, advance]);
-
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 14 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.45, delay: index * 0.03 }}
-      className="group rounded-3xl overflow-hidden bg-primary-foreground/5 border border-primary-foreground/10"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        setActiveIdx(0);
-      }}
-    >
-      <div className="aspect-[4/3] overflow-hidden relative">
-        {item.images.map((img, i) => (
+    <>
+      <motion.article
+        initial={{ opacity: 0, y: 14 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.45, delay: index * 0.03 }}
+        className="group rounded-3xl overflow-hidden bg-primary-foreground/5 border border-primary-foreground/10"
+      >
+        <div className="aspect-[4/3] overflow-hidden relative">
           <img
-            key={i}
-            src={img}
-            alt={i === 0 ? item.alt : `${item.alt} – view ${i + 1}`}
+            src={item.images[0]}
+            alt={item.alt}
             loading="lazy"
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
-              i === activeIdx ? "opacity-100" : "opacity-0"
-            }`}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
-        ))}
 
-        {/* Image counter badge */}
-        {hasMultiple && (
-          <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-sm text-white text-[10px] font-medium px-2.5 py-1 rounded-full flex items-center gap-1.5">
-            <span>{activeIdx + 1}/{item.images.length}</span>
-          </div>
-        )}
+          {/* Gallery button overlay */}
+          {hasMultiple && (
+            <button
+              onClick={() => setGalleryOpen(true)}
+              className="absolute bottom-3 right-3 bg-black/50 backdrop-blur-sm text-white text-xs font-medium pl-2.5 pr-3 py-1.5 rounded-full flex items-center gap-1.5 hover:bg-black/70 transition-colors"
+            >
+              <Images className="w-3.5 h-3.5" />
+              {item.images.length} photos
+            </button>
+          )}
+        </div>
 
-        {/* Dot indicators */}
-        {hasMultiple && (
-          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-            {item.images.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveIdx(i)}
-                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                  i === activeIdx
-                    ? "bg-white w-4"
-                    : "bg-white/40 hover:bg-white/70"
-                }`}
-                aria-label={`View image ${i + 1}`}
-              />
-            ))}
-          </div>
-        )}
-      </div>
+        <div className="p-6">
+          <h3 className="text-display text-2xl mb-2">{item.name}</h3>
+          <p className="text-sm leading-relaxed opacity-70">{item.description}</p>
+          {hasMultiple && (
+            <button
+              onClick={() => setGalleryOpen(true)}
+              className="text-xs uppercase tracking-wider opacity-50 mt-3 hover:opacity-80 transition-opacity underline underline-offset-2"
+            >
+              View all photos →
+            </button>
+          )}
+        </div>
+      </motion.article>
 
-      <div className="p-6">
-        <h3 className="text-display text-2xl mb-2">{item.name}</h3>
-        <p className="text-sm leading-relaxed opacity-70">{item.description}</p>
-        {hasMultiple && (
-          <p className="text-[10px] uppercase tracking-wider opacity-40 mt-3">
-            Hover to explore {item.images.length} views
-          </p>
-        )}
-      </div>
-    </motion.article>
+      <GalleryModal
+        open={galleryOpen}
+        onOpenChange={setGalleryOpen}
+        images={item.images}
+        title={item.name}
+        alt={item.alt}
+      />
+    </>
   );
 };
 
