@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import drFebina from "@/assets/dr-febina.jpg";
+import medicalStaffTeam from "@/assets/medical-staff-team-2.jpg";
 
 const WHATSAPP_LINK = "https://wa.me/919876543210?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20with%20Dr.%20Febina%20Sulthana.";
 const ease = [0.4, 0, 0.2, 1] as const;
@@ -95,6 +96,23 @@ const AboutPage = () => {
                     <Link to="/">Explore the Facility</Link>
                   </Button>
                 </div>
+              </div>
+
+              <div className="mt-12 pt-12 border-t border-foreground/5">
+                <h2 className="text-display text-2xl text-foreground mb-4">The Clinical Team</h2>
+                <div className="rounded-2xl overflow-hidden shadow-soft mb-6">
+                  <img
+                    src={medicalStaffTeam}
+                    alt="The clinical team at Hitech Medicity"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+                <p className="text-muted-foreground leading-relaxed text-lg">
+                  Behind every treatment is a team of dedicated specialists — physiotherapists, 
+                  Ayurvedic practitioners, dentists, neurologists, and support staff — all working 
+                  under Dr. Febina's integrated care philosophy. Together, they bring expertise 
+                  across 14+ disciplines to deliver compassionate, coordinated care.
+                </p>
               </div>
             </motion.div>
           </div>

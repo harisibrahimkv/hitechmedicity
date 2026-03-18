@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useRef, useState } from "react";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
@@ -9,10 +10,32 @@ const pillars = [
   { title: "A Place to Heal", description: "3-star stay facilities where patients recover in comfort, steps from Calicut's coast and cultural heart." },
 ];
 
-const PhilosophySection = () => {
+interface PhilosophySectionProps {
+  videoSrc?: string;
+}
+
+const PhilosophySection = ({ videoSrc }: PhilosophySectionProps) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   return (
-    <section id="philosophy" className="py-32 lg:py-40">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section id="philosophy" className="relative py-32 lg:py-40 overflow-hidden">
+      {/* Background video */}
+      {videoSrc && (
+        <div className="absolute inset-0 z-0">
+          <video
+            ref={videoRef}
+            src={videoSrc}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/80" />
+        </div>
+      )}
+
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -34,7 +57,7 @@ const PhilosophySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease, delay: i * 0.1 }}
-              className="group bg-champagne/50 rounded-3xl p-8 lg:p-10 transition-all duration-300 hover:bg-accent hover:scale-[1.02] hover:shadow-soft"
+              className="group bg-champagne/50 backdrop-blur-sm rounded-3xl p-8 lg:p-10 transition-all duration-300 hover:bg-accent hover:scale-[1.02] hover:shadow-soft"
             >
               <span className="text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium">0{i + 1}</span>
               <h3 className="text-display text-2xl lg:text-3xl text-foreground mt-3 mb-4">{pillar.title}</h3>

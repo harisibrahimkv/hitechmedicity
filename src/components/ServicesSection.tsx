@@ -40,8 +40,6 @@ import yogaNaturopathyImg from "@/assets/specialty-yoga-naturopathy.jpg";
 import neuroClinicImg from "@/assets/specialty-neuro-clinic.jpg";
 import hijamaImg from "@/assets/specialty-hijama.jpg";
 import ozoneImg from "@/assets/specialty-ozone.jpg";
-import osteopathyImg from "@/assets/specialty-osteopathy.jpg";
-import acupunctureImg from "@/assets/specialty-acupuncture.jpg";
 import postTraumaImg from "@/assets/specialty-post-trauma.jpg";
 import geriatricImg from "@/assets/specialty-geriatric.jpg";
 
@@ -118,7 +116,7 @@ const services: Discipline[] = [
   {
     name: "Osteopathy",
     description: "Manual therapy targeting musculoskeletal conditions through hands-on techniques.",
-    images: [osteopathyImg],
+    images: [physioTreatment, disciplinePhysioImg],
     alt: "Osteopathy treatment session",
   },
   {
@@ -130,7 +128,7 @@ const services: Discipline[] = [
   {
     name: "Acupuncture",
     description: "Precise needle therapy for pain management, stress relief, and neurological conditions.",
-    images: [acupunctureImg],
+    images: [consultationImg, disciplinePhysioImg],
     alt: "Acupuncture treatment",
   },
   {
@@ -181,7 +179,7 @@ const ServicesSection = () => {
             Every facility, <em className="text-display italic">purposefully built</em>
           </h2>
           <p className="max-w-2xl text-sm leading-relaxed opacity-70 md:text-base">
-            Browse every department and speciality we offer in one continuous view, with the same access to photos and galleries across all services.
+            From physiotherapy and Ayurveda to specialised neurology clinics — every discipline under one roof, designed around you.
           </p>
         </motion.div>
 
