@@ -39,7 +39,7 @@ const GalleryModal = ({ open, onOpenChange, images, title, alt }: GalleryModalPr
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-5xl w-[95vw] h-[85vh] p-0 bg-black border-none rounded-2xl overflow-hidden">
+      <DialogContent className="max-w-5xl w-[95vw] h-[85vh] p-0 bg-black border-none rounded-2xl overflow-hidden [&>button:last-child]:hidden">
         <VisuallyHidden>
           <DialogTitle>{title} Gallery</DialogTitle>
         </VisuallyHidden>
