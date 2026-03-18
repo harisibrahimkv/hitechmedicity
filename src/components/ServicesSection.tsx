@@ -181,7 +181,7 @@ const ServicesSection = () => {
             Every facility, <em className="text-display italic">purposefully built</em>
           </h2>
           <p className="max-w-2xl text-sm leading-relaxed opacity-70 md:text-base">
-            Browse every department and speciality we offer in one continuous view, with the same access to photos and galleries across all services.
+            From physiotherapy and Ayurveda to specialised neurology clinics — every discipline under one roof, designed around you.
           </p>
         </motion.div>
 
