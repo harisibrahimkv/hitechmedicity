@@ -21,7 +21,6 @@ import ayurvedaRoom3 from "@/assets/ayurveda-room-3.jpg";
 import ayurvedaRoom4 from "@/assets/ayurveda-room-4.jpg";
 import ayurvedaSupplies from "@/assets/ayurveda-supplies.jpg";
 import ayurvedaSupplies2 from "@/assets/ayurveda-supplies-2.jpg";
-import spaImg from "@/assets/discipline-spa.jpg";
 import spaMassage from "@/assets/spa-massage.jpg";
 
 // Dental
@@ -87,7 +86,7 @@ const disciplines: Discipline[] = [
   {
     name: "Ayurveda, Spa & Wellness",
     description: "Traditional Ayurvedic therapies, Panchakarma, and dedicated massage suites for holistic recovery.",
-    images: [ayurvedaRoom1, ayurvedaRoom3, ayurvedaRoom4, ayurvedaRoom2, spaMassage, ayurvedaSupplies, ayurvedaSupplies2, spaImg],
+    images: [ayurvedaRoom1, ayurvedaRoom3, ayurvedaRoom4, ayurvedaRoom2, spaMassage, ayurvedaSupplies, ayurvedaSupplies2],
     alt: "Ayurveda and spa treatments at Hitech Medicity",
   },
   {
