@@ -96,7 +96,7 @@ const disciplines: Discipline[] = [
   {
     name: "Aesthetic & Hair Studio",
     description: "Dedicated beauty, grooming, and cosmetic care space.",
-    images: [salonStudio],
+    images: [aestheticImg, salonStudio],
     alt: "Aesthetic and hair treatment studio",
   },
   {
