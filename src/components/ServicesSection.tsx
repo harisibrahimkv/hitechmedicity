@@ -36,14 +36,14 @@ import pharmacyImg from "@/assets/discipline-pharmacy.jpg";
 import consultationImg from "@/assets/discipline-consultation.jpg";
 
 // Reception
-import receptionImg from "@/assets/discipline-reception.jpg";
 import receptionWaiting from "@/assets/reception-waiting.jpg";
 
 // Team
 import teamImg from "@/assets/discipline-team.jpg";
+import teamImg2 from "@/assets/medical-staff-team-2.jpg";
 
 // Café
-import cafeImg from "@/assets/discipline-cafe.jpg";
+import cafe2 from "@/assets/cafe-2.jpg";
 
 // Rooftop Rehab & Play Therapy
 import rooftopPlayWide from "@/assets/rooftop-play-wide.jpg";
