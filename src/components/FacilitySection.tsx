@@ -64,6 +64,28 @@ const roomCategories: RoomCategory[] = [
       { src: kitchenetteImg, alt: "In-room kitchenette and utility area" },
     ],
   },
+  {
+    label: "Reception & Lounge",
+    description: "Warm waiting spaces designed for comfort and privacy.",
+    images: [
+      { src: receptionWaiting, alt: "Reception lounge area" },
+    ],
+  },
+  {
+    label: "Healthy Café",
+    description: "On-site café for fresh, recovery-friendly nourishment.",
+    images: [
+      { src: cafe2, alt: "In-house café" },
+    ],
+  },
+  {
+    label: "Clinical Team",
+    description: "Experienced multidisciplinary team supporting every recovery journey.",
+    images: [
+      { src: teamImg, alt: "Medical team at Hitech Medicity" },
+      { src: teamImg2, alt: "Clinical staff team" },
+    ],
+  },
 ];
 
 const RoomCategoryCard = ({ category, index }: { category: RoomCategory; index: number }) => {
