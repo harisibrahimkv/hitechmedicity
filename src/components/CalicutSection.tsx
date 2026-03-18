@@ -59,7 +59,7 @@ const CalicutSection = () => {
         >
           <div className="rounded-2xl overflow-hidden shadow-soft w-full md:w-1/2 aspect-[16/10]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.174!2d75.7873088!3d11.2741312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6597840bb9749%3A0x5c178bf99fa4deaf!2sHitech%20Medicity!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+              src="https://maps.google.com/maps?q=Hitech+Medicity+Physiotherapy+Rehabilitation+Centre+Calicut&t=&z=16&ie=UTF8&iwloc=&output=embed"
               title="Hitech Medicity Location"
               className="w-full h-full border-0"
               allowFullScreen
@@ -74,7 +74,7 @@ const CalicutSection = () => {
               Located in the heart of Calicut, just minutes from the beach and easily accessible from the airport and railway station.
             </p>
             <a
-              href="https://maps.app.goo.gl/uggRR6MxydQdSot97"
+              href="https://maps.app.goo.gl/2836LqwG81s7X4yk6"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-foreground hover:text-primary transition-colors underline underline-offset-4 font-medium"
