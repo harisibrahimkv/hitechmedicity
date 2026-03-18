@@ -119,7 +119,7 @@ const disciplines: Discipline[] = [
   {
     name: "Healthy Café",
     description: "On-site café for fresh, recovery-friendly nourishment.",
-    images: [cafeImg],
+    images: [cafe2],
     alt: "In-house café",
   },
   {
