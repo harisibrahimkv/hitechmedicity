@@ -125,7 +125,7 @@ const disciplines: Discipline[] = [
   {
     name: "Clinical Team",
     description: "Experienced multidisciplinary team supporting every recovery journey.",
-    images: [teamImg],
+    images: [teamImg, teamImg2],
     alt: "Medical team at Hitech Medicity",
   },
   {
