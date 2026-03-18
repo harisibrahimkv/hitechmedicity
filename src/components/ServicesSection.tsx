@@ -104,12 +104,6 @@ const disciplines: Discipline[] = [
 
 const otherServices: Discipline[] = [
   {
-    name: "Ayurveda",
-    description: "Traditional Ayurvedic therapies and Panchakarma for holistic recovery and wellness.",
-    images: [ayurvedaRoom1],
-    alt: "Ayurveda treatment room",
-  },
-  {
     name: "Yoga",
     description: "Guided therapeutic yoga for flexibility, strength, and holistic healing.",
     images: [yogaImg],
@@ -120,12 +114,6 @@ const otherServices: Discipline[] = [
     description: "Nature-based healing using herbal remedies, nutrition, and lifestyle therapies.",
     images: [naturopathyImg],
     alt: "Naturopathy treatment clinic",
-  },
-  {
-    name: "Physiotherapy",
-    description: "Comprehensive rehabilitation with advanced equipment and personalised treatment plans.",
-    images: [physioRoom],
-    alt: "Physiotherapy treatment session",
   },
   {
     name: "Aesthetic & Hair Clinic",
