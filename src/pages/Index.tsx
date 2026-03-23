@@ -4,6 +4,7 @@ import PhilosophySection from "@/components/PhilosophySection";
 import ServicesSection from "@/components/ServicesSection";
 import FacilitySection from "@/components/FacilitySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import MediaCoverageSection from "@/components/MediaCoverageSection";
 import CalicutSection from "@/components/CalicutSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
