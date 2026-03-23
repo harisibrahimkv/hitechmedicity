@@ -173,6 +173,9 @@ const TestimonialsSection = () => {
           </motion.div>
         ))}
 
+        {/* YouTube testimonials carousel */}
+        <YouTubeTestimonialsCarousel />
+
         {/* Written testimonials carousel */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
