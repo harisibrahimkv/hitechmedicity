@@ -16,6 +16,7 @@ const AboutPage = () => {
       
       <section className="pt-32 pb-20 lg:pt-40 lg:pb-32">
         <div className="container mx-auto px-6 lg:px-8">
+          {/* Doctor intro — 2-column */}
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <motion.div
               initial={{ opacity: 0, scale: 0.97 }}
@@ -77,57 +78,70 @@ const AboutPage = () => {
                   </div>
                 ))}
               </div>
-
-              <div className="mt-12 pt-12 border-t border-foreground/5">
-                <h2 className="text-display text-2xl text-foreground mb-4">The Vision</h2>
-                <p className="text-muted-foreground leading-relaxed text-lg mb-8">
-                  Hitech Medicity is more than a hospital — it's a destination for healing. 
-                  With 3-star stay facilities, a team of specialists across 14+ disciplines, 
-                  and a location in the cultural heart of Calicut, Dr. Febina has created a 
-                  space where patients don't just recover — they are restored.
-                </p>
-
-                {/* Promo video */}
-                <div className="rounded-2xl overflow-hidden shadow-soft mb-8 aspect-video">
-                  <iframe
-                    src="https://www.youtube-nocookie.com/embed/A2_KjoeuLX4"
-                    title="Hitech Medicity — A tour of the facility"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  />
-                </div>
-
-                <div className="flex flex-wrap gap-4">
-                  <Button variant="hero" size="lg" asChild>
-                    <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                      Consult with Dr. Febina
-                    </a>
-                  </Button>
-                  <Button variant="outline" size="lg" asChild>
-                    <Link to="/">Explore the Facility</Link>
-                  </Button>
-                </div>
-              </div>
-
-              <div className="mt-12 pt-12 border-t border-foreground/5">
-                <h2 className="text-display text-2xl text-foreground mb-4">The Clinical Team</h2>
-                <div className="rounded-2xl overflow-hidden shadow-soft mb-6">
-                  <img
-                    src={medicalStaffTeam}
-                    alt="The clinical team at Hitech Medicity"
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-                <p className="text-muted-foreground leading-relaxed text-lg">
-                  Behind every treatment is a team of dedicated specialists — physiotherapists, 
-                  Ayurvedic practitioners, dentists, neurologists, and support staff — all working 
-                  under Dr. Febina's integrated care philosophy. Together, they bring expertise 
-                  across 14+ disciplines to deliver compassionate, coordinated care.
-                </p>
-              </div>
             </motion.div>
           </div>
+
+          {/* The Vision — full width */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="mt-24 pt-12 border-t border-foreground/5"
+          >
+            <h2 className="text-display text-3xl md:text-4xl text-foreground mb-6">The Vision</h2>
+            <p className="text-muted-foreground leading-relaxed text-lg mb-10 max-w-3xl">
+              Hitech Medicity is more than a hospital — it's a destination for healing. 
+              With 3-star stay facilities, a team of specialists across 14+ disciplines, 
+              and a location in the cultural heart of Calicut, Dr. Febina has created a 
+              space where patients don't just recover — they are restored.
+            </p>
+
+            <div className="rounded-2xl overflow-hidden shadow-soft mb-10 aspect-video">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/A2_KjoeuLX4"
+                title="Hitech Medicity — A tour of the facility"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
+
+            <div className="flex flex-wrap gap-4">
+              <Button variant="hero" size="lg" asChild>
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+                  Consult with Dr. Febina
+                </a>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <Link to="/">Explore the Facility</Link>
+              </Button>
+            </div>
+          </motion.div>
+
+          {/* The Clinical Team — full width */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease }}
+            className="mt-24 pt-12 border-t border-foreground/5"
+          >
+            <h2 className="text-display text-3xl md:text-4xl text-foreground mb-6">The Clinical Team</h2>
+            <div className="rounded-2xl overflow-hidden shadow-soft mb-6">
+              <img
+                src={medicalStaffTeam}
+                alt="The clinical team at Hitech Medicity"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <p className="text-muted-foreground leading-relaxed text-lg max-w-3xl">
+              Behind every treatment is a team of dedicated specialists — physiotherapists, 
+              Ayurvedic practitioners, dentists, neurologists, and support staff — all working 
+              under Dr. Febina's integrated care philosophy. Together, they bring expertise 
+              across 14+ disciplines to deliver compassionate, coordinated care.
+            </p>
+          </motion.div>
         </div>
       </section>
 
