@@ -4,6 +4,12 @@ import AutoScrollCarousel from "@/components/AutoScrollCarousel";
 import physioTreatment from "@/assets/physio-treatment.jpg";
 import physioWide2 from "@/assets/physio-wide-2.jpg";
 import physioGaitBars from "@/assets/physio-gait-bars.jpg";
+import physioRoom from "@/assets/physio-room.jpg";
+import physioEquipment from "@/assets/physio-equipment.jpg";
+import physioWide from "@/assets/physio-wide.jpg";
+import physioArthritis from "@/assets/physio-arthritis.jpg";
+import physioHandTherapy from "@/assets/physio-hand-therapy.jpg";
+import physioBed from "@/assets/physio-bed.jpg";
 
 import ayurvedaRoom1 from "@/assets/ayurveda-room-1.jpg";
 import ayurvedaRoom2 from "@/assets/ayurveda-room-2.jpg";
@@ -26,6 +32,18 @@ import ozoneImg from "@/assets/specialty-ozone.jpg";
 import postTraumaImg from "@/assets/specialty-post-trauma.jpg";
 import geriatricImg from "@/assets/specialty-geriatric.jpg";
 
+import rooftopPlayWide from "@/assets/rooftop-play-wide.jpg";
+import rooftopPlayCenter from "@/assets/rooftop-play-center.jpg";
+import rooftopSandTrack from "@/assets/rooftop-sand-track.jpg";
+import rooftopBridge from "@/assets/rooftop-bridge.jpg";
+import rooftopLounge from "@/assets/rooftop-lounge.jpg";
+import rooftopSeating from "@/assets/rooftop-seating.jpg";
+import rooftopTreadmills from "@/assets/rooftop-treadmills.jpg";
+import rooftopGym from "@/assets/rooftop-gym.jpg";
+
+import aestheticImg from "@/assets/discipline-aesthetic.jpg";
+import pharmacyImg from "@/assets/discipline-pharmacy.jpg";
+
 const ease = [0.4, 0, 0.2, 1] as const;
 
 interface Discipline {
@@ -35,7 +53,7 @@ interface Discipline {
   alt: string;
 }
 
-const services: Discipline[] = [
+const disciplines: Discipline[] = [
   {
     name: "Ayurveda",
     description: "Traditional Ayurvedic therapies, Panchakarma, and dedicated wellness suites for holistic recovery.",
@@ -122,10 +140,38 @@ const services: Discipline[] = [
   },
 ];
 
+const facilities: Discipline[] = [
+  {
+    name: "Physiotherapy & Gait Lab",
+    description: "Comprehensive rehab with parallel bars, balance training, hand therapy, and advanced gait analysis.",
+    images: [physioEquipment, physioRoom, physioGaitBars, physioWide, physioWide2, physioArthritis, physioHandTherapy, physioBed, physioTreatment],
+    alt: "Physiotherapy and gait lab facility",
+  },
+  {
+    name: "Rooftop Rehab & Play Therapy",
+    description: "Open-air therapeutic play centre with sensory tracks, trampolines, and terrace fitness equipment.",
+    images: [rooftopPlayWide, rooftopPlayCenter, rooftopSandTrack, rooftopBridge, rooftopLounge, rooftopSeating, rooftopTreadmills, rooftopGym],
+    alt: "Rooftop rehabilitation and play therapy area",
+  },
+  {
+    name: "Aesthetic & Hair Clinic",
+    description: "Dedicated beauty, grooming, and cosmetic care space.",
+    images: [aestheticImg],
+    alt: "Aesthetic and hair treatment studio",
+  },
+  {
+    name: "In-house Pharmacy",
+    description: "Integrated medicine and wellness products under one roof.",
+    images: [pharmacyImg],
+    alt: "In-house pharmacy",
+  },
+];
+
 const ServicesSection = () => {
   return (
     <section id="services" className="bg-primary py-32 text-primary-foreground lg:py-40">
       <div className="container mx-auto px-6 lg:px-8">
+        {/* Disciplines */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -135,14 +181,33 @@ const ServicesSection = () => {
         >
           <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] opacity-60">Our Disciplines</p>
           <h2 className="text-display mb-6 text-4xl leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
-            Every facility, <em className="text-display italic">purposefully built</em>
+            Every discipline, <em className="text-display italic">under one roof</em>
           </h2>
           <p className="max-w-2xl text-sm leading-relaxed opacity-70 md:text-base">
-            From physiotherapy and Ayurveda to specialised neurology clinics — every discipline under one roof, designed around you.
+            From physiotherapy and Ayurveda to specialised neurology clinics — a comprehensive range of holistic treatments, designed around you.
           </p>
         </motion.div>
 
-        <AutoScrollCarousel items={services} speed={40} />
+        <AutoScrollCarousel items={disciplines} speed={40} />
+
+        {/* Facilities */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease }}
+          className="mb-16 mt-32 max-w-3xl"
+        >
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] opacity-60">Our Facilities</p>
+          <h2 className="text-display mb-6 text-4xl leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
+            Every facility, <em className="text-display italic">purposefully built</em>
+          </h2>
+          <p className="max-w-2xl text-sm leading-relaxed opacity-70 md:text-base">
+            Purpose-built spaces equipped for advanced rehabilitation, therapy, and patient care.
+          </p>
+        </motion.div>
+
+        <AutoScrollCarousel items={facilities} speed={30} />
       </div>
     </section>
   );
