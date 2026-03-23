@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import stayPremiumDouble from "@/assets/stay-premium-double.jpg";
-import stayDoubleBlue from "@/assets/stay-double-blue.jpg";
 import staySingleRoom from "@/assets/stay-single-room.jpg";
 import staySingleModern from "@/assets/stay-single-modern.jpg";
 import stayBathroom from "@/assets/stay-bathroom.jpg";
@@ -15,28 +14,6 @@ import bathroomImg from "@/assets/hitech-suite-bathroom.jpg";
 import accessibleBathImg from "@/assets/hitech-suite-accessible-bath.jpg";
 import receptionWaiting from "@/assets/reception-waiting.jpg";
 import cafe2 from "@/assets/cafe-2.jpg";
-
-import physioRoom from "@/assets/physio-room.jpg";
-import physioEquipment from "@/assets/physio-equipment.jpg";
-import physioTreatment from "@/assets/physio-treatment.jpg";
-import physioWide from "@/assets/physio-wide.jpg";
-import physioWide2 from "@/assets/physio-wide-2.jpg";
-import physioArthritis from "@/assets/physio-arthritis.jpg";
-import physioHandTherapy from "@/assets/physio-hand-therapy.jpg";
-import physioGaitBars from "@/assets/physio-gait-bars.jpg";
-import physioBed from "@/assets/physio-bed.jpg";
-
-import rooftopPlayWide from "@/assets/rooftop-play-wide.jpg";
-import rooftopPlayCenter from "@/assets/rooftop-play-center.jpg";
-import rooftopSandTrack from "@/assets/rooftop-sand-track.jpg";
-import rooftopBridge from "@/assets/rooftop-bridge.jpg";
-import rooftopLounge from "@/assets/rooftop-lounge.jpg";
-import rooftopSeating from "@/assets/rooftop-seating.jpg";
-import rooftopTreadmills from "@/assets/rooftop-treadmills.jpg";
-import rooftopGym from "@/assets/rooftop-gym.jpg";
-
-import aestheticImg from "@/assets/discipline-aesthetic.jpg";
-import pharmacyImg from "@/assets/discipline-pharmacy.jpg";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
@@ -97,49 +74,6 @@ const roomCategories: RoomCategory[] = [
       { src: cafe2, alt: "In-house café" },
     ],
   },
-  {
-    label: "Physiotherapy & Gait Lab",
-    description: "Comprehensive rehab with parallel bars, balance training, hand therapy, and advanced gait analysis.",
-    images: [
-      { src: physioEquipment, alt: "Physiotherapy equipment" },
-      { src: physioRoom, alt: "Physiotherapy room" },
-      { src: physioGaitBars, alt: "Gait training bars" },
-      { src: physioWide, alt: "Wide view of physio facility" },
-      { src: physioWide2, alt: "Physio facility overview" },
-      { src: physioArthritis, alt: "Arthritis treatment area" },
-      { src: physioHandTherapy, alt: "Hand therapy station" },
-      { src: physioBed, alt: "Physiotherapy bed" },
-      { src: physioTreatment, alt: "Treatment in progress" },
-    ],
-  },
-  {
-    label: "Rooftop Rehab & Play Therapy",
-    description: "Open-air therapeutic play centre with sensory tracks, trampolines, and terrace fitness equipment.",
-    images: [
-      { src: rooftopPlayWide, alt: "Rooftop play therapy wide view" },
-      { src: rooftopPlayCenter, alt: "Play therapy centre" },
-      { src: rooftopSandTrack, alt: "Sensory sand track" },
-      { src: rooftopBridge, alt: "Therapy bridge" },
-      { src: rooftopLounge, alt: "Rooftop lounge area" },
-      { src: rooftopSeating, alt: "Rooftop seating" },
-      { src: rooftopTreadmills, alt: "Rooftop treadmills" },
-      { src: rooftopGym, alt: "Rooftop gym equipment" },
-    ],
-  },
-  {
-    label: "Aesthetic & Hair Clinic",
-    description: "Dedicated beauty, grooming, and cosmetic care space.",
-    images: [
-      { src: aestheticImg, alt: "Aesthetic and hair treatment studio" },
-    ],
-  },
-  {
-    label: "In-house Pharmacy",
-    description: "Integrated medicine and wellness products under one roof.",
-    images: [
-      { src: pharmacyImg, alt: "In-house pharmacy" },
-    ],
-  },
 ];
 
 const RoomCategoryCard = ({ category, index }: { category: RoomCategory; index: number }) => {
@@ -169,7 +103,6 @@ const RoomCategoryCard = ({ category, index }: { category: RoomCategory; index: 
           />
         </AnimatePresence>
 
-        {/* Navigation arrows */}
         {hasMultiple && (
           <>
             <button
@@ -189,7 +122,6 @@ const RoomCategoryCard = ({ category, index }: { category: RoomCategory; index: 
           </>
         )}
 
-        {/* Dots */}
         {hasMultiple && (
           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
             {category.images.map((_, i) => (
@@ -205,7 +137,6 @@ const RoomCategoryCard = ({ category, index }: { category: RoomCategory; index: 
           </div>
         )}
 
-        {/* Counter */}
         {hasMultiple && (
           <div className="absolute top-3 right-3 bg-black/40 backdrop-blur-sm text-white text-[10px] font-medium px-2.5 py-1 rounded-full">
             {activeIdx + 1}/{category.images.length}
