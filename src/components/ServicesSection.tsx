@@ -53,18 +53,6 @@ const services: Discipline[] = [
     alt: "Dental treatment room",
   },
   {
-    name: "Aesthetic & Hair Clinic",
-    description: "Dedicated beauty, grooming, and cosmetic care space.",
-    images: [aestheticImg],
-    alt: "Aesthetic and hair treatment studio",
-  },
-  {
-    name: "In-house Pharmacy",
-    description: "Integrated medicine and wellness products under one roof.",
-    images: [pharmacyImg],
-    alt: "In-house pharmacy",
-  },
-  {
     name: "Hijama",
     description: "Traditional cupping therapy for pain relief, detoxification, and improved circulation.",
     images: [hijamaImg],

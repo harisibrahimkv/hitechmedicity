@@ -97,6 +97,49 @@ const roomCategories: RoomCategory[] = [
       { src: cafe2, alt: "In-house café" },
     ],
   },
+  {
+    label: "Physiotherapy & Gait Lab",
+    description: "Comprehensive rehab with parallel bars, balance training, hand therapy, and advanced gait analysis.",
+    images: [
+      { src: physioEquipment, alt: "Physiotherapy equipment" },
+      { src: physioRoom, alt: "Physiotherapy room" },
+      { src: physioGaitBars, alt: "Gait training bars" },
+      { src: physioWide, alt: "Wide view of physio facility" },
+      { src: physioWide2, alt: "Physio facility overview" },
+      { src: physioArthritis, alt: "Arthritis treatment area" },
+      { src: physioHandTherapy, alt: "Hand therapy station" },
+      { src: physioBed, alt: "Physiotherapy bed" },
+      { src: physioTreatment, alt: "Treatment in progress" },
+    ],
+  },
+  {
+    label: "Rooftop Rehab & Play Therapy",
+    description: "Open-air therapeutic play centre with sensory tracks, trampolines, and terrace fitness equipment.",
+    images: [
+      { src: rooftopPlayWide, alt: "Rooftop play therapy wide view" },
+      { src: rooftopPlayCenter, alt: "Play therapy centre" },
+      { src: rooftopSandTrack, alt: "Sensory sand track" },
+      { src: rooftopBridge, alt: "Therapy bridge" },
+      { src: rooftopLounge, alt: "Rooftop lounge area" },
+      { src: rooftopSeating, alt: "Rooftop seating" },
+      { src: rooftopTreadmills, alt: "Rooftop treadmills" },
+      { src: rooftopGym, alt: "Rooftop gym equipment" },
+    ],
+  },
+  {
+    label: "Aesthetic & Hair Clinic",
+    description: "Dedicated beauty, grooming, and cosmetic care space.",
+    images: [
+      { src: aestheticImg, alt: "Aesthetic and hair treatment studio" },
+    ],
+  },
+  {
+    label: "In-house Pharmacy",
+    description: "Integrated medicine and wellness products under one roof.",
+    images: [
+      { src: pharmacyImg, alt: "In-house pharmacy" },
+    ],
+  },
 ];
 
 const RoomCategoryCard = ({ category, index }: { category: RoomCategory; index: number }) => {
