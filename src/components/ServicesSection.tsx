@@ -29,18 +29,6 @@ interface Discipline {
 
 const services: Discipline[] = [
   {
-    name: "Physiotherapy & Gait Lab",
-    description: "Comprehensive rehab with parallel bars, balance training, hand therapy, and advanced gait analysis.",
-    images: [physioEquipment, physioRoom, physioGaitBars, physioWide, physioWide2, physioArthritis, physioHandTherapy, physioBed, physioTreatment],
-    alt: "Physiotherapy and gait training at Hitech Medicity",
-  },
-  {
-    name: "Rooftop Rehab & Play Therapy",
-    description: "Open-air therapeutic play centre with sensory tracks, trampolines, and terrace fitness equipment.",
-    images: [rooftopPlayWide, rooftopPlayCenter, rooftopSandTrack, rooftopBridge, rooftopLounge, rooftopSeating, rooftopTreadmills, rooftopGym],
-    alt: "Rooftop rehabilitation and play therapy area",
-  },
-  {
     name: "Ayurveda",
     description: "Traditional Ayurvedic therapies, Panchakarma, and dedicated wellness suites for holistic recovery.",
     images: [ayurvedaRoom1, ayurvedaRoom3, ayurvedaRoom4, ayurvedaRoom2, spaMassage, ayurvedaSupplies, ayurvedaSupplies2],
