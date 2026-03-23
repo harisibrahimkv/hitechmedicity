@@ -86,6 +86,18 @@ const AboutPage = () => {
                   and a location in the cultural heart of Calicut, Dr. Febina has created a 
                   space where patients don't just recover — they are restored.
                 </p>
+
+                {/* Promo video */}
+                <div className="rounded-2xl overflow-hidden shadow-soft mb-8 aspect-video">
+                  <iframe
+                    src="https://www.youtube-nocookie.com/embed/A2_KjoeuLX4"
+                    title="Hitech Medicity — A tour of the facility"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                </div>
+
                 <div className="flex flex-wrap gap-4">
                   <Button variant="hero" size="lg" asChild>
                     <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
