@@ -10,6 +10,33 @@ import { useEffect, useState } from "react";
 
 const WHATSAPP_LINK = "https://wa.me/919876543210?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20with%20Dr.%20Febina%20Sulthana.";
 const ease = [0.4, 0, 0.2, 1] as const;
+const teamImages = [medicalStaffTeam, medicalStaffTeam2];
+
+const TeamCarousel = () => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((i) => (i + 1) % teamImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="relative rounded-2xl overflow-hidden shadow-soft mb-6 aspect-[16/9]">
+      {teamImages.map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt="The clinical team at Hitech Medicity"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+            i === current ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+    </div>
+  );
+};
 
 const AboutPage = () => {
   return (
