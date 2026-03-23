@@ -86,7 +86,7 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section id="testimonials" className="py-32 lg:py-40 bg-champagne/30">
+    <section id="testimonials" className="py-32 lg:py-40 bg-primary text-primary-foreground">
       <div className="container mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -95,10 +95,10 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.5, ease }}
           className="max-w-2xl mb-20"
         >
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4">
+          <p className="text-xs uppercase tracking-[0.2em] opacity-60 font-medium mb-4">
             Stories
           </p>
-          <h2 className="text-display text-4xl md:text-5xl lg:text-6xl tracking-tight text-foreground leading-[1.1]">
+          <h2 className="text-display text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1]">
             Voices of <em className="text-display italic">healing</em>
           </h2>
         </motion.div>
@@ -114,7 +114,7 @@ const TestimonialsSection = () => {
             className="grid lg:grid-cols-2 gap-8 mb-16"
           >
             {/* Video player */}
-            <div className="relative rounded-2xl overflow-hidden aspect-video lg:aspect-auto lg:h-full bg-foreground/5">
+            <div className="relative rounded-2xl overflow-hidden aspect-video lg:aspect-auto lg:h-full bg-primary-foreground/10">
               <video
                 ref={(el) => {
                   videoRefs.current[video.id] = el;
@@ -128,29 +128,29 @@ const TestimonialsSection = () => {
               {playingVideo !== video.id && (
                 <button
                   onClick={() => toggleVideo(video.id)}
-                  className="absolute inset-0 flex items-center justify-center bg-foreground/20 hover:bg-foreground/30 transition-colors duration-300"
+                  className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors duration-300"
                   aria-label="Play video"
                 >
-                  <div className="w-16 h-16 rounded-full bg-background/90 flex items-center justify-center shadow-soft">
-                    <Play className="w-6 h-6 text-foreground ml-0.5" />
+                  <div className="w-16 h-16 rounded-full bg-primary-foreground/90 flex items-center justify-center shadow-soft">
+                    <Play className="w-6 h-6 text-primary ml-0.5" />
                   </div>
                 </button>
               )}
               {playingVideo === video.id && (
                 <button
                   onClick={() => toggleVideo(video.id)}
-                  className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-background/80 flex items-center justify-center shadow-soft opacity-0 hover:opacity-100 transition-opacity duration-300"
+                  className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-primary-foreground/80 flex items-center justify-center shadow-soft opacity-0 hover:opacity-100 transition-opacity duration-300"
                   aria-label="Pause video"
                 >
-                  <Pause className="w-4 h-4 text-foreground" />
+                  <Pause className="w-4 h-4 text-primary" />
                 </button>
               )}
             </div>
 
             {/* Transcription */}
             <div className="flex flex-col justify-center">
-              <Quote className="w-8 h-8 text-primary/20 mb-4" />
-              <blockquote className="text-base md:text-lg leading-relaxed text-foreground/70 mb-6">
+              <Quote className="w-8 h-8 text-primary-foreground/20 mb-4" />
+              <blockquote className="text-base md:text-lg leading-relaxed opacity-70 mb-6">
                 "{video.quote}"
               </blockquote>
               <div>
@@ -158,14 +158,14 @@ const TestimonialsSection = () => {
                   href={video.profileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-display text-lg text-foreground hover:text-primary transition-colors"
+                  className="text-display text-lg hover:opacity-80 transition-opacity"
                 >
                   {video.name}
                 </a>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm opacity-60">
                   {video.title}
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm opacity-60">
                   {video.location}
                 </p>
               </div>

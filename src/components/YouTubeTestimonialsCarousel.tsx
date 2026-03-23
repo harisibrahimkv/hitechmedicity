@@ -40,7 +40,7 @@ const YouTubeTestimonialsCarousel = () => {
 
   return (
     <div className="relative mt-12">
-      <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-6">
+      <p className="text-xs uppercase tracking-[0.2em] opacity-60 font-medium mb-6">
         More patient stories
       </p>
 
@@ -50,7 +50,7 @@ const YouTubeTestimonialsCarousel = () => {
           variant="outline"
           size="icon"
           onClick={() => scroll("left")}
-          className="absolute left-0 top-1/2 z-10 h-10 w-10 -translate-y-1/2 rounded-full bg-background/90 shadow-soft backdrop-blur-sm"
+          className="absolute left-0 top-1/2 z-10 h-10 w-10 -translate-y-1/2 rounded-full bg-primary-foreground/90 text-primary shadow-soft backdrop-blur-sm border-primary-foreground/20"
           aria-label="Scroll left"
         >
           <ChevronLeft className="h-4 w-4" />
@@ -61,7 +61,7 @@ const YouTubeTestimonialsCarousel = () => {
           variant="outline"
           size="icon"
           onClick={() => scroll("right")}
-          className="absolute right-0 top-1/2 z-10 h-10 w-10 -translate-y-1/2 rounded-full bg-background/90 shadow-soft backdrop-blur-sm"
+          className="absolute right-0 top-1/2 z-10 h-10 w-10 -translate-y-1/2 rounded-full bg-primary-foreground/90 text-primary shadow-soft backdrop-blur-sm border-primary-foreground/20"
           aria-label="Scroll right"
         >
           <ChevronRight className="h-4 w-4" />
@@ -77,7 +77,7 @@ const YouTubeTestimonialsCarousel = () => {
         {youtubeVideos.map((id) => (
           <div
             key={id}
-            className="w-[320px] sm:w-[360px] shrink-0 rounded-2xl overflow-hidden border border-primary-foreground/10 bg-foreground/5"
+            className="w-[320px] sm:w-[360px] shrink-0 rounded-2xl overflow-hidden border border-primary-foreground/10 bg-primary-foreground/5"
           >
             <div className="aspect-video">
               <iframe
