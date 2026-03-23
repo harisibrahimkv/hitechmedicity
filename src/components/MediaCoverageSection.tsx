@@ -1,6 +1,19 @@
-import { Globe } from "lucide-react";
+import { Globe, Play } from "lucide-react";
+import { useEffect } from "react";
 
 const MediaCoverageSection = () => {
+  useEffect(() => {
+    // Load Instagram embed script
+    if (!(window as any).instgrm) {
+      const script = document.createElement("script");
+      script.src = "//www.instagram.com/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
+    } else {
+      (window as any).instgrm.Embeds.process();
+    }
+  }, []);
+
   return (
     <section id="media" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6 md:px-8 max-w-6xl">
@@ -13,8 +26,9 @@ const MediaCoverageSection = () => {
             Putting India on the Map
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-            When renowned Egyptian journalist and TV presenter Mona Iraqi visited our facility,
-            she called it a standout representation of India's excellence in holistic healthcare.
+            When renowned Egyptian journalist and TV presenter Mona Iraqi came to India
+            investigating holistic treatments, she discovered the transformative power of
+            Kerala's Ayurveda at our facility.
           </p>
         </div>
 
@@ -50,32 +64,73 @@ const MediaCoverageSection = () => {
                 Egyptian TV Presenter · Investigative Journalist · Documentary Producer
               </p>
 
+              <blockquote className="border-l-2 border-primary/30 pl-4 italic text-foreground/80 leading-relaxed mb-6">
+                "I was investigating what kind of treatment I could get in India.
+                After spending a month here, I realise India — especially Kerala —
+                has a special treatment called Ayurveda."
+              </blockquote>
+
               <p className="text-foreground/80 leading-relaxed">
                 With millions of followers across the Arab world, Mona Iraqi is one of Egypt's
-                most prominent investigative journalists and TV presenters. Her visit to our
-                facility in November 2025 was a moment of pride — she specifically highlighted
-                how our approach to holistic healing stands out as a beacon of India's
-                contribution to global wellness.
+                most prominent investigative journalists and TV presenters. Her month-long
+                stay at our facility was a moment of pride for us and for Indian Ayurveda.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Instagram Reel — centered, nicely contained */}
-        <div className="flex flex-col items-center text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-6">
-            Watch the Reel
-          </p>
-          <div className="w-full max-w-[400px] rounded-3xl overflow-hidden border border-primary/10 bg-primary/[0.03] shadow-lg">
-            <iframe
-              src="https://www.instagram.com/reel/DQrPP9-FQ97/embed/"
-              className="w-full border-0"
-              style={{ minHeight: "580px" }}
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              loading="lazy"
-              title="Mona Iraqi visits the facility — Instagram Reel"
-            />
+        {/* Bottom row: Reel + Media One link */}
+        <div className="grid md:grid-cols-2 gap-8 items-start">
+          {/* Instagram Reel */}
+          <div className="flex flex-col items-center text-center">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-6">
+              Watch the Reel
+            </p>
+            <div className="w-full max-w-[400px] rounded-3xl overflow-hidden border border-primary/10 bg-primary/[0.03] shadow-lg">
+              <blockquote
+                className="instagram-media"
+                data-instgrm-permalink="https://www.instagram.com/reel/DQrPP9-FQ97/"
+                data-instgrm-version="14"
+                style={{ margin: 0, maxWidth: "100%", minWidth: "100%", border: 0 }}
+              >
+                <div style={{ padding: "16px" }}>
+                  <a
+                    href="https://www.instagram.com/reel/DQrPP9-FQ97/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary text-sm"
+                  >
+                    View this reel on Instagram
+                  </a>
+                </div>
+              </blockquote>
+            </div>
+          </div>
+
+          {/* Media One link */}
+          <div className="flex flex-col items-center text-center justify-center h-full">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-6">
+              Full Media Coverage
+            </p>
+            <a
+              href="https://www.youtube.com/watch?v=-NeJ3d8XRuc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-3xl border border-primary/10 bg-primary/[0.03] p-10 md:p-14 flex flex-col items-center gap-6 transition-all hover:border-primary/30 hover:shadow-lg"
+            >
+              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <Play className="h-7 w-7 text-primary ml-1" />
+              </div>
+              <div>
+                <h4 className="font-serif text-2xl tracking-tight mb-2">
+                  Watch the Complete Report
+                </h4>
+                <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
+                  The full interview and feature story on Media One, covering
+                  Mona Iraqi's experience with Ayurveda in Kerala.
+                </p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
