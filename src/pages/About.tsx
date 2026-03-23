@@ -5,9 +5,38 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import drFebina from "@/assets/dr-febina.jpg";
 import medicalStaffTeam from "@/assets/medical-staff-team-2.jpg";
+import medicalStaffTeam2 from "@/assets/medical-staff-team-3.jpg";
+import { useEffect, useState } from "react";
 
 const WHATSAPP_LINK = "https://wa.me/919876543210?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20with%20Dr.%20Febina%20Sulthana.";
 const ease = [0.4, 0, 0.2, 1] as const;
+const teamImages = [medicalStaffTeam, medicalStaffTeam2];
+
+const TeamCarousel = () => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((i) => (i + 1) % teamImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="relative rounded-2xl overflow-hidden shadow-soft mb-6 aspect-[16/9]">
+      {teamImages.map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt="The clinical team at Hitech Medicity"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+            i === current ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+    </div>
+  );
+};
 
 const AboutPage = () => {
   return (
@@ -87,10 +116,10 @@ const AboutPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease }}
-            className="mt-24 pt-12 border-t border-foreground/5"
+            className="mt-24 pt-12 border-t border-foreground/5 text-center"
           >
             <h2 className="text-display text-3xl md:text-4xl text-foreground mb-6">The Vision</h2>
-            <p className="text-muted-foreground leading-relaxed text-lg mb-10 max-w-3xl">
+            <p className="text-muted-foreground leading-relaxed text-lg mb-10 max-w-3xl mx-auto">
               Hitech Medicity is more than a hospital — it's a destination for healing. 
               With 3-star stay facilities, a team of specialists across 14+ disciplines, 
               and a location in the cultural heart of Calicut, Dr. Febina has created a 
@@ -107,7 +136,7 @@ const AboutPage = () => {
               />
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 justify-center">
               <Button variant="hero" size="lg" asChild>
                 <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
                   Consult with Dr. Febina
@@ -125,17 +154,11 @@ const AboutPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease }}
-            className="mt-24 pt-12 border-t border-foreground/5"
+            className="mt-24 pt-12 border-t border-foreground/5 text-center"
           >
             <h2 className="text-display text-3xl md:text-4xl text-foreground mb-6">The Clinical Team</h2>
-            <div className="rounded-2xl overflow-hidden shadow-soft mb-6">
-              <img
-                src={medicalStaffTeam}
-                alt="The clinical team at Hitech Medicity"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <p className="text-muted-foreground leading-relaxed text-lg max-w-3xl">
+            <TeamCarousel />
+            <p className="text-muted-foreground leading-relaxed text-lg max-w-3xl mx-auto">
               Behind every treatment is a team of dedicated specialists — physiotherapists, 
               Ayurvedic practitioners, dentists, neurologists, and support staff — all working 
               under Dr. Febina's integrated care philosophy. Together, they bring expertise 
