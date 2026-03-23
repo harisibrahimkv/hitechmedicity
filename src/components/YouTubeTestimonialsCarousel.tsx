@@ -8,7 +8,6 @@ const youtubeVideos = [
   "XKgEPqBcaKk",
   "S1KaS3pUQLE",
   "KZtgiJ_GOhI",
-  "7CikHpAWaJw",
   "_aSVzrpU2SI",
   "iQuwI1Dww9c",
   "QjQXsIlZ98M",
@@ -17,7 +16,6 @@ const youtubeVideos = [
   "ezkA4c9jmBg",
   "eTQ8w7yfDM0",
   "Ac6boNNHRP4",
-  "cRJpQfegh5s",
   "sy7SRLJ2WsU",
   "RHwke8l_3Pg",
 ];
