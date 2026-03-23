@@ -149,8 +149,8 @@ const TestimonialsSection = () => {
 
             {/* Transcription */}
             <div className="flex flex-col justify-center">
-              <Quote className="w-8 h-8 text-primary/20 mb-4" />
-              <blockquote className="text-base md:text-lg leading-relaxed text-foreground/70 mb-6">
+              <Quote className="w-8 h-8 text-primary-foreground/20 mb-4" />
+              <blockquote className="text-base md:text-lg leading-relaxed opacity-70 mb-6">
                 "{video.quote}"
               </blockquote>
               <div>
@@ -158,14 +158,14 @@ const TestimonialsSection = () => {
                   href={video.profileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-display text-lg text-foreground hover:text-primary transition-colors"
+                  className="text-display text-lg hover:opacity-80 transition-opacity"
                 >
                   {video.name}
                 </a>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm opacity-60">
                   {video.title}
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm opacity-60">
                   {video.location}
                 </p>
               </div>
