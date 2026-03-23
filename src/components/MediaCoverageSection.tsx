@@ -22,16 +22,14 @@ const MediaCoverageSection = () => {
         {/* Featured visit card */}
         <div className="rounded-3xl border border-primary/10 bg-primary/[0.03] overflow-hidden">
           <div className="grid md:grid-cols-2 gap-0">
-            {/* Instagram Reel Embed */}
-            <div className="aspect-[9/16] md:aspect-auto md:min-h-[600px] bg-foreground/5 relative overflow-hidden">
-              <iframe
-                src="https://www.instagram.com/reel/DQrPP9-FQ97/embed"
-                className="w-full h-full absolute inset-0"
-                frameBorder="0"
-                scrolling="no"
-                allowTransparency
-                loading="lazy"
-                title="Mona Iraqi visits the facility"
+            {/* Video */}
+            <div className="relative overflow-hidden bg-foreground/5">
+              <video
+                src="/videos/mona_iraqi.mp4"
+                controls
+                preload="metadata"
+                className="w-full h-full object-cover"
+                poster=""
               />
             </div>
 
