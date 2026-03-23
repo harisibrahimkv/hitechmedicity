@@ -24,7 +24,9 @@ type TextTestimonial = {
 const videoTestimonials: VideoTestimonial[] = [
   {
     id: "1",
-    name: "Patient Testimonial",
+    name: "Dr. MK Muneer",
+    title: "Member, Kerala Legislative Assembly",
+    profileUrl: "https://niyamasabha.nic.in/index.php/content/member_homepage/2402",
     location: "Calicut, Kerala",
     videoSrc: "/videos/testimonial1.mkv",
     quote:
