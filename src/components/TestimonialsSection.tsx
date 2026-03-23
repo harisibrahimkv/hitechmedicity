@@ -139,10 +139,10 @@ const TestimonialsSection = () => {
               {playingVideo === video.id && (
                 <button
                   onClick={() => toggleVideo(video.id)}
-                  className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-background/80 flex items-center justify-center shadow-soft opacity-0 hover:opacity-100 transition-opacity duration-300"
+                  className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-primary-foreground/80 flex items-center justify-center shadow-soft opacity-0 hover:opacity-100 transition-opacity duration-300"
                   aria-label="Pause video"
                 >
-                  <Pause className="w-4 h-4 text-foreground" />
+                  <Pause className="w-4 h-4 text-primary" />
                 </button>
               )}
             </div>
