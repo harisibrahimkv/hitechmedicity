@@ -79,14 +79,14 @@ const YouTubeTestimonialsCarousel = () => {
             key={id}
             className="w-[320px] sm:w-[360px] shrink-0 rounded-2xl overflow-hidden border border-primary-foreground/10 bg-primary-foreground/5"
           >
-            <div className="aspect-video">
+            <div className="aspect-video pointer-events-none sm:pointer-events-auto">
               <iframe
                 src={`https://www.youtube-nocookie.com/embed/${id}`}
                 title="Patient testimonial video"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 loading="lazy"
-                className="h-full w-full"
+                className="h-full w-full pointer-events-none sm:pointer-events-auto"
               />
             </div>
           </div>
