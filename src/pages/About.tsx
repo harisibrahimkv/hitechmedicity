@@ -51,7 +51,7 @@ const AboutPage = () => {
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease }}
-              className="sticky top-24"
+              className="lg:sticky top-24"
             >
               <div className="rounded-[2rem] overflow-hidden shadow-soft aspect-[3/4]">
                 <img
