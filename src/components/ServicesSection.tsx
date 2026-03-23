@@ -5,6 +5,14 @@ import physioTreatment from "@/assets/physio-treatment.jpg";
 import physioWide2 from "@/assets/physio-wide-2.jpg";
 import physioGaitBars from "@/assets/physio-gait-bars.jpg";
 
+import ayurvedaRoom1 from "@/assets/ayurveda-room-1.jpg";
+import ayurvedaRoom2 from "@/assets/ayurveda-room-2.jpg";
+import ayurvedaRoom3 from "@/assets/ayurveda-room-3.jpg";
+import ayurvedaRoom4 from "@/assets/ayurveda-room-4.jpg";
+import ayurvedaSupplies from "@/assets/ayurveda-supplies.jpg";
+import ayurvedaSupplies2 from "@/assets/ayurveda-supplies-2.jpg";
+import spaMassage from "@/assets/spa-massage.jpg";
+
 import dentalImg from "@/assets/discipline-dental.jpg";
 import consultationImg from "@/assets/discipline-consultation.jpg";
 import disciplineAyurvedaImg from "@/assets/discipline-ayurveda.jpg";
