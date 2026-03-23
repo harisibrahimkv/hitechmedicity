@@ -77,7 +77,7 @@ const YouTubeTestimonialsCarousel = () => {
         {youtubeVideos.map((id) => (
           <div
             key={id}
-            className="w-[320px] sm:w-[360px] shrink-0 rounded-2xl overflow-hidden border border-primary-foreground/10 bg-foreground/5"
+            className="w-[320px] sm:w-[360px] shrink-0 rounded-2xl overflow-hidden border border-primary-foreground/10 bg-primary-foreground/5"
           >
             <div className="aspect-video">
               <iframe
