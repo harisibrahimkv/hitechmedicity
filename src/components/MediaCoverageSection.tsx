@@ -1,4 +1,4 @@
-import { ExternalLink, Globe, Award } from "lucide-react";
+import { ExternalLink, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const MediaCoverageSection = () => {
@@ -29,7 +29,6 @@ const MediaCoverageSection = () => {
                 controls
                 preload="metadata"
                 className="w-full h-full object-cover"
-                poster=""
               />
             </div>
 
@@ -51,7 +50,7 @@ const MediaCoverageSection = () => {
               </h3>
 
               <p className="text-muted-foreground text-sm uppercase tracking-wider mb-4">
-                Egyptian TV Presenter · Investigative Journalist · Filmmaker
+                Egyptian TV Presenter · Investigative Journalist · Documentary Producer
               </p>
 
               <p className="text-foreground/80 leading-relaxed mb-6">
@@ -62,14 +61,7 @@ const MediaCoverageSection = () => {
                 contribution to global wellness.
               </p>
 
-              <div className="flex items-center gap-3 mb-8 p-4 rounded-2xl bg-primary/[0.05] border border-primary/10">
-                <Award className="h-5 w-5 text-primary shrink-0" />
-                <p className="text-sm text-foreground/70 italic">
-                  "This facility represents the best of what India has to offer in holistic healthcare."
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-3">
+              <div>
                 <Button asChild variant="default" size="lg">
                   <a
                     href="https://www.instagram.com/reel/DQrPP9-FQ97/"
@@ -80,18 +72,22 @@ const MediaCoverageSection = () => {
                     <ExternalLink className="h-4 w-4 ml-1" />
                   </a>
                 </Button>
-                <Button asChild variant="outline" size="lg">
-                  <a
-                    href="https://www.instagram.com/mona_iraqi/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Follow Mona Iraqi
-                    <ExternalLink className="h-4 w-4 ml-1" />
-                  </a>
-                </Button>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Instagram Reel Embed */}
+        <div className="mt-16 flex justify-end md:mr-16 lg:mr-24">
+          <div className="w-full max-w-sm rounded-3xl overflow-hidden border border-primary/10 bg-primary/[0.03] shadow-lg">
+            <iframe
+              src="https://www.instagram.com/reel/DQrPP9-FQ97/embed"
+              className="w-full border-0"
+              style={{ height: "520px" }}
+              allowFullScreen
+              loading="lazy"
+              title="Mona Iraqi visits the facility — Instagram Reel"
+            />
           </div>
         </div>
       </div>
