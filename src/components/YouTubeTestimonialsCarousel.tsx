@@ -40,7 +40,7 @@ const YouTubeTestimonialsCarousel = () => {
 
   return (
     <div className="relative mt-12">
-      <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-6">
+      <p className="text-xs uppercase tracking-[0.2em] opacity-60 font-medium mb-6">
         More patient stories
       </p>
 
