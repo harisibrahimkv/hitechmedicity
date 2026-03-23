@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, ChevronLeft, ChevronRight, Quote, Pause } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import YouTubeTestimonialsCarousel from "@/components/YouTubeTestimonialsCarousel";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
@@ -171,6 +172,9 @@ const TestimonialsSection = () => {
             </div>
           </motion.div>
         ))}
+
+        {/* YouTube testimonials carousel */}
+        <YouTubeTestimonialsCarousel />
 
         {/* Written testimonials carousel */}
         <motion.div
