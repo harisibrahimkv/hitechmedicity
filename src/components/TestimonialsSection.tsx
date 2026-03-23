@@ -153,8 +153,16 @@ const TestimonialsSection = () => {
                 "{video.quote}"
               </blockquote>
               <div>
-                <p className="text-display text-lg text-foreground">
+                <a
+                  href={video.profileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-display text-lg text-foreground hover:text-primary transition-colors"
+                >
                   {video.name}
+                </a>
+                <p className="text-sm text-muted-foreground">
+                  {video.title}
                 </p>
                 <p className="text-sm text-muted-foreground">
                   {video.location}
