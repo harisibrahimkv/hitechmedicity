@@ -95,10 +95,10 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.5, ease }}
           className="max-w-2xl mb-20"
         >
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4">
+          <p className="text-xs uppercase tracking-[0.2em] opacity-60 font-medium mb-4">
             Stories
           </p>
-          <h2 className="text-display text-4xl md:text-5xl lg:text-6xl tracking-tight text-foreground leading-[1.1]">
+          <h2 className="text-display text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1]">
             Voices of <em className="text-display italic">healing</em>
           </h2>
         </motion.div>
