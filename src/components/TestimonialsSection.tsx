@@ -128,11 +128,11 @@ const TestimonialsSection = () => {
               {playingVideo !== video.id && (
                 <button
                   onClick={() => toggleVideo(video.id)}
-                  className="absolute inset-0 flex items-center justify-center bg-foreground/20 hover:bg-foreground/30 transition-colors duration-300"
+                  className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors duration-300"
                   aria-label="Play video"
                 >
-                  <div className="w-16 h-16 rounded-full bg-background/90 flex items-center justify-center shadow-soft">
-                    <Play className="w-6 h-6 text-foreground ml-0.5" />
+                  <div className="w-16 h-16 rounded-full bg-primary-foreground/90 flex items-center justify-center shadow-soft">
+                    <Play className="w-6 h-6 text-primary ml-0.5" />
                   </div>
                 </button>
               )}
