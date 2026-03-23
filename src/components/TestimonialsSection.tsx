@@ -8,6 +8,8 @@ const ease = [0.4, 0, 0.2, 1] as const;
 type VideoTestimonial = {
   id: string;
   name: string;
+  title: string;
+  profileUrl: string;
   location: string;
   videoSrc: string;
   quote: string;
@@ -22,7 +24,9 @@ type TextTestimonial = {
 const videoTestimonials: VideoTestimonial[] = [
   {
     id: "1",
-    name: "Patient Testimonial",
+    name: "Dr. MK Muneer",
+    title: "Member, Kerala Legislative Assembly",
+    profileUrl: "https://niyamasabha.nic.in/index.php/content/member_homepage/2402",
     location: "Calicut, Kerala",
     videoSrc: "/videos/testimonial1.mkv",
     quote:
@@ -149,8 +153,16 @@ const TestimonialsSection = () => {
                 "{video.quote}"
               </blockquote>
               <div>
-                <p className="text-display text-lg text-foreground">
+                <a
+                  href={video.profileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-display text-lg text-foreground hover:text-primary transition-colors"
+                >
                   {video.name}
+                </a>
+                <p className="text-sm text-muted-foreground">
+                  {video.title}
                 </p>
                 <p className="text-sm text-muted-foreground">
                   {video.location}
