@@ -182,7 +182,7 @@ const TestimonialsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease }}
-          className="relative bg-background rounded-3xl p-10 md:p-14 shadow-soft max-w-4xl"
+          className="relative bg-background rounded-3xl p-10 md:p-14 shadow-soft max-w-4xl mx-auto mt-16"
         >
           <Quote className="w-10 h-10 text-primary/20 mb-6" />
           <AnimatePresence mode="wait">
