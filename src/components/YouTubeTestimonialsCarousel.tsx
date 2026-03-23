@@ -3,7 +3,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const youtubeVideos = [
-  "A2_KjoeuLX4",
   "zaUXKPMiWDA",
   "XKgEPqBcaKk",
   "S1KaS3pUQLE",
