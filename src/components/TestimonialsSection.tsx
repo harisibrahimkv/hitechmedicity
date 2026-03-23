@@ -8,6 +8,8 @@ const ease = [0.4, 0, 0.2, 1] as const;
 type VideoTestimonial = {
   id: string;
   name: string;
+  title: string;
+  profileUrl: string;
   location: string;
   videoSrc: string;
   quote: string;
