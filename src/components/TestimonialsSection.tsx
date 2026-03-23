@@ -111,10 +111,10 @@ const TestimonialsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease }}
-            className="grid lg:grid-cols-2 gap-8 mb-16"
+            className="grid lg:grid-cols-2 gap-8 mb-16 items-start"
           >
             {/* Video player */}
-            <div className="relative rounded-2xl overflow-hidden aspect-video bg-foreground/5">
+            <div className="relative rounded-2xl overflow-hidden aspect-video bg-foreground/5 lg:sticky lg:top-24">
               <video
                 ref={(el) => {
                   videoRefs.current[video.id] = el;
