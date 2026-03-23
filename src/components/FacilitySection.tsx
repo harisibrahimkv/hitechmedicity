@@ -16,6 +16,28 @@ import accessibleBathImg from "@/assets/hitech-suite-accessible-bath.jpg";
 import receptionWaiting from "@/assets/reception-waiting.jpg";
 import cafe2 from "@/assets/cafe-2.jpg";
 
+import physioRoom from "@/assets/physio-room.jpg";
+import physioEquipment from "@/assets/physio-equipment.jpg";
+import physioTreatment from "@/assets/physio-treatment.jpg";
+import physioWide from "@/assets/physio-wide.jpg";
+import physioWide2 from "@/assets/physio-wide-2.jpg";
+import physioArthritis from "@/assets/physio-arthritis.jpg";
+import physioHandTherapy from "@/assets/physio-hand-therapy.jpg";
+import physioGaitBars from "@/assets/physio-gait-bars.jpg";
+import physioBed from "@/assets/physio-bed.jpg";
+
+import rooftopPlayWide from "@/assets/rooftop-play-wide.jpg";
+import rooftopPlayCenter from "@/assets/rooftop-play-center.jpg";
+import rooftopSandTrack from "@/assets/rooftop-sand-track.jpg";
+import rooftopBridge from "@/assets/rooftop-bridge.jpg";
+import rooftopLounge from "@/assets/rooftop-lounge.jpg";
+import rooftopSeating from "@/assets/rooftop-seating.jpg";
+import rooftopTreadmills from "@/assets/rooftop-treadmills.jpg";
+import rooftopGym from "@/assets/rooftop-gym.jpg";
+
+import aestheticImg from "@/assets/discipline-aesthetic.jpg";
+import pharmacyImg from "@/assets/discipline-pharmacy.jpg";
+
 const ease = [0.4, 0, 0.2, 1] as const;
 
 interface RoomCategory {
