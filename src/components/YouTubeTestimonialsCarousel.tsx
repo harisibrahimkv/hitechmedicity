@@ -50,7 +50,7 @@ const YouTubeTestimonialsCarousel = () => {
           variant="outline"
           size="icon"
           onClick={() => scroll("left")}
-          className="absolute left-0 top-1/2 z-10 h-10 w-10 -translate-y-1/2 rounded-full bg-background/90 shadow-soft backdrop-blur-sm"
+          className="absolute left-0 top-1/2 z-10 h-10 w-10 -translate-y-1/2 rounded-full bg-primary-foreground/90 text-primary shadow-soft backdrop-blur-sm border-primary-foreground/20"
           aria-label="Scroll left"
         >
           <ChevronLeft className="h-4 w-4" />
