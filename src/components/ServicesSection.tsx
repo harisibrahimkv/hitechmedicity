@@ -1,15 +1,9 @@
 import { motion } from "framer-motion";
 import AutoScrollCarousel from "@/components/AutoScrollCarousel";
 
-import physioRoom from "@/assets/physio-room.jpg";
-import physioEquipment from "@/assets/physio-equipment.jpg";
 import physioTreatment from "@/assets/physio-treatment.jpg";
-import physioWide from "@/assets/physio-wide.jpg";
 import physioWide2 from "@/assets/physio-wide-2.jpg";
-import physioArthritis from "@/assets/physio-arthritis.jpg";
-import physioHandTherapy from "@/assets/physio-hand-therapy.jpg";
 import physioGaitBars from "@/assets/physio-gait-bars.jpg";
-import physioBed from "@/assets/physio-bed.jpg";
 
 import ayurvedaRoom1 from "@/assets/ayurveda-room-1.jpg";
 import ayurvedaRoom2 from "@/assets/ayurveda-room-2.jpg";
@@ -20,21 +14,10 @@ import ayurvedaSupplies2 from "@/assets/ayurveda-supplies-2.jpg";
 import spaMassage from "@/assets/spa-massage.jpg";
 
 import dentalImg from "@/assets/discipline-dental.jpg";
-import aestheticImg from "@/assets/discipline-aesthetic.jpg";
-import pharmacyImg from "@/assets/discipline-pharmacy.jpg";
 import consultationImg from "@/assets/discipline-consultation.jpg";
 import disciplineAyurvedaImg from "@/assets/discipline-ayurveda.jpg";
 import disciplinePhysioImg from "@/assets/discipline-physio.jpg";
 import medicalStaffTeamImg from "@/assets/medical-staff-team-2.jpg";
-
-import rooftopPlayWide from "@/assets/rooftop-play-wide.jpg";
-import rooftopPlayCenter from "@/assets/rooftop-play-center.jpg";
-import rooftopSandTrack from "@/assets/rooftop-sand-track.jpg";
-import rooftopBridge from "@/assets/rooftop-bridge.jpg";
-import rooftopLounge from "@/assets/rooftop-lounge.jpg";
-import rooftopSeating from "@/assets/rooftop-seating.jpg";
-import rooftopTreadmills from "@/assets/rooftop-treadmills.jpg";
-import rooftopGym from "@/assets/rooftop-gym.jpg";
 
 import yogaNaturopathyImg from "@/assets/specialty-yoga-naturopathy.jpg";
 import neuroClinicImg from "@/assets/specialty-neuro-clinic.jpg";
@@ -53,18 +36,6 @@ interface Discipline {
 }
 
 const services: Discipline[] = [
-  {
-    name: "Physiotherapy & Gait Lab",
-    description: "Comprehensive rehab with parallel bars, balance training, hand therapy, and advanced gait analysis.",
-    images: [physioEquipment, physioRoom, physioGaitBars, physioWide, physioWide2, physioArthritis, physioHandTherapy, physioBed, physioTreatment],
-    alt: "Physiotherapy and gait training at Hitech Medicity",
-  },
-  {
-    name: "Rooftop Rehab & Play Therapy",
-    description: "Open-air therapeutic play centre with sensory tracks, trampolines, and terrace fitness equipment.",
-    images: [rooftopPlayWide, rooftopPlayCenter, rooftopSandTrack, rooftopBridge, rooftopLounge, rooftopSeating, rooftopTreadmills, rooftopGym],
-    alt: "Rooftop rehabilitation and play therapy area",
-  },
   {
     name: "Ayurveda",
     description: "Traditional Ayurvedic therapies, Panchakarma, and dedicated wellness suites for holistic recovery.",
@@ -88,18 +59,6 @@ const services: Discipline[] = [
     description: "Comprehensive dental care with modern chair-side equipment.",
     images: [dentalImg],
     alt: "Dental treatment room",
-  },
-  {
-    name: "Aesthetic & Hair Clinic",
-    description: "Dedicated beauty, grooming, and cosmetic care space.",
-    images: [aestheticImg],
-    alt: "Aesthetic and hair treatment studio",
-  },
-  {
-    name: "In-house Pharmacy",
-    description: "Integrated medicine and wellness products under one roof.",
-    images: [pharmacyImg],
-    alt: "In-house pharmacy",
   },
   {
     name: "Hijama",
