@@ -25,7 +25,7 @@ const videoTestimonials: VideoTestimonial[] = [
   {
     id: "1",
     name: "Dr. MK Muneer",
-    title: "Member, Kerala Legislative Assembly",
+    title: "The Hon'ble MLA of Kerala",
     profileUrl: "https://niyamasabha.nic.in/index.php/content/member_homepage/2402",
     location: "Calicut, Kerala",
     videoSrc: "/videos/testimonial1.mkv",
