@@ -1,17 +1,38 @@
 import { Globe, Play } from "lucide-react";
 import { useEffect } from "react";
 
+const instagramEmbedUrl =
+  "https://www.instagram.com/reel/DQrPP9-FQ97/?utm_source=ig_embed&utm_campaign=loading";
+
 const MediaCoverageSection = () => {
   useEffect(() => {
-    // Load Instagram embed script
-    if (!(window as any).instgrm) {
-      const script = document.createElement("script");
-      script.src = "//www.instagram.com/embed.js";
-      script.async = true;
-      document.body.appendChild(script);
-    } else {
-      (window as any).instgrm.Embeds.process();
+    const processEmbeds = () => {
+      (window as any).instgrm?.Embeds?.process();
+    };
+
+    if ((window as any).instgrm?.Embeds) {
+      processEmbeds();
+      return;
     }
+
+    const existingScript = document.querySelector(
+      'script[src="https://www.instagram.com/embed.js"]',
+    ) as HTMLScriptElement | null;
+
+    if (existingScript) {
+      existingScript.addEventListener("load", processEmbeds);
+      return () => existingScript.removeEventListener("load", processEmbeds);
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://www.instagram.com/embed.js";
+    script.async = true;
+    script.onload = processEmbeds;
+    document.body.appendChild(script);
+
+    return () => {
+      script.onload = null;
+    };
   }, []);
 
   return (
@@ -28,7 +49,7 @@ const MediaCoverageSection = () => {
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
             When renowned Egyptian journalist and TV presenter Mona Iraqi came to India
             investigating holistic treatments, she discovered the transformative power of
-            Kerala's Ayurveda at our facility.
+            Kerala&apos;s Ayurveda at our facility.
           </p>
         </div>
 
@@ -64,14 +85,8 @@ const MediaCoverageSection = () => {
                 Egyptian TV Presenter · Investigative Journalist · Documentary Producer
               </p>
 
-              <blockquote className="border-l-2 border-primary/30 pl-4 italic text-foreground/80 leading-relaxed mb-6">
-                "I was investigating what kind of treatment I could get in India.
-                After spending a month here, I realise India — especially Kerala —
-                has a special treatment called Ayurveda."
-              </blockquote>
-
               <p className="text-foreground/80 leading-relaxed">
-                With millions of followers across the Arab world, Mona Iraqi is one of Egypt's
+                With millions of followers across the Arab world, Mona Iraqi is one of Egypt&apos;s
                 most prominent investigative journalists and TV presenters. Her month-long
                 stay at our facility was a moment of pride for us and for Indian Ayurveda.
               </p>
@@ -86,21 +101,42 @@ const MediaCoverageSection = () => {
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-6">
               Watch the Reel
             </p>
-            <div className="w-full max-w-[400px] rounded-3xl overflow-hidden border border-primary/10 bg-primary/[0.03] shadow-lg">
+            <div className="w-full max-w-[540px] rounded-3xl overflow-hidden border border-primary/10 bg-primary/[0.03] p-3 shadow-lg">
               <blockquote
                 className="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/reel/DQrPP9-FQ97/"
+                data-instgrm-captioned
+                data-instgrm-permalink={instagramEmbedUrl}
                 data-instgrm-version="14"
-                style={{ margin: 0, maxWidth: "100%", minWidth: "100%", border: 0 }}
+                style={{
+                  background: "#FFF",
+                  border: 0,
+                  borderRadius: "3px",
+                  boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
+                  margin: "1px auto",
+                  maxWidth: "540px",
+                  minWidth: "326px",
+                  padding: 0,
+                  width: "calc(100% - 2px)",
+                }}
               >
                 <div style={{ padding: "16px" }}>
                   <a
-                    href="https://www.instagram.com/reel/DQrPP9-FQ97/"
+                    href={instagramEmbedUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary text-sm"
+                    style={{
+                      background: "#FFFFFF",
+                      lineHeight: 0,
+                      padding: 0,
+                      textAlign: "center",
+                      textDecoration: "none",
+                      width: "100%",
+                      display: "block",
+                    }}
                   >
-                    View this reel on Instagram
+                    <div style={{ color: "#3897f0", fontSize: "14px", lineHeight: "18px" }}>
+                      View this post on Instagram
+                    </div>
                   </a>
                 </div>
               </blockquote>
@@ -126,8 +162,8 @@ const MediaCoverageSection = () => {
                   Watch the Complete Report
                 </h4>
                 <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
-                  The full interview and feature story on Media One, covering
-                  Mona Iraqi's experience with Ayurveda in Kerala.
+                  The full interview and feature story on Media One, covering Mona Iraqi&apos;s
+                  experience with Ayurveda in Kerala.
                 </p>
               </div>
             </a>
