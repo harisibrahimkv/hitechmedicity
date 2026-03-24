@@ -8,7 +8,7 @@ import medicalStaffTeam from "@/assets/medical-staff-team-2.jpg";
 import medicalStaffTeam2 from "@/assets/medical-staff-team-3.jpg";
 import { useEffect, useState } from "react";
 
-const WHATSAPP_LINK = "https://wa.me/919876543210?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20with%20Dr.%20Febina%20Sulthana.";
+const WHATSAPP_LINK = "https://wa.me/919207551177?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20with%20Dr.%20Febina%20Sulthana.";
 const ease = [0.4, 0, 0.2, 1] as const;
 const teamImages = [medicalStaffTeam, medicalStaffTeam2];
 

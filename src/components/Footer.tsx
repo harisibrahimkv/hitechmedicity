@@ -25,11 +25,17 @@ const Footer = () => {
           <div>
             <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium mb-4">Contact</p>
             <div className="space-y-2 text-sm text-foreground/70">
-              <p>Calicut, Kerala, India</p>
+              <p>Hitech Medicity, Near Hilite Mall,<br />Palazhi, Calicut, Kerala 673014</p>
               <p>info@hitechmedicity.com</p>
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="block hover:text-foreground transition-colors">
-                WhatsApp: +91 98765 43210
+              <p>+91 9207 551 177 / +91 9207 559 977</p>
+              <a href="https://wa.me/919207551177" target="_blank" rel="noopener noreferrer" className="block hover:text-foreground transition-colors">
+                WhatsApp: +91 9207 551 177
               </a>
+              <div className="flex gap-4 pt-2">
+                <a href="https://www.instagram.com/hitechmedicity_calicut" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Instagram</a>
+                <a href="https://www.youtube.com/@HitechMedicity" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">YouTube</a>
+                <a href="https://www.facebook.com/profile.php?id=61555609833793" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Facebook</a>
+              </div>
             </div>
           </div>
         </div>
