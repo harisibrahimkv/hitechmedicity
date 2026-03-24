@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
-const WHATSAPP_LINK = "https://wa.me/919876543210?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Hitech%20Medicity.";
+const WHATSAPP_LINK = "https://wa.me/919207551177?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Hitech%20Medicity.";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 
