@@ -188,7 +188,7 @@ export const facilities: ServiceItem[] = [
   {
     name: "Aesthetic & Hair Clinic",
     description: "Dedicated beauty, grooming, and cosmetic care space.",
-    images: [serviceAestheticClinic],
+    images: [serviceAestheticClinic, aestheticClinic2],
     alt: "Aesthetic and hair treatment studio",
   },
   {
