@@ -7,6 +7,7 @@ import ayurvedaRoom4 from "@/assets/ayurveda-room-4.jpg";
 import ayurvedaSupplies from "@/assets/ayurveda-supplies.jpg";
 import ayurvedaSupplies2 from "@/assets/ayurveda-supplies-2.jpg";
 import spaMassage from "@/assets/spa-massage.jpg";
+import spaMassage2 from "@/assets/spa-massage-2.jpg";
 import serviceNaturopathy from "@/assets/service-naturopathy.jpg";
 import serviceYoga from "@/assets/service-yoga.jpg";
 import servicePhysiotherapy from "@/assets/service-physiotherapy.jpg";
