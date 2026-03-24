@@ -112,7 +112,7 @@ export const specializations: ServiceItem[] = [
   {
     name: "Back/Knee/Joint Pain",
     description: "Specialized treatment for chronic and acute musculoskeletal pain management.",
-    images: [specBackPain, specKneePain],
+    images: [specKneePain],
     alt: "Back knee and joint pain treatment",
   },
   {
