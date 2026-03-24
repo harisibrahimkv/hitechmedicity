@@ -39,12 +39,12 @@ const GalleryModal = ({ open, onOpenChange, images, title, alt }: GalleryModalPr
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="grid h-[min(92vh,920px)] w-[min(96vw,1200px)] max-w-none grid-rows-[auto,minmax(0,1fr),auto] gap-0 rounded-2xl border border-background/10 bg-foreground p-0 text-background [&>button:last-child]:hidden">
+      <DialogContent className="grid h-[min(92vh,920px)] min-h-0 w-[calc(100vw-1rem)] min-w-0 max-w-[1200px] grid-rows-[auto,minmax(0,1fr),auto] gap-0 overflow-hidden rounded-2xl border border-background/10 bg-foreground p-0 text-background sm:w-[min(96vw,1200px)] [&>button:last-child]:hidden">
         <VisuallyHidden>
           <DialogTitle>{title} Gallery</DialogTitle>
         </VisuallyHidden>
 
-        <div className="flex items-start justify-between gap-4 border-b border-background/10 px-4 py-4 sm:px-6">
+        <div className="flex min-w-0 items-start justify-between gap-4 border-b border-background/10 px-4 py-4 sm:px-6">
           <div className="min-w-0">
             <p className="truncate text-sm font-medium text-background/90">{title}</p>
             <p className="mt-0.5 text-xs text-background/60">{activeIdx + 1} of {images.length}</p>
@@ -59,7 +59,7 @@ const GalleryModal = ({ open, onOpenChange, images, title, alt }: GalleryModalPr
           </button>
         </div>
 
-        <div className="relative min-h-0">
+        <div className="relative min-h-0 min-w-0">
           <div className="h-full overflow-hidden px-3 py-3 sm:px-6 sm:py-5">
             <div className="flex h-full min-h-0 items-center justify-center overflow-hidden rounded-xl bg-background/5">
               <AnimatePresence mode="wait">
@@ -102,8 +102,8 @@ const GalleryModal = ({ open, onOpenChange, images, title, alt }: GalleryModalPr
         </div>
 
         {images.length > 1 && (
-          <div className="border-t border-background/10 px-4 py-4 sm:px-6">
-            <div className="flex gap-2 overflow-x-auto pb-1 sm:justify-center">
+          <div className="min-w-0 border-t border-background/10 px-4 py-4 sm:px-6">
+            <div className="flex min-w-0 max-w-full gap-2 overflow-x-auto pb-1 sm:justify-center">
               {images.map((img, i) => (
                 <button
                   key={i}
