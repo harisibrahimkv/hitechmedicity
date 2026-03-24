@@ -49,6 +49,7 @@ import rooftopTreadmills from "@/assets/rooftop-treadmills.jpg";
 import rooftopGym from "@/assets/rooftop-gym.jpg";
 import aestheticImg from "@/assets/discipline-aesthetic.jpg";
 import serviceAestheticClinic from "@/assets/service-aesthetic-clinic.jpg";
+import aestheticClinic2 from "@/assets/aesthetic-clinic-2.jpg";
 import pharmacyImg from "@/assets/discipline-pharmacy.jpg";
 
 export interface ServiceItem {
@@ -86,7 +87,7 @@ export const services: ServiceItem[] = [
   {
     name: "Physiotherapy & Orthoneuro Rehabilitation",
     description: "Advanced rehabilitation services for orthopedic and neurological conditions with specialized equipment.",
-    images: [servicePhysiotherapy, servicePhysioGaitLab],
+    images: [servicePhysiotherapy],
     alt: "Physiotherapy and orthoneuro rehabilitation",
   },
   {
@@ -188,7 +189,7 @@ export const facilities: ServiceItem[] = [
   {
     name: "Aesthetic & Hair Clinic",
     description: "Dedicated beauty, grooming, and cosmetic care space.",
-    images: [serviceAestheticClinic],
+    images: [serviceAestheticClinic, aestheticClinic2],
     alt: "Aesthetic and hair treatment studio",
   },
   {
@@ -200,7 +201,7 @@ export const facilities: ServiceItem[] = [
   {
     name: "Spa & Massage Room",
     description: "Relaxing spa and massage therapy rooms for rejuvenation and holistic wellness.",
-    images: [spaMassage, spaMassage2],
+    images: [spaMassage],
     alt: "Spa and massage therapy room",
   },
 ];
