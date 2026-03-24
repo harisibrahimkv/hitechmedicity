@@ -68,7 +68,7 @@ export const services: ServiceItem[] = [
   {
     name: "Ayurveda",
     description: "Traditional Ayurvedic therapies, Panchakarma, and dedicated wellness suites for holistic recovery.",
-    images: [ayurvedaRoom1, ayurvedaRoom3, ayurvedaRoom4, ayurvedaRoom2, spaMassage, ayurvedaSupplies, ayurvedaSupplies2],
+    images: [ayurvedaRoom1, ayurvedaRoom3, ayurvedaRoom4, ayurvedaRoom2, ayurvedaSupplies, ayurvedaSupplies2],
     alt: "Ayurveda and wellness treatments at Hitech Medicity",
   },
   {
