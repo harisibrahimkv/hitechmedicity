@@ -59,24 +59,26 @@ const GalleryModal = ({ open, onOpenChange, images, title, alt }: GalleryModalPr
           </button>
         </div>
 
-        <div className="relative min-h-0 overflow-hidden px-3 py-3 sm:px-6 sm:py-5">
-          <div className="flex h-full min-h-0 items-center justify-center overflow-hidden rounded-xl bg-background/5">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeIdx}
-                initial={{ opacity: 0, scale: 0.985 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.985 }}
-                transition={{ duration: 0.22 }}
-                className="flex h-full w-full items-center justify-center p-2 sm:p-4"
-              >
-                <img
-                  src={images[activeIdx]}
-                  alt={`${alt} – view ${activeIdx + 1}`}
-                  className="block h-auto max-h-full w-auto max-w-full select-none object-contain"
-                />
-              </motion.div>
-            </AnimatePresence>
+        <div className="relative min-h-0">
+          <div className="h-full overflow-hidden px-3 py-3 sm:px-6 sm:py-5">
+            <div className="flex h-full min-h-0 items-center justify-center overflow-hidden rounded-xl bg-background/5">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIdx}
+                  initial={{ opacity: 0, scale: 0.985 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.985 }}
+                  transition={{ duration: 0.22 }}
+                  className="flex h-full w-full items-center justify-center p-2 sm:p-4"
+                >
+                  <img
+                    src={images[activeIdx]}
+                    alt={`${alt} – view ${activeIdx + 1}`}
+                    className="block h-auto max-h-full w-auto max-w-full select-none object-contain"
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
 
           {images.length > 1 && (
