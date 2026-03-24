@@ -91,7 +91,7 @@ export const services: ServiceItem[] = [
   {
     name: "Dental",
     description: "Comprehensive dental care with modern chair-side equipment and advanced treatment protocols.",
-    images: [dentalImg, serviceDental2],
+    images: [dentalImg],
     alt: "Dental treatment at Hitech Medicity",
   },
   {
@@ -112,7 +112,7 @@ export const specializations: ServiceItem[] = [
   {
     name: "Back/Knee/Joint Pain",
     description: "Specialized treatment for chronic and acute musculoskeletal pain management.",
-    images: [specBackPain, specKneePain],
+    images: [specKneePain],
     alt: "Back knee and joint pain treatment",
   },
   {
@@ -187,7 +187,7 @@ export const facilities: ServiceItem[] = [
   {
     name: "Aesthetic & Hair Clinic",
     description: "Dedicated beauty, grooming, and cosmetic care space.",
-    images: [aestheticImg, serviceAestheticClinic],
+    images: [serviceAestheticClinic],
     alt: "Aesthetic and hair treatment studio",
   },
   {
