@@ -7,6 +7,7 @@ import ayurvedaRoom4 from "@/assets/ayurveda-room-4.jpg";
 import ayurvedaSupplies from "@/assets/ayurveda-supplies.jpg";
 import ayurvedaSupplies2 from "@/assets/ayurveda-supplies-2.jpg";
 import spaMassage from "@/assets/spa-massage.jpg";
+import spaMassage2 from "@/assets/spa-massage-2.jpg";
 import serviceNaturopathy from "@/assets/service-naturopathy.jpg";
 import serviceYoga from "@/assets/service-yoga.jpg";
 import servicePhysiotherapy from "@/assets/service-physiotherapy.jpg";
@@ -67,7 +68,7 @@ export const services: ServiceItem[] = [
   {
     name: "Ayurveda",
     description: "Traditional Ayurvedic therapies, Panchakarma, and dedicated wellness suites for holistic recovery.",
-    images: [ayurvedaRoom1, ayurvedaRoom3, ayurvedaRoom4, ayurvedaRoom2, spaMassage, ayurvedaSupplies, ayurvedaSupplies2],
+    images: [ayurvedaRoom1, ayurvedaRoom3, ayurvedaRoom4, ayurvedaRoom2, ayurvedaSupplies, ayurvedaSupplies2],
     alt: "Ayurveda and wellness treatments at Hitech Medicity",
   },
   {
@@ -195,5 +196,11 @@ export const facilities: ServiceItem[] = [
     description: "Integrated medicine and wellness products under one roof.",
     images: [pharmacyImg],
     alt: "In-house pharmacy",
+  },
+  {
+    name: "Spa & Massage Room",
+    description: "Relaxing spa and massage therapy rooms for rejuvenation and holistic wellness.",
+    images: [spaMassage, spaMassage2],
+    alt: "Spa and massage therapy room",
   },
 ];
