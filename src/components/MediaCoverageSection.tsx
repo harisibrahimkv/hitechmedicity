@@ -52,7 +52,7 @@ const MediaCoverageSection = () => {
               </p>
 
               <a
-                href="https://www.youtube.com/watch?v=-NeJ3d8XRuc"
+                href="https://www.youtube.com/@HitechMedicity"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium"
