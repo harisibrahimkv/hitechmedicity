@@ -91,7 +91,7 @@ export const services: ServiceItem[] = [
   {
     name: "Dental",
     description: "Comprehensive dental care with modern chair-side equipment and advanced treatment protocols.",
-    images: [dentalImg, serviceDental2],
+    images: [dentalImg],
     alt: "Dental treatment at Hitech Medicity",
   },
   {
