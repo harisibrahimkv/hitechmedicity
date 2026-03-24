@@ -59,8 +59,8 @@ const GalleryModal = ({ open, onOpenChange, images, title, alt }: GalleryModalPr
           </button>
         </div>
 
-        <div className="min-h-0 px-3 py-3 sm:px-6 sm:py-5">
-          <div className="relative flex h-full min-h-0 items-center justify-center overflow-hidden rounded-xl bg-background/5">
+        <div className="relative min-h-0 px-3 py-3 sm:px-6 sm:py-5">
+          <div className="flex h-full min-h-0 items-center justify-center overflow-hidden rounded-xl bg-background/5">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIdx}
@@ -77,26 +77,26 @@ const GalleryModal = ({ open, onOpenChange, images, title, alt }: GalleryModalPr
                 />
               </motion.div>
             </AnimatePresence>
-
-            {images.length > 1 && (
-              <>
-                <button
-                  onClick={goPrev}
-                  className="absolute left-2 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-background/10 text-background transition-colors hover:bg-background/20 sm:left-4"
-                  aria-label="Previous image"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={goNext}
-                  className="absolute right-2 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-background/10 text-background transition-colors hover:bg-background/20 sm:right-4"
-                  aria-label="Next image"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
-              </>
-            )}
           </div>
+
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={goPrev}
+                className="absolute left-1 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-foreground/80 text-background shadow-lg transition-colors hover:bg-foreground/90 sm:left-4 sm:h-11 sm:w-11"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                onClick={goNext}
+                className="absolute right-1 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-foreground/80 text-background shadow-lg transition-colors hover:bg-foreground/90 sm:right-4 sm:h-11 sm:w-11"
+                aria-label="Next image"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </>
+          )}
         </div>
 
         {images.length > 1 && (

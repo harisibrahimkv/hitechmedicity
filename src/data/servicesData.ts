@@ -49,6 +49,7 @@ import rooftopTreadmills from "@/assets/rooftop-treadmills.jpg";
 import rooftopGym from "@/assets/rooftop-gym.jpg";
 import aestheticImg from "@/assets/discipline-aesthetic.jpg";
 import serviceAestheticClinic from "@/assets/service-aesthetic-clinic.jpg";
+import aestheticClinic2 from "@/assets/aesthetic-clinic-2.jpg";
 import pharmacyImg from "@/assets/discipline-pharmacy.jpg";
 
 export interface ServiceItem {
