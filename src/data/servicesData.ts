@@ -86,7 +86,7 @@ export const services: ServiceItem[] = [
   {
     name: "Physiotherapy & Orthoneuro Rehabilitation",
     description: "Advanced rehabilitation services for orthopedic and neurological conditions with specialized equipment.",
-    images: [servicePhysiotherapy, servicePhysioGaitLab],
+    images: [servicePhysiotherapy],
     alt: "Physiotherapy and orthoneuro rehabilitation",
   },
   {
