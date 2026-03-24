@@ -197,4 +197,10 @@ export const facilities: ServiceItem[] = [
     images: [pharmacyImg],
     alt: "In-house pharmacy",
   },
+  {
+    name: "Spa & Massage Room",
+    description: "Relaxing spa and massage therapy rooms for rejuvenation and holistic wellness.",
+    images: [spaMassage, spaMassage2],
+    alt: "Spa and massage therapy room",
+  },
 ];
