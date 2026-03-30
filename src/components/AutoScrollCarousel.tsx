@@ -192,7 +192,7 @@ const AutoScrollCarousel = ({ items, speed = 40 }: AutoScrollCarouselProps) => {
       }}
     >
       <div className="overflow-hidden">
-        <div ref={trackRef} className="flex will-change-transform">
+        <div ref={trackRef} className="flex will-change-transform" style={{ direction: "ltr" }}>
           {duplicatedItems.map((group, groupIndex) => (
             <div
               key={`service-group-${groupIndex}`}
