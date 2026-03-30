@@ -17,6 +17,7 @@ const Index = () => {
       <HeroSection />
       <PhilosophySection videoSrc="/videos/event1.mp4" />
       <ServicesSection />
+      <MamaCareSection />
       <FacilitySection />
       <TestimonialsSection />
       <MediaCoverageSection />
