@@ -1,7 +1,9 @@
 import { useState, useCallback } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import logo from "@/assets/logo-tree.png";
 
 const WHATSAPP_LINK = "https://wa.me/919207551177?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Hitech%20Medicity.";
@@ -10,6 +12,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const scrollTo = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -31,27 +34,28 @@ const Navbar = () => {
           <img src={logo} alt="Hitech Medicity" className="h-10 w-10 object-contain" />
           <div className="flex flex-col">
             <span className="text-display text-xl tracking-tight text-foreground leading-tight">
-              Hitech Medicity
+              {t("brand")}
             </span>
             <span className="text-[10px] tracking-[0.08em] text-muted-foreground italic leading-tight">
-              Care is ours, Cure is divine
+              {t("tagline")}
             </span>
           </div>
         </Link>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="#philosophy" onClick={(e) => scrollTo(e, "philosophy")} className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">Philosophy</a>
-          <a href="#services" onClick={(e) => scrollTo(e, "services")} className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">Services</a>
-          <a href="#facility" onClick={(e) => scrollTo(e, "facility")} className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">The Stay</a>
-          <a href="#calicut" onClick={(e) => scrollTo(e, "calicut")} className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">Calicut</a>
-          <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">Dr. Febina</Link>
+          <a href="#philosophy" onClick={(e) => scrollTo(e, "philosophy")} className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">{t("nav.philosophy")}</a>
+          <a href="#services" onClick={(e) => scrollTo(e, "services")} className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">{t("nav.services")}</a>
+          <a href="#facility" onClick={(e) => scrollTo(e, "facility")} className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">{t("nav.theStay")}</a>
+          <a href="#calicut" onClick={(e) => scrollTo(e, "calicut")} className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">{t("nav.calicut")}</a>
+          <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">{t("nav.drFebina")}</Link>
+          <LanguageSwitcher />
         </div>
 
         <div className="hidden md:block">
           <Button variant="hero" size="lg" asChild>
             <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-              Book Consultation
+              {t("nav.bookConsultation")}
             </a>
           </Button>
         </div>
@@ -65,14 +69,17 @@ const Navbar = () => {
       {/* Mobile menu */}
       {isOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-lg border-b border-foreground/5 px-6 pb-6 pt-2 space-y-4">
-          <a href="#philosophy" onClick={(e) => scrollTo(e, "philosophy")} className="block text-sm text-muted-foreground uppercase tracking-wide">Philosophy</a>
-          <a href="#services" onClick={(e) => scrollTo(e, "services")} className="block text-sm text-muted-foreground uppercase tracking-wide">Services</a>
-          <a href="#facility" onClick={(e) => scrollTo(e, "facility")} className="block text-sm text-muted-foreground uppercase tracking-wide">The Stay</a>
-          <a href="#calicut" onClick={(e) => scrollTo(e, "calicut")} className="block text-sm text-muted-foreground uppercase tracking-wide">Calicut</a>
-          <Link to="/about" onClick={() => setIsOpen(false)} className="block text-sm text-muted-foreground uppercase tracking-wide">Dr. Febina</Link>
+          <a href="#philosophy" onClick={(e) => scrollTo(e, "philosophy")} className="block text-sm text-muted-foreground uppercase tracking-wide">{t("nav.philosophy")}</a>
+          <a href="#services" onClick={(e) => scrollTo(e, "services")} className="block text-sm text-muted-foreground uppercase tracking-wide">{t("nav.services")}</a>
+          <a href="#facility" onClick={(e) => scrollTo(e, "facility")} className="block text-sm text-muted-foreground uppercase tracking-wide">{t("nav.theStay")}</a>
+          <a href="#calicut" onClick={(e) => scrollTo(e, "calicut")} className="block text-sm text-muted-foreground uppercase tracking-wide">{t("nav.calicut")}</a>
+          <Link to="/about" onClick={() => setIsOpen(false)} className="block text-sm text-muted-foreground uppercase tracking-wide">{t("nav.drFebina")}</Link>
+          <div className="pt-2">
+            <LanguageSwitcher />
+          </div>
           <Button variant="hero" size="lg" className="w-full" asChild>
             <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-              Book Consultation
+              {t("nav.bookConsultation")}
             </a>
           </Button>
         </div>
