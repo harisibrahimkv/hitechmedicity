@@ -137,6 +137,19 @@
     "viewInstagram": "View on Instagram"
   },
 
+  "mamaCare": {
+    "label": "Mama Care",
+    "heading": "Mama Care",
+    "subtitle": "Comprehensive women's wellness — from prenatal and postnatal care to gynaecological health and weight management, blending Ayurveda with modern medicine.",
+    "offerings": [
+      { "title": "Prenatal Care", "description": "Treatments and training for a healthy pregnancy, labour, and delivery." },
+      { "title": "Postnatal Care", "description": "Recovery support for new mothers — rest, nutrition, and physical wellness." },
+      { "title": "Gynaecological Care", "description": "Ayurvedic management of menstrual disorders, PCOS, and women's health." },
+      { "title": "Weight Management", "description": "Panchakarma-based programmes including Udwarthana, Swedana, and Virechana." }
+    ],
+    "followInstagram": "Follow @hitechmamacare"
+  },
+
   "calicut": {
     "label": "Heart of Calicut",
     "heading": "Heal where history",
