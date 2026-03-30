@@ -1,0 +1,196 @@
+{
+  "brand": "Hitech Medicity",
+  "tagline": "Care is ours, Cure is divine",
+
+  "nav": {
+    "philosophy": "Philosophy",
+    "services": "Services",
+    "theStay": "The Stay",
+    "calicut": "Calicut",
+    "drFebina": "Dr. Febina",
+    "bookConsultation": "Book Consultation"
+  },
+
+  "hero": {
+    "location": "Calicut, Kerala",
+    "headline1": "Care is ours.",
+    "headline2": "Cure is divine.",
+    "subtitle": "Led by Dr. Febina Sulthana, Hitech Medicity blends advanced clinical precision with the restorative heritage of Kerala's coast.",
+    "bookBtn": "Book a Consultation",
+    "philosophyBtn": "Our Philosophy",
+    "ledBy": "Led by",
+    "doctorName": "Dr. Febina Sulthana"
+  },
+
+  "philosophy": {
+    "label": "Our Philosophy",
+    "heading": "Where science meets",
+    "headingItalic": "the art of healing",
+    "pillars": [
+      {
+        "title": "Rigorous Diagnosis",
+        "description": "Evidence-based modern medicine with advanced diagnostics, ensuring every treatment plan is precise and personalized."
+      },
+      {
+        "title": "Restorative Traditions",
+        "description": "Ayurveda, Naturopathy, and Yoga woven into clinical pathways — honouring Kerala's 3,000-year healing legacy."
+      },
+      {
+        "title": "Holistic Recovery",
+        "description": "From physiotherapy to post-trauma care, recovery is designed as a complete experience — not an afterthought."
+      },
+      {
+        "title": "A Place to Heal",
+        "description": "3-star stay facilities where patients recover in comfort, steps from Calicut's coast and cultural heart."
+      }
+    ]
+  },
+
+  "services": {
+    "label": "Our Services",
+    "heading": "Every discipline,",
+    "headingItalic": "under one roof",
+    "subtitle": "From modern medicine and Ayurveda to physiotherapy and dental care — a comprehensive range of treatments, designed around you.",
+    "items": [
+      { "name": "Allopathy", "description": "Evidence-based modern medicine with advanced diagnostics and treatment protocols." },
+      { "name": "Ayurveda", "description": "Traditional Ayurvedic therapies, Panchakarma, and dedicated wellness suites for holistic recovery." },
+      { "name": "Naturopathy", "description": "Nature-based healing using herbal remedies, restorative routines, and lifestyle therapies." },
+      { "name": "Yoga and Meditation", "description": "Guided therapeutic yoga and mindfulness practices for flexibility, strength, breathing, and mental wellness." },
+      { "name": "Physiotherapy & Orthoneuro Rehabilitation", "description": "Advanced rehabilitation services for orthopedic and neurological conditions with specialized equipment." },
+      { "name": "Dental", "description": "Comprehensive dental care with modern chair-side equipment and advanced treatment protocols." },
+      { "name": "Cosmetology", "description": "Aesthetic and cosmetic care services for beauty, grooming, and skin wellness." }
+    ]
+  },
+
+  "specializations": {
+    "label": "Specializations",
+    "heading": "What we",
+    "headingItalic": "focus on",
+    "subtitle": "Dedicated clinics and rehabilitation programmes for specific conditions — each backed by expert teams and proven protocols.",
+    "items": [
+      { "name": "Stroke Rehabilitation", "description": "Comprehensive post-stroke recovery programs for regaining mobility, speech, and independence." },
+      { "name": "Back/Knee/Joint Pain", "description": "Specialized treatment for chronic and acute musculoskeletal pain management." },
+      { "name": "Spine, Disc & Spinal Cord Issues", "description": "Comprehensive spinal care including disc problems, scoliosis, stenosis, and spinal cord injury rehabilitation." },
+      { "name": "Parkinson's & Movement Disorders", "description": "Dedicated clinic for Parkinson's disease, tremors, dystonia, and other neurological movement abnormalities." },
+      { "name": "Post Accidental Rehabilitation", "description": "Complete recovery programs for road traffic accident victims and trauma patients." },
+      { "name": "Lifestyle Disorders", "description": "Holistic management of lifestyle-related conditions including obesity, hypertension, and metabolic syndrome." },
+      { "name": "Cerebral Palsy", "description": "Specialized pediatric care and therapeutic interventions for cerebral palsy management." },
+      { "name": "Autism", "description": "Evidence-based autism spectrum disorder interventions and developmental support programs." },
+      { "name": "Diabetic Clinic", "description": "Comprehensive diabetes management including dietary counseling, medication, and complication prevention." },
+      { "name": "Glaucoma Clinic", "description": "Specialized glaucoma screening, monitoring, and treatment to preserve vision." },
+      { "name": "Infertility Clinic", "description": "Holistic infertility management combining modern medicine with traditional therapies." }
+    ]
+  },
+
+  "facilities": {
+    "label": "Our Facilities",
+    "heading": "Every facility,",
+    "headingItalic": "purposefully built",
+    "subtitle": "Purpose-built spaces equipped for advanced rehabilitation, therapy, and patient care.",
+    "items": [
+      { "name": "Physiotherapy & Gait Lab", "description": "Comprehensive rehab with parallel bars, balance training, hand therapy, and advanced gait analysis." },
+      { "name": "Rooftop Rehab & Play Therapy", "description": "Open-air therapeutic play centre with sensory tracks, trampolines, and terrace fitness equipment." },
+      { "name": "Aesthetic & Hair Clinic", "description": "Dedicated beauty, grooming, and cosmetic care space." },
+      { "name": "In-house Pharmacy", "description": "Integrated medicine and wellness products under one roof." },
+      { "name": "Spa & Massage Room", "description": "Relaxing spa and massage therapy rooms for rejuvenation and holistic wellness." }
+    ]
+  },
+
+  "stay": {
+    "label": "The Stay",
+    "heading": "Recovery,",
+    "headingItalic": "redefined",
+    "subtitle": "Every room is designed around patient comfort — premium interiors, accessible amenities, and a home-like environment for long and short stays.",
+    "categories": [
+      { "label": "Premium Suites", "description": "Spacious double-occupancy rooms with designer interiors, ambient lighting, and attached amenities for extended recovery stays." },
+      { "label": "Single Rooms", "description": "Comfortable single-occupancy rooms with vanity, storage, and a private, restful atmosphere." },
+      { "label": "Bathrooms & Accessibility", "description": "Thoughtfully designed washrooms with grab bars, spacious layouts, and safety-first fixtures for all patients." },
+      { "label": "In-room Amenities", "description": "Kitchenette access, utility spaces, and practical storage — everything for a comfortable extended stay." },
+      { "label": "Reception & Lounge", "description": "Warm waiting spaces designed for comfort and privacy." },
+      { "label": "Healthy Café", "description": "On-site café for fresh, recovery-friendly nourishment." }
+    ],
+    "virtualTour": "360° Virtual Tour",
+    "virtualTourDesc": "Explore every corner of our facility — drag to look around"
+  },
+
+  "testimonials": {
+    "label": "Stories",
+    "heading": "Voices of",
+    "headingItalic": "healing",
+    "moreStories": "More patient stories",
+    "muneerTitle": "The Hon'ble MLA of Kerala",
+    "muneerQuote": "Hitech Medicity, Calicut is a blessing to the city itself. It offers an integrated treatment methodology with state-of-the-art modern facilities. While primarily Ayurveda, they integrate acupuncture, physiotherapy along with a combination of allopathy. I've made multiple visits where I've had long stays and taken treatments of due course. As far as I am concerned — it is a rejuvenation. Moreover, I've found cure to my diseases from here. I am a chronic diabetic patient. Besides the fact that my diabetes came down, such was the case for my creatinine count as well. As I mentioned, when I was leaving here, it was a literal feeling of rejuvenation — the energy of which I still carry with me to this day. I would even go so far as to say that it is not just about treatment here, but a real lifestyle change is what you can expect. Naturopathy is also a part of the treatments available here. As I mentioned already, this place is indeed a blessing.",
+    "ahmedQuote": "The treatment I received at Hitech Medicity was world-class. Dr. Febina and her team provided exceptional care that I couldn't find elsewhere. The combination of modern and traditional treatments made all the difference.",
+    "naufalQuote": "I came for physiotherapy and was amazed by the holistic approach. The facility feels like a premium retreat, not a hospital. The staff treats you like family.",
+    "deepakQuote": "Hitech Medicity changed my perspective on healthcare. The integration of Ayurveda with modern medicine under one roof is remarkable. Truly a unique facility in Calicut."
+  },
+
+  "media": {
+    "label": "International Recognition",
+    "heading": "Putting India on the Map",
+    "featuredVisit": "Featured Visit · November 2025",
+    "monaName": "Mona Iraqi",
+    "monaTitle": "Egyptian TV Presenter · Investigative Journalist · Documentary Producer",
+    "monaDesc": "With millions of followers across the Arab world, Mona Iraqi is one of Egypt's most prominent investigative journalists and TV presenters. Her stay at our facility was a moment of pride for us and for Indian Ayurveda.",
+    "watchReport": "Watch the complete report",
+    "watchReel": "Watch the Reel",
+    "viewInstagram": "View on Instagram"
+  },
+
+  "calicut": {
+    "label": "Heart of Calicut",
+    "heading": "Heal where history",
+    "headingItalic": "meets the sea",
+    "p1": "Calicut — the city of spices, trade, and timeless hospitality. A prosperous port city with roots stretching back millennia, where Zamorin kings once welcomed the world.",
+    "p2": "Today, it's a vibrant blend of traditional Kerala architecture and modern energy. World-class cuisines — from Malabar biryani to fresh-caught seafood — sit alongside heritage temples, mosques, and colonial architecture.",
+    "p3": "Steps from the beach, surrounded by local delights and cultural richness, Hitech Medicity is perfectly positioned for healing that extends beyond the clinical.",
+    "stat1": "3 min",
+    "stat1Label": "to the Beach",
+    "stat2": "Rich",
+    "stat2Label": "Heritage & Culture",
+    "stat3": "World",
+    "stat3Label": "Class Cuisine",
+    "findUs": "Find Us",
+    "visitTitle": "Visit Hitech Medicity",
+    "visitDesc": "Located in the heart of Calicut, just minutes from the beach and easily accessible from the airport and railway station.",
+    "getDirections": "Get Directions →"
+  },
+
+  "cta": {
+    "label": "Begin Your Journey",
+    "heading": "Your health deserves",
+    "headingItalic": "rigorous care",
+    "subtitle": "Connect with Dr. Febina Sulthana's team to discuss your treatment plan and explore our facility.",
+    "bookBtn": "Book via WhatsApp"
+  },
+
+  "footer": {
+    "description": "Science-led healing in the heart of Calicut, Kerala. Led by Dr. Febina Sulthana.",
+    "navigate": "Navigate",
+    "contact": "Contact",
+    "copyright": "© {{year}} Hitech Medicity. All rights reserved."
+  },
+
+  "about": {
+    "label": "The Doctor",
+    "name": "Dr. Febina",
+    "nameItalic": "Sulthana",
+    "bio1": "A physician who believes that healing is not simply the absence of disease, but the presence of vitality. Dr. Febina Sulthana founded Hitech Medicity with a singular vision: to create a space where clinical rigour and human compassion are inseparable.",
+    "bio2": "Trained in modern medicine and deeply rooted in Kerala's healing traditions, she has built a practice that bridges the precision of evidence-based diagnostics with the wisdom of Ayurveda, physiotherapy, and holistic wellness.",
+    "bio3": "Her approach is personal. Every patient receives a treatment plan that considers not just their condition, but their life — their routines, their stress, their goals. This is medicine that sees the whole person.",
+    "credPhilosophy": "Philosophy",
+    "credPhilosophyVal": "Integrative Medicine",
+    "credSpecialisation": "Specialisation",
+    "credSpecialisationVal": "Multi-disciplinary Care",
+    "credLocation": "Location",
+    "credLocationVal": "Calicut, Kerala",
+    "credApproach": "Approach",
+    "credApproachVal": "Patient-Centred",
+    "visionTitle": "The Vision",
+    "visionText": "Hitech Medicity is more than a hospital — it's a destination for healing. With 3-star stay facilities, a team of specialists across 14+ disciplines, and a location in the cultural heart of Calicut, Dr. Febina has created a space where patients don't just recover — they are restored.",
+    "consultBtn": "Consult with Dr. Febina",
+    "exploreBtn": "Explore the Facility",
+    "teamTitle": "The Clinical Team",
+    "teamText": "Behind every treatment is a team of dedicated specialists — physiotherapists, Ayurvedic practitioners, dentists, neurologists, and support staff — all working under Dr. Febina's integrated care philosophy. Together, they bring expertise across 14+ disciplines to deliver compassionate, coordinated care."
+  }
+}
