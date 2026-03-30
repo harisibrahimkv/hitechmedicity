@@ -1,25 +1,20 @@
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const ease = [0.4, 0, 0.2, 1] as const;
-
-const pillars = [
-  { title: "Rigorous Diagnosis", description: "Evidence-based modern medicine with advanced diagnostics, ensuring every treatment plan is precise and personalized." },
-  { title: "Restorative Traditions", description: "Ayurveda, Naturopathy, and Yoga woven into clinical pathways — honouring Kerala's 3,000-year healing legacy." },
-  { title: "Holistic Recovery", description: "From physiotherapy to post-trauma care, recovery is designed as a complete experience — not an afterthought." },
-  { title: "A Place to Heal", description: "3-star stay facilities where patients recover in comfort, steps from Calicut's coast and cultural heart." },
-];
 
 interface PhilosophySectionProps {
   videoSrc?: string;
 }
 
 const PhilosophySection = ({ videoSrc }: PhilosophySectionProps) => {
+  const { t } = useTranslation();
+  const pillars = t("philosophy.pillars", { returnObjects: true }) as { title: string; description: string }[];
+
   return (
     <section id="philosophy" className="relative py-32 lg:py-40 overflow-hidden">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left: text content */}
           <div>
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -28,16 +23,16 @@ const PhilosophySection = ({ videoSrc }: PhilosophySectionProps) => {
               transition={{ duration: 0.5, ease }}
               className="mb-12"
             >
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4">Our Philosophy</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4">{t("philosophy.label")}</p>
               <h2 className="text-display text-4xl md:text-5xl lg:text-6xl tracking-tight text-foreground leading-[1.1]">
-                Where science meets <em className="text-display italic">the art of healing</em>
+                {t("philosophy.heading")} <em className="text-display italic">{t("philosophy.headingItalic")}</em>
               </h2>
             </motion.div>
 
             <div className="grid gap-6">
               {pillars.map((pillar, i) => (
                 <motion.div
-                  key={pillar.title}
+                  key={i}
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -52,7 +47,6 @@ const PhilosophySection = ({ videoSrc }: PhilosophySectionProps) => {
             </div>
           </div>
 
-          {/* Right: video player */}
           {videoSrc && (
             <motion.div
               initial={{ opacity: 0, scale: 0.97 }}
@@ -61,12 +55,7 @@ const PhilosophySection = ({ videoSrc }: PhilosophySectionProps) => {
               transition={{ duration: 0.6, ease }}
               className="sticky top-24 rounded-3xl overflow-hidden shadow-soft"
             >
-              <video
-                src={videoSrc}
-                controls
-                playsInline
-                className="w-full h-auto aspect-[9/16] object-cover bg-foreground/5"
-              />
+              <video src={videoSrc} controls playsInline className="w-full h-auto aspect-[9/16] object-cover bg-foreground/5" />
             </motion.div>
           )}
         </div>

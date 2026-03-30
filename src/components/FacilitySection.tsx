@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import stayPremiumDouble from "@/assets/stay-premium-double.jpg";
 import staySingleRoom from "@/assets/stay-single-room.jpg";
 import staySingleModern from "@/assets/stay-single-modern.jpg";
@@ -7,11 +8,8 @@ import stayBathroom from "@/assets/stay-bathroom.jpg";
 import stayAccessibleBath from "@/assets/stay-accessible-bath.jpg";
 import suitePrimaryImg from "@/assets/hitech-suite-1.jpg";
 import suiteSecondaryImg from "@/assets/hitech-suite-2.jpg";
-import suiteSingleImg from "@/assets/hitech-suite-single.jpg";
 import suiteDoubleImg from "@/assets/hitech-suite-double.jpg";
 import kitchenetteImg from "@/assets/hitech-suite-kitchenette.jpg";
-import bathroomImg from "@/assets/hitech-suite-bathroom.jpg";
-import accessibleBathImg from "@/assets/hitech-suite-accessible-bath.jpg";
 import receptionWaiting from "@/assets/reception-waiting.jpg";
 import cafe2 from "@/assets/cafe-2.jpg";
 
@@ -23,53 +21,38 @@ interface RoomCategory {
   images: { src: string; alt: string }[];
 }
 
-const roomCategories: RoomCategory[] = [
+const roomCategoriesData: { images: { src: string; alt: string }[] }[] = [
   {
-    label: "Premium Suites",
-    description: "Spacious double-occupancy rooms with designer interiors, ambient lighting, and attached amenities for extended recovery stays.",
     images: [
-      { src: stayPremiumDouble, alt: "Premium double suite with green accent bedding" },
-      { src: suitePrimaryImg, alt: "Premium patient suite at Hitech Medicity" },
+      { src: stayPremiumDouble, alt: "Premium double suite" },
+      { src: suitePrimaryImg, alt: "Premium patient suite" },
       { src: suiteSecondaryImg, alt: "Suite living area" },
       { src: suiteDoubleImg, alt: "Double-bed premium stay room" },
     ],
   },
   {
-    label: "Single Rooms",
-    description: "Comfortable single-occupancy rooms with vanity, storage, and a private, restful atmosphere.",
     images: [
       { src: staySingleRoom, alt: "Single room with attached vanity" },
       { src: staySingleModern, alt: "Modern single room with wardrobe" },
-      { src: suiteSingleImg, alt: "Single bed patient room" },
     ],
   },
   {
-    label: "Bathrooms & Accessibility",
-    description: "Thoughtfully designed washrooms with grab bars, spacious layouts, and safety-first fixtures for all patients.",
     images: [
-      { src: stayBathroom, alt: "Premium bathroom with mosaic tile accent" },
+      { src: stayBathroom, alt: "Premium bathroom" },
       { src: stayAccessibleBath, alt: "Accessible bathroom with grab rails" },
-      { src: bathroomImg, alt: "Bathroom interior" },
-      { src: accessibleBathImg, alt: "Wheelchair-accessible bathroom" },
     ],
   },
   {
-    label: "In-room Amenities",
-    description: "Kitchenette access, utility spaces, and practical storage — everything for a comfortable extended stay.",
     images: [
-      { src: kitchenetteImg, alt: "In-room kitchenette and utility area" },
+      { src: kitchenetteImg, alt: "In-room kitchenette" },
     ],
   },
   {
-    label: "Reception & Lounge",
-    description: "Warm waiting spaces designed for comfort and privacy.",
     images: [
       { src: receptionWaiting, alt: "Reception lounge area" },
     ],
   },
   {
-    label: "Healthy Café",
-    description: "On-site café for fresh, recovery-friendly nourishment.",
     images: [
       { src: cafe2, alt: "In-house café" },
     ],
@@ -109,16 +92,12 @@ const RoomCategoryCard = ({ category, index }: { category: RoomCategory; index: 
               onClick={() => setActiveIdx((p) => (p - 1 + category.images.length) % category.images.length)}
               className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
               aria-label="Previous image"
-            >
-              ‹
-            </button>
+            >‹</button>
             <button
               onClick={() => setActiveIdx((p) => (p + 1) % category.images.length)}
               className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
               aria-label="Next image"
-            >
-              ›
-            </button>
+            >›</button>
           </>
         )}
 
@@ -128,9 +107,7 @@ const RoomCategoryCard = ({ category, index }: { category: RoomCategory; index: 
               <button
                 key={i}
                 onClick={() => setActiveIdx(i)}
-                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                  i === activeIdx ? "bg-white w-4" : "bg-white/40"
-                }`}
+                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === activeIdx ? "bg-white w-4" : "bg-white/40"}`}
                 aria-label={`View image ${i + 1}`}
               />
             ))}
@@ -153,6 +130,15 @@ const RoomCategoryCard = ({ category, index }: { category: RoomCategory; index: 
 };
 
 const FacilitySection = () => {
+  const { t } = useTranslation();
+  const categories = t("stay.categories", { returnObjects: true }) as { label: string; description: string }[];
+
+  const roomCategories: RoomCategory[] = categories.map((cat, i) => ({
+    label: cat.label,
+    description: cat.description,
+    images: roomCategoriesData[i]?.images ?? [],
+  }));
+
   return (
     <section id="facility" className="py-32 lg:py-40">
       <div className="container mx-auto px-6 lg:px-8">
@@ -163,18 +149,16 @@ const FacilitySection = () => {
           transition={{ duration: 0.5, ease }}
           className="max-w-3xl mb-14"
         >
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4">The Stay</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-4">{t("stay.label")}</p>
           <h2 className="text-display text-4xl md:text-5xl lg:text-6xl tracking-tight text-foreground leading-[1.1]">
-            Recovery, <em className="text-display italic">redefined</em>
+            {t("stay.heading")} <em className="text-display italic">{t("stay.headingItalic")}</em>
           </h2>
-          <p className="text-muted-foreground leading-relaxed mt-6 text-lg">
-            Every room is designed around patient comfort — premium interiors, accessible amenities, and a home-like environment for long and short stays.
-          </p>
+          <p className="text-muted-foreground leading-relaxed mt-6 text-lg">{t("stay.subtitle")}</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {roomCategories.map((category, i) => (
-            <RoomCategoryCard key={category.label} category={category} index={i} />
+            <RoomCategoryCard key={i} category={category} index={i} />
           ))}
         </div>
 
@@ -186,7 +170,7 @@ const FacilitySection = () => {
           className="mt-20"
         >
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium mb-6 text-center">
-            360° Virtual Tour
+            {t("stay.virtualTour")}
           </p>
           <div className="rounded-3xl overflow-hidden shadow-soft aspect-video">
             <iframe
@@ -197,9 +181,7 @@ const FacilitySection = () => {
               loading="lazy"
             />
           </div>
-          <p className="text-sm text-muted-foreground mt-4 text-center">
-            Explore every corner of our facility — drag to look around
-          </p>
+          <p className="text-sm text-muted-foreground mt-4 text-center">{t("stay.virtualTourDesc")}</p>
         </motion.div>
       </div>
     </section>
