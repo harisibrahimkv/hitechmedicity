@@ -36,7 +36,7 @@ const VideoCard = ({ id, isMobile }: { id: string; isMobile: boolean }) => {
   }
 
   return (
-    <div className="w-[320px] sm:w-[360px] shrink-0 rounded-2xl overflow-hidden border border-primary-foreground/10 bg-primary-foreground/5">
+    <div className="w-[320px] sm:w-[360px] shrink-0 rounded-2xl overflow-hidden border border-primary-foreground/10 bg-primary-foreground/5 relative">
       <div className="aspect-video">
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${id}${activated ? "?autoplay=1" : ""}`}
@@ -47,6 +47,15 @@ const VideoCard = ({ id, isMobile }: { id: string; isMobile: boolean }) => {
           className="h-full w-full"
         />
       </div>
+      {isMobile && activated && (
+        <button
+          onClick={() => setActivated(false)}
+          className="absolute top-2 right-2 z-10 w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center text-xs font-bold"
+          aria-label="Close video"
+        >
+          ✕
+        </button>
+      )}
     </div>
   );
 };
