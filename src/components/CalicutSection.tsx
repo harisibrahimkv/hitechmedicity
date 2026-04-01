@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import calicutImg from "@/assets/calicut-coast.jpg";
+import calicutImg from "@/assets/calicut-coast.webp";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 

@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import drFebina from "@/assets/dr-febina.jpg";
-import heroBg from "@/assets/hero-bg.jpg";
+import drFebina from "@/assets/dr-febina.webp";
+import heroBg from "@/assets/hero-bg.webp";
 
 const WHATSAPP_LINK = "https://wa.me/919207551177?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20at%20Hitech%20Medicity.";
 

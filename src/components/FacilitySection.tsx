@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import stayPremiumDouble from "@/assets/stay-premium-double.jpg";
-import staySingleRoom from "@/assets/stay-single-room.jpg";
-import staySingleModern from "@/assets/stay-single-modern.jpg";
-import stayBathroom from "@/assets/stay-bathroom.jpg";
-import stayAccessibleBath from "@/assets/stay-accessible-bath.jpg";
-import suitePrimaryImg from "@/assets/hitech-suite-1.jpg";
-import suiteSecondaryImg from "@/assets/hitech-suite-2.jpg";
-import suiteDoubleImg from "@/assets/hitech-suite-double.jpg";
-import kitchenetteImg from "@/assets/hitech-suite-kitchenette.jpg";
-import receptionWaiting from "@/assets/reception-waiting.jpg";
-import cafe2 from "@/assets/cafe-2.jpg";
+import stayPremiumDouble from "@/assets/stay-premium-double.webp";
+import staySingleRoom from "@/assets/stay-single-room.webp";
+import staySingleModern from "@/assets/stay-single-modern.webp";
+import stayBathroom from "@/assets/stay-bathroom.webp";
+import stayAccessibleBath from "@/assets/stay-accessible-bath.webp";
+import suitePrimaryImg from "@/assets/hitech-suite-1.webp";
+import suiteSecondaryImg from "@/assets/hitech-suite-2.webp";
+import suiteDoubleImg from "@/assets/hitech-suite-double.webp";
+import kitchenetteImg from "@/assets/hitech-suite-kitchenette.webp";
+import receptionWaiting from "@/assets/reception-waiting.webp";
+import cafe2 from "@/assets/cafe-2.webp";
 
 const ease = [0.4, 0, 0.2, 1] as const;
 

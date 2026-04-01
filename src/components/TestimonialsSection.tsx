@@ -45,7 +45,7 @@ const TestimonialsSection = () => {
 
         <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease }} className="grid lg:grid-cols-2 gap-8 mb-16">
           <div className="relative rounded-2xl overflow-hidden aspect-video lg:aspect-auto lg:h-full bg-primary-foreground/10">
-            <video ref={(el) => { videoRefs.current["1"] = el; }} src="/videos/testimonial1.mkv" className="w-full h-full object-cover" playsInline onEnded={() => setPlayingVideo(null)} onClick={() => toggleVideo("1")} />
+            <video ref={(el) => { videoRefs.current["1"] = el; }} src="/videos/testimonial1.mp4" className="w-full h-full object-cover" playsInline onEnded={() => setPlayingVideo(null)} onClick={() => toggleVideo("1")} />
             {playingVideo !== "1" && (
               <button onClick={() => toggleVideo("1")} className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors duration-300" aria-label="Play video">
                 <div className="w-16 h-16 rounded-full bg-primary-foreground/90 flex items-center justify-center shadow-soft"><Play className="w-6 h-6 text-primary ml-0.5" /></div>

@@ -4,9 +4,9 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import drFebina from "@/assets/dr-febina.jpg";
-import medicalStaffTeam from "@/assets/medical-staff-team-2.jpg";
-import medicalStaffTeam2 from "@/assets/medical-staff-team-3.jpg";
+import drFebina from "@/assets/dr-febina.webp";
+import medicalStaffTeam from "@/assets/medical-staff-team-2.webp";
+import medicalStaffTeam2 from "@/assets/medical-staff-team-3.webp";
 import { useEffect, useState } from "react";
 
 const WHATSAPP_LINK = "https://wa.me/919207551177?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20with%20Dr.%20Febina%20Sulthana.";
