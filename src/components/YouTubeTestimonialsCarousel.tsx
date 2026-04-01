@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const youtubeVideos = [
   "zaUXKPMiWDA", "XKgEPqBcaKk", "S1KaS3pUQLE", "KZtgiJ_GOhI", "_aSVzrpU2SI",
@@ -9,8 +10,50 @@ const youtubeVideos = [
   "eTQ8w7yfDM0", "Ac6boNNHRP4", "sy7SRLJ2WsU", "RHwke8l_3Pg",
 ];
 
+const VideoCard = ({ id, isMobile }: { id: string; isMobile: boolean }) => {
+  const [activated, setActivated] = useState(false);
+
+  if (isMobile && !activated) {
+    return (
+      <div className="w-[320px] sm:w-[360px] shrink-0 rounded-2xl overflow-hidden border border-primary-foreground/10 bg-primary-foreground/5">
+        <button
+          onClick={() => setActivated(true)}
+          className="aspect-video w-full relative bg-black/20 flex items-center justify-center"
+          aria-label="Play video"
+        >
+          <img
+            src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
+            alt="Video thumbnail"
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div className="relative z-10 w-14 h-14 rounded-full bg-primary-foreground/90 flex items-center justify-center shadow-soft">
+            <Play className="w-5 h-5 text-primary ml-0.5" />
+          </div>
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-[320px] sm:w-[360px] shrink-0 rounded-2xl overflow-hidden border border-primary-foreground/10 bg-primary-foreground/5">
+      <div className="aspect-video">
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${id}${activated ? "?autoplay=1" : ""}`}
+          title="Patient testimonial video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          loading="lazy"
+          className="h-full w-full"
+        />
+      </div>
+    </div>
+  );
+};
+
 const YouTubeTestimonialsCarousel = () => {
   const { t } = useTranslation();
+  const isMobile = useIsMobile();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -44,11 +87,7 @@ const YouTubeTestimonialsCarousel = () => {
       )}
       <div ref={scrollRef} onScroll={checkScroll} className="flex gap-4 overflow-x-auto scroll-smooth scrollbar-hide pb-2" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
         {youtubeVideos.map((id) => (
-          <div key={id} className="w-[320px] sm:w-[360px] shrink-0 rounded-2xl overflow-hidden border border-primary-foreground/10 bg-primary-foreground/5">
-            <div className="aspect-video pointer-events-none sm:pointer-events-auto">
-              <iframe src={`https://www.youtube-nocookie.com/embed/${id}`} title="Patient testimonial video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen loading="lazy" className="h-full w-full pointer-events-none sm:pointer-events-auto" />
-            </div>
-          </div>
+          <VideoCard key={id} id={id} isMobile={isMobile} />
         ))}
       </div>
     </div>
