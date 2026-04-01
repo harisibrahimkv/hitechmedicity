@@ -61,7 +61,7 @@ const VideoCard = ({ id, isMobile }: { id: string; isMobile: boolean }) => {
         {hasLoaded && (
           <iframe
             ref={iframeRef}
-            src={`https://www.youtube-nocookie.com/embed/${id}?enablejsapi=1&playsinline=1&controls=0&rel=0&modestbranding=1`}
+            src={`https://www.youtube-nocookie.com/embed/${id}?enablejsapi=1&playsinline=1&rel=0&modestbranding=1`}
             title="Patient testimonial video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -69,8 +69,8 @@ const VideoCard = ({ id, isMobile }: { id: string; isMobile: boolean }) => {
             onLoad={() => {
               if (isPlaying) postPlayerCommand("playVideo");
             }}
-            className={`absolute inset-0 h-full w-full transition-opacity duration-200 pointer-events-none ${
-              isPlaying ? "opacity-100" : "opacity-0"
+            className={`absolute inset-0 h-full w-full transition-opacity duration-200 ${
+              isPlaying ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           />
         )}
