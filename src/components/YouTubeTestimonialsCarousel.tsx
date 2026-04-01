@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -12,7 +12,7 @@ const youtubeVideos = [
 
 const VideoCard = ({ id, isMobile }: { id: string; isMobile: boolean }) => {
   const [hasLoaded, setHasLoaded] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const postPlayerCommand = (func: "playVideo" | "pauseVideo") => {
@@ -22,20 +22,20 @@ const VideoCard = ({ id, isMobile }: { id: string; isMobile: boolean }) => {
     );
   };
 
-  const openVideo = () => {
+  const handlePlay = () => {
     if (!hasLoaded) {
       setHasLoaded(true);
-      setIsOpen(true);
+      setIsPlaying(true);
       return;
     }
 
-    setIsOpen(true);
+    setIsPlaying(true);
     requestAnimationFrame(() => postPlayerCommand("playVideo"));
   };
 
-  const closeVideo = () => {
+  const handlePause = () => {
     postPlayerCommand("pauseVideo");
-    setIsOpen(false);
+    setIsPlaying(false);
   };
 
   if (!isMobile) {
@@ -61,24 +61,24 @@ const VideoCard = ({ id, isMobile }: { id: string; isMobile: boolean }) => {
         {hasLoaded && (
           <iframe
             ref={iframeRef}
-            src={`https://www.youtube-nocookie.com/embed/${id}?enablejsapi=1&playsinline=1&rel=0&modestbranding=1`}
+            src={`https://www.youtube-nocookie.com/embed/${id}?enablejsapi=1&playsinline=1&controls=0&rel=0&modestbranding=1`}
             title="Patient testimonial video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             loading="lazy"
             onLoad={() => {
-              if (isOpen) postPlayerCommand("playVideo");
+              if (isPlaying) postPlayerCommand("playVideo");
             }}
-            className={`absolute inset-0 h-full w-full transition-opacity duration-200 ${
-              isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+            className={`absolute inset-0 h-full w-full transition-opacity duration-200 pointer-events-none ${
+              isPlaying ? "opacity-100" : "opacity-0"
             }`}
           />
         )}
 
         <button
-          onClick={openVideo}
+          onClick={handlePlay}
           className={`absolute inset-0 flex items-center justify-center bg-primary/20 transition-opacity duration-200 ${
-            isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+            isPlaying ? "opacity-0 pointer-events-none" : "opacity-100"
           }`}
           aria-label="Play video"
         >
@@ -93,13 +93,13 @@ const VideoCard = ({ id, isMobile }: { id: string; isMobile: boolean }) => {
           </div>
         </button>
 
-        {isOpen && (
+        {isPlaying && (
           <button
-            onClick={closeVideo}
-            className="absolute top-2 right-2 z-10 w-8 h-8 rounded-full bg-primary/70 text-primary-foreground flex items-center justify-center text-xs font-bold"
-            aria-label="Close video"
+            onClick={handlePause}
+            className="absolute top-2 right-2 z-10 w-8 h-8 rounded-full bg-primary/70 text-primary-foreground flex items-center justify-center"
+            aria-label="Pause video"
           >
-            ✕
+            <Pause className="w-4 h-4" />
           </button>
         )}
       </div>
