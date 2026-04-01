@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -11,14 +11,75 @@ const youtubeVideos = [
 ];
 
 const VideoCard = ({ id, isMobile }: { id: string; isMobile: boolean }) => {
-  const [activated, setActivated] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
-  if (isMobile && !activated) {
+  const postPlayerCommand = (func: "playVideo" | "pauseVideo") => {
+    iframeRef.current?.contentWindow?.postMessage(
+      JSON.stringify({ event: "command", func, args: [] }),
+      "*"
+    );
+  };
+
+  const handlePlay = () => {
+    if (!hasLoaded) {
+      setHasLoaded(true);
+      setIsPlaying(true);
+      return;
+    }
+
+    setIsPlaying(true);
+    requestAnimationFrame(() => postPlayerCommand("playVideo"));
+  };
+
+  const handlePause = () => {
+    postPlayerCommand("pauseVideo");
+    setIsPlaying(false);
+  };
+
+  if (!isMobile) {
     return (
       <div className="w-[320px] sm:w-[360px] shrink-0 rounded-2xl overflow-hidden border border-primary-foreground/10 bg-primary-foreground/5">
+        <div className="aspect-video">
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${id}`}
+            title="Patient testimonial video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            loading="lazy"
+            className="h-full w-full"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-[320px] sm:w-[360px] shrink-0 rounded-2xl overflow-hidden border border-primary-foreground/10 bg-primary-foreground/5">
+      <div className="aspect-video relative">
+        {hasLoaded && (
+          <iframe
+            ref={iframeRef}
+            src={`https://www.youtube-nocookie.com/embed/${id}?enablejsapi=1&playsinline=1&controls=0&rel=0&modestbranding=1`}
+            title="Patient testimonial video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            loading="lazy"
+            onLoad={() => {
+              if (isPlaying) postPlayerCommand("playVideo");
+            }}
+            className={`absolute inset-0 h-full w-full transition-opacity duration-200 pointer-events-none ${
+              isPlaying ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        )}
+
         <button
-          onClick={() => setActivated(true)}
-          className="aspect-video w-full relative bg-black/20 flex items-center justify-center"
+          onClick={handlePlay}
+          className={`absolute inset-0 flex items-center justify-center bg-primary/20 transition-opacity duration-200 ${
+            isPlaying ? "opacity-0 pointer-events-none" : "opacity-100"
+          }`}
           aria-label="Play video"
         >
           <img
@@ -31,31 +92,17 @@ const VideoCard = ({ id, isMobile }: { id: string; isMobile: boolean }) => {
             <Play className="w-5 h-5 text-primary ml-0.5" />
           </div>
         </button>
-      </div>
-    );
-  }
 
-  return (
-    <div className="w-[320px] sm:w-[360px] shrink-0 rounded-2xl overflow-hidden border border-primary-foreground/10 bg-primary-foreground/5 relative">
-      <div className="aspect-video">
-        <iframe
-          src={`https://www.youtube-nocookie.com/embed/${id}${activated ? "?autoplay=1" : ""}`}
-          title="Patient testimonial video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          loading="lazy"
-          className="h-full w-full"
-        />
+        {isPlaying && (
+          <button
+            onClick={handlePause}
+            className="absolute top-2 right-2 z-10 w-8 h-8 rounded-full bg-primary/70 text-primary-foreground flex items-center justify-center"
+            aria-label="Pause video"
+          >
+            <Pause className="w-4 h-4" />
+          </button>
+        )}
       </div>
-      {isMobile && activated && (
-        <button
-          onClick={() => setActivated(false)}
-          className="absolute top-2 right-2 z-10 w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center text-xs font-bold"
-          aria-label="Close video"
-        >
-          ✕
-        </button>
-      )}
     </div>
   );
 };
@@ -104,3 +151,4 @@ const YouTubeTestimonialsCarousel = () => {
 };
 
 export default YouTubeTestimonialsCarousel;
+
