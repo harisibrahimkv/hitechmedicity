@@ -1,6 +1,7 @@
 import { Instagram, Heart, Baby, Flower2, Weight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import mamaCareImg from "@/assets/mama-care-hero.webp";
+import mamaCareLogoImg from "@/assets/mamacare-logo.jpg";
 
 const MamaCareSection = () => {
   const { t } = useTranslation();
@@ -31,13 +32,8 @@ const MamaCareSection = () => {
 
             {/* Content side */}
             <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center">
-                  <Heart className="h-5 w-5 text-white" />
-                </div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/80 font-medium">
-                  {t("mamaCare.label")}
-                </p>
+              <div className="mb-6">
+                <img src={mamaCareLogoImg} alt="Hitech Medicity Mama Care" className="h-16 md:h-20 w-auto" />
               </div>
 
               <h2 className="font-serif text-3xl md:text-4xl tracking-tight mb-2 text-white">
