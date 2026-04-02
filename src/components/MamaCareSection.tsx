@@ -1,6 +1,7 @@
 import { Instagram, Heart, Baby, Flower2, Weight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import mamaCareImg from "@/assets/mama-care-hero.webp";
+import mamaCareLogoImg from "@/assets/mamacare-logo.jpg";
 
 const MamaCareSection = () => {
   const { t } = useTranslation();

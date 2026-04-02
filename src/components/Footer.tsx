@@ -25,11 +25,11 @@ const Footer = () => {
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium mb-4">{t("footer.contact")}</p>
-            <div className="space-y-2 text-sm text-foreground/70">
+            <div className="space-y-2 text-sm text-foreground/70" dir="ltr">
               <p>Arayidathupalam, Mavoor Road,<br />Calicut, Kerala - 673004, India</p>
               <p>info@hitechmedicity.com · www.hitechmedicity.com</p>
-              <p dir="ltr">+91 9207 559 977, +91 9207 551 177</p>
-              <a href="https://wa.me/919207551177" target="_blank" rel="noopener noreferrer" className="block hover:text-foreground transition-colors" dir="ltr">
+              <p>+91 9207 559 977, +91 9207 551 177</p>
+              <a href="https://wa.me/919207551177" target="_blank" rel="noopener noreferrer" className="block hover:text-foreground transition-colors">
                 WhatsApp: +91 9207 551 177
               </a>
               <div className="flex gap-4 pt-2">
