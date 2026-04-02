@@ -33,7 +33,9 @@ const MamaCareSection = () => {
             {/* Content side */}
             <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center">
               <div className="mb-6">
-                <img src={mamaCareLogoImg} alt="Hitech Medicity Mama Care" className="h-16 md:h-20 w-auto" />
+                <div className="h-20 w-20 md:h-24 md:w-24 rounded-full overflow-hidden border-2 border-white/30 shadow-lg">
+                  <img src={mamaCareLogoImg} alt="Hitech Medicity Mama Care" className="h-full w-full object-cover" />
+                </div>
               </div>
 
               <h2 className="font-serif text-3xl md:text-4xl tracking-tight mb-2 text-white">
