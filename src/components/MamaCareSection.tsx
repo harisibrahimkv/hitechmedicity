@@ -13,9 +13,9 @@ const MamaCareSection = () => {
   const icons = [Baby, Heart, Flower2, Weight];
 
   return (
-    <section className="py-24 md:py-32 bg-background">
+    <section className="py-24 md:py-32 bg-[hsl(330_100%_45%)]">
       <div className="container mx-auto px-6 md:px-8 max-w-6xl">
-        <div className="rounded-3xl border border-[hsl(330_60%_50%/0.15)] bg-[hsl(330_80%_96%)] overflow-hidden">
+        <div className="rounded-3xl bg-white/10 backdrop-blur-sm overflow-hidden">
           <div className="grid md:grid-cols-2 gap-0">
             {/* Image side */}
             <div className="relative overflow-hidden bg-[hsl(330_60%_50%/0.06)] flex items-center justify-center p-8 md:p-12">
