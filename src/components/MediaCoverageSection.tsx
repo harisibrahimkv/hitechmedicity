@@ -37,7 +37,7 @@ const MediaCoverageSection = () => {
               <div className="w-full rounded-2xl overflow-hidden shadow-lg">
                 <video src="/videos/mona_reel.mp4" controls preload="metadata" className="w-full" />
               </div>
-              <a <a href="https://www.instagram.com/reel/DQrPP9-FQ97/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 text-primary hover:text-primary/80 transition-colors font-medium text-sm"> target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 text-primary hover:text-primary/80 transition-colors font-medium text-sm">
+              <a href="https://www.instagram.com/reel/DQrPP9-FQ97/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 text-primary hover:text-primary/80 transition-colors font-medium text-sm">="https://www.instagram.com/reel/DQrPP9-FQ97/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 text-primary hover:text-primary/80 transition-colors font-medium text-sm"> target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-4 text-primary hover:text-primary/80 transition-colors font-medium text-sm">
                 <Instagram className="h-5 w-5" />
                 {t("media.viewInstagram")}
               </a>
