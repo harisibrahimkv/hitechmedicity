@@ -27,7 +27,7 @@ const MediaCoverageSection = () => {
               <h3 className="font-serif text-2xl md:text-3xl tracking-tight mb-3">{t("media.monaName")}</h3>
               <p className="text-muted-foreground text-sm uppercase tracking-wider mb-3">{t("media.monaTitle")}</p>
               <p className="text-foreground/80 leading-relaxed text-sm mb-5">{t("media.monaDesc")}</p>
-              <a href="https://www.youtube.com/@HitechMedicity" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium text-sm">
+              <a href="https://www.youtube.com/watch?v=-NeJ3d8XRuc" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium text-sm">
                 <Youtube className="h-5 w-5" />
                 {t("media.watchReport")}
               </a>
